@@ -1,7 +1,7 @@
 
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -9,13 +9,16 @@ development:
   database: rugbydata
   username: rugbyown
   password: J0hn$m1%hl@y$
+  host: localhost
 
 test:
   <<: *default
   database: rugbydata
+  host: localhost
 
 production:
   <<: *default
   database: rugbydata
   username: rugbyown
   password: <%= ENV["RUGBYDATA_DATABASE_PASSWORD"] %>
+  host: localhost
