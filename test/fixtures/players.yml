@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nickname: MyString
+  fullname: MyString
+  cellphone_number: MyString
+  player_position: 1
+  medical_conditions: MyString
+  has_id: false
+  did_highschool: false
+  medical_aid: MyString
+
+two:
+  nickname: MyString
+  fullname: MyString
+  cellphone_number: MyString
+  player_position: 1
+  medical_conditions: MyString
+  has_id: false
+  did_highschool: false
+  medical_aid: MyString
