@@ -3,7 +3,7 @@
 <%= render @player %>
 
 <div>
-  <%= link_to "Edit this player", edit_player_path(@player) %> |
+  <%= link_to "Edit this player", edit_player_path(@player), class: "btn btn-primary" %> |
   <%= link_to "Back to players", players_path %>
 
   <%= button_to "Destroy this player", @player, method: :delete %>
