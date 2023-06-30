@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_222221) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_30_062958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_222221) do
     t.integer "player_position"
     t.string "medical_conditions"
     t.boolean "has_id"
-    t.boolean "did_highschool"
+    t.boolean "portrait_photo"
     t.string "medical_aid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
