@@ -1,42 +1,16 @@
-<div id="<%= dom_id player %>">
-  <p>
-    <strong>Nickname:</strong>
-    <%= player.nickname %>
-  </p>
+<%# <div id="<%= dom_id @player %>
 
-  <p>
-    <strong>Fullname:</strong>
-    <%= player.fullname %>
-  </p>
-
-  <p>
-    <strong>Cellphone number:</strong>
-    <%= player.cellphone_number %>
-  </p>
-
-  <p>
-    <strong>Player position:</strong>
-    <%= player.player_position %>
-  </p>
-
-  <p>
-    <strong>Medical conditions:</strong>
-    <%= player.medical_conditions %>
-  </p>
-
-  <p>
-    <strong>Has:</strong>
-    <%= player.has_id %>
-  </p>
-
-  <p>
-    <strong>Did highschool:</strong>
-    <%= player.did_highschool %>
-  </p>
-
-  <p>
-    <strong>Medical aid:</strong>
-    <%= player.medical_aid %>
-  </p>
-
-</div>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.nickname %></td>
+        <td><%= player.fullname %></td>
+        <td><%= player.cellphone_number %></td>
+        <td><%= player.player_position %></td>
+        <td><%= player.medical_conditions %></td>
+        <td><%= player.has_id %></td>
+        <td><%= player.portrait_photo %></td>
+        <td><%= player.medical_aid %></td>
+      </tr>
+    <% end %>
+  
+<%# </div> %>

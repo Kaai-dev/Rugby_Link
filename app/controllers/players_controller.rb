@@ -17,6 +17,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    
   end
 
   # POST /players or /players.json

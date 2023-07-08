@@ -1,14 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Players</h1>
+<div class="dash-div">
+  <h1>Player Registration</h1>
+  <br>
+  <%= link_to "Register Player", new_player_path, class: "btn btn-custom", style: "margin-bottom: 2rem; width: 20%;" %>
 
-<div id="players">
-  <% @players.each do |player| %>
-    <%= render player %>
-    <p>
-      <%= link_to "Show this player", player %>
-    </p>
-  <% end %>
+  <div id="players" class="card dashboard-table">
+    <table class="table table-bordered table-hover">
+      <thead>
+
+        <tr>
+          <th scope="col">Nickname</th>
+          <th scope="col">Fullname</th>
+          <th scope="col">cell Phone</th>
+          <th scope="col">Player Positions</th>
+          <th scope="col">Medical Conditions</th>
+          <th scope="col">Has ID</th>
+          <th scope="col">Portrait Photo</th>
+          <th scope="col">Medical Aid</th>
+        </tr>
+
+      </thead>
+      <tbody class="table-group-divider"> 
+
+      <%= render "players/player" %>
+  
+      </tbody>
+    </table>
+  </div>
+
 </div>
-
-<%= link_to "New player", new_player_path %>

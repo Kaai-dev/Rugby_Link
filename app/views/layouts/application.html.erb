@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html>
+
+<html style="height: 100%; padding: 0;">
+
   <head>
+  
     <title>RugbyLink</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
 
-  <body>
-    <%= yield %>
+  </head>
+  <body style="height: 100%;">
+
+    <%= render "common/sidebar" %>
+
+    <div style="margin: 0 auto;">
+      <%= yield %>
+    <div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+      
   </body>
 </html>

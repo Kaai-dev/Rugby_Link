@@ -1,5 +1,30 @@
 @import "bootstrap";
 
+.dashboard-table{
+    width: 80%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    // margin: auto;
+}
+
+.btn-custom {
+    color: #f78600;
+    border-color: #f78600;
+  }
+
+.btn-custom:hover {
+  background-color: #f78600;
+  color: white;
+  border-color: #f78600;
+}
+
+.dash-div{
+  display: inline-block; 
+  width: 1400px;
+  margin-left: 10%;
+  margin-top: 5%;
+  height: 20px;
+}
+
 
 
 
