@@ -1,16 +1,34 @@
-<%# <div id="<%= dom_id @player %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center">Player Information</h2>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= @player.nickname %></h5>
 
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= player.nickname %></td>
-        <td><%= player.fullname %></td>
-        <td><%= player.cellphone_number %></td>
-        <td><%= player.player_position %></td>
-        <td><%= player.medical_conditions %></td>
-        <td><%= player.has_id %></td>
-        <td><%= player.portrait_photo %></td>
-        <td><%= player.medical_aid %></td>
-      </tr>
-    <% end %>
-  
-<%# </div> %>
+          <p class="card-text">
+            <strong>Full Name:</strong> <%= @player.fullname %><br>
+            <strong>Cellphone Number:</strong> <%= @player.cellphone_number %><br>
+            <strong>Position:</strong> <%= @player.player_position %><br>
+            <strong>Medical Conditions:</strong> <%= @player.medical_conditions %><br>
+            <strong>ID:</strong> <%= @player.has_id ? 'Yes' : 'No' %><br>
+            <strong>Medical Aid:</strong> <%= @player.medical_aid %>
+          </p>
+
+          <% if @player.portrait_photo? %>
+            <p>true</p>
+          <% else %>
+            <p>No portrait available</p>
+          <% end %>
+        </div>
+
+        <div class="card-footer text-center">
+          <%= link_to 'Edit', edit_player_path(@player), class: 'btn btn-primary' %> |
+          <%= link_to 'Back', players_path, class: 'btn btn-secondary' %>
+          <%= button_to "Remove player", @player, method: :delete, class: 'btn btn-danger', style: "margin-top: 5px;" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

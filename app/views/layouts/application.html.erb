@@ -14,16 +14,17 @@
     <%= javascript_importmap_tags %>
 
   </head>
+
   <body style="height: 100%;">
 
     <%= render "common/sidebar" %>
-
-    <div style="margin: 0 auto;">
+    <div class="yield-content">
       <%= yield %>
-    <div>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    </div>
       
+      <!--<p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>-->
+
   </body>
+
 </html>

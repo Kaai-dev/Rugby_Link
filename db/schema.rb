@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_115533) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_201638) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_115533) do
     t.index ["player_id"], name: "index_next_of_kins_on_player_id"
   end
 
+  create_table "next_of_kinships", force: :cascade do |t|
+    t.bigint "next_of_kin_id"
+    t.bigint "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["next_of_kin_id"], name: "index_next_of_kinships_on_next_of_kin_id"
+    t.index ["player_id"], name: "index_next_of_kinships_on_player_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "nickname"
     t.string "fullname"
@@ -55,8 +64,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_115533) do
     t.string "medical_aid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "id_number"
+    t.string "encrypted_id"
   end
 
   add_foreign_key "id_numbers", "players"
   add_foreign_key "next_of_kins", "players"
+  add_foreign_key "next_of_kinships", "next_of_kins"
+  add_foreign_key "next_of_kinships", "players"
 end

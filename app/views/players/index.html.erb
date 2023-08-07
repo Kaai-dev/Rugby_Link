@@ -1,32 +1,77 @@
-<p style="color: green"><%= notice %></p>
-
-<div class="dash-div">
-  <h1>Player Registration</h1>
-  <br>
-  <%= link_to "Register Player", new_player_path, class: "btn btn-custom", style: "margin-bottom: 2rem; width: 20%;" %>
-
-  <div id="players" class="card dashboard-table">
-    <table class="table table-bordered table-hover">
+<!--<p style="color: green"><%= notice %></p>-->
+  <h1>Players</h1>
+  <%= link_to "Register Player", new_player_path, class: "btn btn-custom" %>
+  <div id="players" >
+    <table class="table table-bordered table-hover table-sm dashboard-table">
       <thead>
-
         <tr>
           <th scope="col">Nickname</th>
           <th scope="col">Fullname</th>
           <th scope="col">cell Phone</th>
-          <th scope="col">Player Positions</th>
+          <th scope="col">Position</th>
           <th scope="col">Medical Conditions</th>
-          <th scope="col">Has ID</th>
-          <th scope="col">Portrait Photo</th>
+          <th scope="col">ID</th>
+          <th scope="col">Photo</th>
           <th scope="col">Medical Aid</th>
         </tr>
-
       </thead>
-      <tbody class="table-group-divider"> 
 
-      <%= render "players/player" %>
-  
+      <tbody class="table-group-divider">
+
+        <% @players.each do |player| %>
+          <div id="<%= dom_id player %>">
+            <tr>
+              <td><%= player.nickname %></td>
+              <td><%= player.fullname %></td>
+              <td><%= player.cellphone_number %></td>
+              <td><%= player.player_position %></td>
+              <td><%= player.medical_conditions %></td>
+              <% if player.has_id %>
+                <td>
+                  <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                    <%= image_tag "green-tick.png", style:"width:20px" %>
+                  </div>
+                </td>
+              <% else %>
+                <td>
+                  <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                    <%= image_tag "red-tick.png", style:"width:20px" %>
+                  </div>
+                </td>
+              <% end %>
+
+              <% if player.portrait_photo %>
+                <td>
+                  <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                    <%= image_tag "green-tick.png", style:"width:20px" %>
+                  </div>
+                </td>
+              <% else %>
+                <td>
+                  <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                    <%= image_tag "red-tick.png", style:"width:20px" %>
+                  </div>
+                </td>
+              <% end %>
+              <td><%= player.medical_aid %></td>
+              
+              <td style="width: 50px">
+                <%= link_to "View", player, class: 'btn btn-primary btn-sm montserrat-regular-font' %>
+              </td>
+
+              <td style="width: 50px">
+                <%= button_to "Remove", player, method: :delete, class: "btn btn-danger btn-sm montserrat-regular-font" %>
+              </td>
+
+              <td style="width: 50px">
+                <%= link_to "Edit", edit_player_path(player), class: "btn btn-success btn-sm montserrat-regular-font" %>
+              </td>
+
+            </tr>
+          </div>
+        <% end %>
+
       </tbody>
+
     </table>
   </div>
-
-</div>

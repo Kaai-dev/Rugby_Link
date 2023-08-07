@@ -11,47 +11,47 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nickname, style: "display: block" %>
-    <%= form.text_field :nickname %>
+  <div class="form-floating mb-3 col-md-5">
+    <%= form.text_field :nickname, class: "form-control", id: "floatingNickName", placeholder:"NickName" %>
+    <%= form.label :nickname, for: "floatingNickname" %>
+  </div>
+
+  <div class="form-floating mb-3 col-md-5">
+    <%= form.text_field :fullname, class: "form-control", id: "floatingFullName", placeholder:"Full-Name" %>
+    <%= form.label :fullname, for: "floatingFullName" %>
+  </div>
+
+  <div class="form-floating mb-3 col-md-5">
+    <%= form.text_field :cellphone_number, class: "form-control", id: "floatingCellPhone", placeholder:"Cell-Phone" %>
+    <%= form.label :cellphone_number, for: "floatingCellPhone"%>
+  </div>
+
+  <div class="form-floating mb-3 col-md-5">
+    <%= form.number_field :player_position, class: "form-control", id: "floatingPlayerPosition", placeholder:"Player-Position" %>
+    <%= form.label :player_position, for: "floatingPlayerPosition" %>
+  </div>
+
+  <div class="form-floating mb-3 col-md-5">
+    <%= form.text_field :medical_conditions, class: "form-control", id: "floatingMedicalCondition", placeholder:"Medical-Condition" %>
+    <%= form.label :medical_conditions, for: "floatingMedicalCondition" %>
+  </div>
+
+  <div class="form-check mb-3 mt-3 col-md-5">
+    <%= form.check_box :has_id, class: "form-check-input", style: "margin: 3px 15px 3px 3px", id: "IdCheck" %>
+    <%= form.label "Has ID", for: "IdCheck" %>
+  </div>
+
+  <div class="form-check mb-3 mt-3 col-md-5">
+    <%= form.check_box :portrait_photo, class: "form-check-input", style: "margin: 3px 15px 3px 3px", id: "portraitCheck" %>
+    <%= form.label "Portrait Photo", for: "portraitCheck" %>
+  </div>
+
+  <div class="form-floating mb-3 col-md-5">
+    <%= form.text_field :medical_aid, class: "form-control", id: "floatingMedicalAid", placeholder:"Medical-Aid" %>
+    <%= form.label :medical_aid, for: "floatingMedicalAid" %>
   </div>
 
   <div>
-    <%= form.label :fullname, style: "display: block" %>
-    <%= form.text_field :fullname %>
-  </div>
-
-  <div>
-    <%= form.label :cellphone_number, style: "display: block" %>
-    <%= form.text_field :cellphone_number %>
-  </div>
-
-  <div>
-    <%= form.label :player_position, style: "display: block" %>
-    <%= form.number_field :player_position %>
-  </div>
-
-  <div>
-    <%= form.label :medical_conditions, style: "display: block" %>
-    <%= form.text_field :medical_conditions %>
-  </div>
-
-  <div>
-    <%= form.label :has_id, style: "display: block" %>
-    <%= form.check_box :has_id %>
-  </div>
-
-  <div>
-    <%= form.label :did_highschool, style: "display: block" %>
-    <%= form.check_box :did_highschool %>
-  </div>
-
-  <div>
-    <%= form.label :medical_aid, style: "display: block" %>
-    <%= form.text_field :medical_aid %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "btn btn-custom" %>
   </div>
 <% end %>
