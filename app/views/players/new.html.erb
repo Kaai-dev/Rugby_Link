@@ -1,12 +1,8 @@
-<div class="dash-div">  
-  <h1>New player</h1>
 
-  <div>
-    <%= link_to "Back to players", players_path, class: "btn btn-custom" %>
+<div class="container">
+  <div class="back-card pt-3">
+    <h1 class="light-font text-center" >New player</h1>
+    <%= render "form", player: @player %>
   </div>
-  
-  <%= render "form", player: @player %>
-
-  <br>
-
 </div>
+<br>

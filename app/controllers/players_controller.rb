@@ -13,6 +13,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
+    @player.build_next_of_kin
   end
 
   # GET /players/1/edit
@@ -48,14 +49,10 @@ class PlayersController < ApplicationController
     end
   end
 
-  # DELETE /players/1 or /players/1.json
   def destroy
+    @player = Player.find(params[:id])
     @player.destroy
-
-    respond_to do |format|
-      format.html { redirect_to players_url, notice: "Player was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to players_path, notice: 'Player was successfully deleted.'
   end
 
   private
@@ -66,6 +63,23 @@ class PlayersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def player_params
-      params.require(:player).permit(:nickname, :fullname, :cellphone_number, :player_position, :medical_conditions, :has_id, :did_highschool, :medical_aid)
+      params.require(:player).permit(
+        :nickname, 
+        :fullname, 
+        :cellphone_number, 
+        :player_position, 
+        :medical_conditions, 
+        :has_id, 
+        :portrait_photo, 
+        :medical_aid,
+        :encrypted_id_number,
+        next_of_kin_attributes: [
+          :id, 
+          :player_id,
+          :name,
+          :cellphone_number,
+          :relationship
+          ]
+        )
     end
 end

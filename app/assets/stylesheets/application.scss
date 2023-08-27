@@ -4,14 +4,13 @@
 
 :root {
   --primary: #ff2323e8;
-  --secondary: #333333;
-  --tertiary: #999999;
+  --secondary: #2d2d2d;
+  --tertiary: #505050;
   --quaternary: #fff;
 }
 
-.dashboard-table{
-    width: 100%;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+body{
+  background-color: var(--tertiary) !important;
 }
 
 .btn-custom {
@@ -52,9 +51,14 @@
   color: var(--quaternary)
 }
 
+.primary-background{
+  background-color: var(--primary);
+  ;
+}
 
-
-
+.table-hover tbody tr:hover td.light-font {
+  color: var(--quaternary); /* Replace 'inherit' with the actual color if needed */
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

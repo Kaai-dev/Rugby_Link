@@ -1,28 +1,91 @@
-<div class="container">
-  <div class="back-card">
+
     <div class="row">
-
       <div class="col-3">
-      <%= image_tag "profile-pic.png", style:"width:80%", class: "mt-5"%>
+        <%= image_tag "profile-pic.png", style:"width:80%", class: "mx-auto d-block"%>
         <h4 class="mt-5 light-font text-center">Positions</h4>
-
+        <p class="text-center light-font">-</p>
+        <p class="text-center light-font">Position 1</p>
+        <p class="text-center light-font">Position 2</p>
       </div>
-      
       <div class="col-9">
-        <h1 class="mt-4 light-font text-center"><%= player.fullname %></h1>
+        <h1 class="light-font text-center"><%= player.fullname %></h1>
         <h4 class="mt-1 light-font text-center"><%= player.nickname %></h4>
-        <div class="border-bottom my-4 col-md-11"></div>
-        <p class="mt-4 light-font">Cellphone Number: <%= player.cellphone_number %></p>
-        <div class="border-bottom col-md-11"></div>
-        <p class="mt-4 light-font">Medical Aid: <%= player.medical_aid %></p>
-        <div class="border-bottom col-md-11"></div>
-        <p class="mt-4 light-font">Medical Condition: <%= player.medical_conditions %></p>
-        <div class="border-bottom col-md-11"></div>
-        <p class="mt-4 light-font">ID Number: <%= player.cellphone_number %></p>
-        <div class="border-bottom col-md-11"></div>
-        <p class="mt-4 light-font">Next of Kin: </p>
-      </div>
+        <br>
+        <br>
+        
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          Cellphone Number:
+          <span class="player-show-attributes" style="text-align: right;">
+            <%= player.cellphone_number %>
+          </span>
+        </p>
 
+        <div class="border-bottom hr-show-custom" ></div>
+
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          Medical Aid:
+          <span class="player-show-attributes" style="text-align: right;">
+            <%= player.medical_aid %>
+          </span>
+        </p>
+
+        <div class="border-bottom hr-show-custom" ></div>
+
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          Medical Condition:
+          <span class="player-show-attributes" style="text-align: right;">
+            <%= player.medical_conditions %>
+          </span>
+        </p>
+
+        <div class="border-bottom hr-show-custom" ></div>
+
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          ID Number:
+          <span class="player-show-attributes" style="text-align: right;">
+            <%= player.cellphone_number %>
+          </span>
+        </p>
+
+        <div class="border-bottom hr-show-custom" ></div>
+
+        <br>        
+
+        <h3 class="mt-4 light-font text-center">Next of Kin</h3>
+
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          Relationship:
+          <span class="player-show-attributes" style="text-align: right;">
+            <%= player.next_of_kin.present? ? player.next_of_kin.relationship : "-" %>
+          </span>
+        </p>
+
+        <div class="border-bottom hr-show-custom" ></div>
+
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          Name:
+          <span class="player-show-attributes" style="text-align: right;">
+          <%= player.next_of_kin.present? ? player.next_of_kin.name : "-" %>
+          </span>
+        </p>
+
+        <div class="border-bottom hr-show-custom" ></div>
+
+        <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
+          Cellphone Number:
+          <span class="player-show-attributes" style="text-align: right;">
+          <%= player.next_of_kin.present? ? player.next_of_kin.cellphone_number : "-" %>
+          </span>
+        </p>
+
+        <br>
+
+        <div class="d-flex justify-content-center" style="gap: 200px;">
+          <%= link_to "Edit Player", edit_player_path, class: "btn btn-primary" %>
+          <%= form_with url: player_path(@player), method: :delete, class: "mb-0" do %>
+            <%= submit_tag 'Delete Player', data: { confirm: 'Are you sure?' }, class: "btn btn-danger primary-background" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+

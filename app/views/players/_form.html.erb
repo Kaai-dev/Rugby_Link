@@ -1,57 +1,67 @@
 <%= form_with(model: player) do |form| %>
+
   <% if player.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
-
+      <br>
+      <h2 class="text-center"><%= pluralize(player.errors.count, "error")%> prohibited this player from being saved:</h2>
       <ul>
+      <div class="mx-auto" style="width: 50%;">
         <% player.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
+      </div>
+
       </ul>
     </div>
   <% end %>
 
-  <div class="form-floating mb-3 col-md-5">
-    <%= form.text_field :nickname, class: "form-control", id: "floatingNickName", placeholder:"NickName" %>
-    <%= form.label :nickname, for: "floatingNickname" %>
-  </div>
-
-  <div class="form-floating mb-3 col-md-5">
-    <%= form.text_field :fullname, class: "form-control", id: "floatingFullName", placeholder:"Full-Name" %>
-    <%= form.label :fullname, for: "floatingFullName" %>
-  </div>
-
-  <div class="form-floating mb-3 col-md-5">
-    <%= form.text_field :cellphone_number, class: "form-control", id: "floatingCellPhone", placeholder:"Cell-Phone" %>
-    <%= form.label :cellphone_number, for: "floatingCellPhone"%>
-  </div>
-
-  <div class="form-floating mb-3 col-md-5">
-    <%= form.number_field :player_position, class: "form-control", id: "floatingPlayerPosition", placeholder:"Player-Position" %>
-    <%= form.label :player_position, for: "floatingPlayerPosition" %>
-  </div>
-
-  <div class="form-floating mb-3 col-md-5">
-    <%= form.text_field :medical_conditions, class: "form-control", id: "floatingMedicalCondition", placeholder:"Medical-Condition" %>
-    <%= form.label :medical_conditions, for: "floatingMedicalCondition" %>
-  </div>
-
-  <div class="form-check mb-3 mt-3 col-md-5">
-    <%= form.check_box :has_id, class: "form-check-input", style: "margin: 3px 15px 3px 3px", id: "IdCheck" %>
-    <%= form.label "Has ID", for: "IdCheck" %>
-  </div>
-
-  <div class="form-check mb-3 mt-3 col-md-5">
-    <%= form.check_box :portrait_photo, class: "form-check-input", style: "margin: 3px 15px 3px 3px", id: "portraitCheck" %>
-    <%= form.label "Portrait Photo", for: "portraitCheck" %>
-  </div>
-
-  <div class="form-floating mb-3 col-md-5">
-    <%= form.text_field :medical_aid, class: "form-control", id: "floatingMedicalAid", placeholder:"Medical-Aid" %>
-    <%= form.label :medical_aid, for: "floatingMedicalAid" %>
-  </div>
-
-  <div>
-    <%= form.submit "Submit", class: "btn btn-custom" %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag "profile-pic.png", style:"width:80%", class: "mt-5 mx-auto d-block"%>
+      <h4 class="mt-5 light-font text-center">Positions</h4>
+      <p class="text-center light-font">-</p>
+      <p class="text-center light-font">Position 1</p>
+      <p class="text-center light-font">Position 2</p>
+    </div>
+    <div class="col-md-9">
+      <div class="text-center">
+        <h1 class="mt-4 light-font">
+          <%= form.text_field :fullname, class: "form-control player-show-names text-center", placeholder:"Fullname", style: "display: inline-block;" %>
+        </h1>
+        <h4 class="mt-1 light-font">
+          <%= form.text_field :nickname, class: "form-control player-show-names text-center", placeholder:"Nickname", style: "display: inline-block;" %>
+        </h4>
+      </div>
+      <br>
+      <br>
+      <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number: <%= form.text_field :cellphone_number, class: "form-control player-form-field", placeholder:"Cell number", style:"margin-right:70px;" %></p>
+      <div class="border-bottom hr-show-custom" ></div>
+      <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Aid:<%= form.text_field :medical_aid, class: "form-control player-form-field", id: "floatingMedicalAid", placeholder:"Medical-Aid", style:"margin-right:70px; width: 50%" %></p>
+      <div class="border-bottom hr-show-custom" ></div>
+      <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Condition: <%= form.text_field :medical_conditions, class: "form-control player-form-field", id: "floatingMedicalCondition", placeholder:"Condition", style:"margin-right:70px;" %></p>
+      <div class="border-bottom hr-show-custom" ></div>
+      <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">*</span>&nbsp;ID Number: <%= form.text_field :encrypted_id_number, class: "form-control player-form-field", placeholder:"ID number", style:"margin-right:70px;" %></p>
+      <div class="border-bottom hr-show-custom" ></div>
+      <h3 class="mt-4 light-font text-center">Next of Kin</h3>
+      <br>
+      <%= form.fields_for :next_of_kin do |next_of_kin_form| %>
+        <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">* </span>&nbsp;Name: <%= next_of_kin_form.text_field :name, class: "form-control player-form-field", placeholder:"Name", style:"margin-right:70px;" %></p>
+        <div class="border-bottom hr-show-custom" ></div>
+        <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">* </span>&nbsp;Relationship: <%= next_of_kin_form.text_field :relationship, class: "form-control player-form-field", placeholder:"Relationship", style:"margin-right:70px;" %></p>
+        <div class="border-bottom hr-show-custom" ></div>
+        <p class="mt-4 light-font" style="display: flex; align-items: center;"><span aria-hidden="true" class="text-danger">* </span>&nbsp;Cellphone Number: <%= next_of_kin_form.text_field :cellphone_number, class: "form-control player-form-field", placeholder:"Cell number", style:"margin-right:70px;" %></p>
+        <div class="border-bottom hr-show-custom" ></div>
+      <% end %>
+      <br>
+      <br>
+      <div class="d-flex justify-content-center" style="gap: 200px;">
+        <div>
+          <%= form.submit "Submit", class: "btn btn-success" %>
+        </div>
+        <br>
+        <br>
+        <%# <%= link_to 'Delete Player', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } class:"btn btn-danger primary-background" %> %>
+      </div>
+    </div>
   </div>
 <% end %>
