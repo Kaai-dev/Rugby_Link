@@ -1,27 +1,41 @@
 <%= form_with(model: player) do |form| %>
-
   <% if player.errors.any? %>
     <div style="color: red">
       <br>
       <h2 class="text-center"><%= pluralize(player.errors.count, "error")%> prohibited this player from being saved:</h2>
       <ul>
-      <div class="mx-auto" style="width: 50%;">
-        <% player.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </div>
-
+        <div class="mx-auto" style="width: 50%;">
+          <% player.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </div>
       </ul>
     </div>
   <% end %>
-
   <div class="row">
     <div class="col-md-3">
       <%= image_tag "profile-pic.png", style:"width:80%", class: "mt-5 mx-auto d-block"%>
       <h4 class="mt-5 light-font text-center">Positions</h4>
       <p class="text-center light-font">-</p>
-      <p class="text-center light-font">Position 1</p>
-      <p class="text-center light-font">Position 2</p>
+      <div class="d-flex justify-content-center dropdown">
+        <%= form.select :position, [
+          ['1 - Loosehead Prop', 1],
+          ['2 - Hooker', 2],
+          ['3 - Tighthead Prop', 3],
+          ['4 - Lock (Second Row)', 4],
+          ['5 - Lock (Second Row)', 5],
+          ['6 - Blindside Flanker', 6],
+          ['7 - Openside Flanker', 7],
+          ['8 - Number Eight', 8],
+          ['9 - Scrum-Half', 9],
+          ['10 - Fly-Half', 10],
+          ['11 - Left Wing', 11],
+          ['12 - Inside Centre', 12],
+          ['13 - Outside Centre', 13],
+          ['14 - Right Wing', 14],
+          ['15 - Fullback', 15]
+          ], class:"btn btn-secondary dropdown-toggle" %>
+      </div>
     </div>
     <div class="col-md-9">
       <div class="text-center">
@@ -55,13 +69,16 @@
       <br>
       <br>
       <div class="d-flex justify-content-center" style="gap: 200px;">
+        <%# <%= link_to 'Delete Player', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } class:"btn btn-danger primary-background" %>
         <div>
           <%= form.submit "Submit", class: "btn btn-success" %>
         </div>
-        <br>
-        <br>
-        <%# <%= link_to 'Delete Player', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } class:"btn btn-danger primary-background" %> %>
       </div>
     </div>
   </div>
 <% end %>
+
+TODO: make another dropdown appear when pressing + 
+    : Change positions attribute type to array
+    : display in show case when eg. scrummy = 9
+    
