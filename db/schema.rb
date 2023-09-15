@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_182257) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_200311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "absences", force: :cascade do |t|
+    t.uuid "player_id", null: false
+    t.string "reason"
+    t.boolean "absent_game_day"
+    t.boolean "absent_train_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "next_of_kins", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "player_id", null: false
@@ -37,5 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_182257) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "absences", "players"
   add_foreign_key "next_of_kins", "players"
 end

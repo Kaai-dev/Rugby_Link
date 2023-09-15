@@ -6,10 +6,10 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-  <%= link_to 'Players', players_path, class: "nav-link #{'active' if current_page?(players_path)} light-font" %>
+      <%= link_to 'Players', players_path, class: "nav-link #{'active' if current_page?(players_path)} light-font" %>
     </li>
     <li>
-  <%#= link_to 'Teams', teams_path, class: "nav-link #{'active' if current_page?(teams_path)}" %>
+      <%= link_to 'Register', new_absence_path, class: "nav-link #{'active' if current_page?(new_absence_path)} light-font" %>
     </li>
   </ul>
   <hr>

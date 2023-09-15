@@ -1,0 +1,101 @@
+<!--<p style="color: green"><%= notice %></p>-->
+<div class="container">
+  <div class="back-card p-3">
+    <h1 class="light-font text-center mt-4">Absence form</h1>
+    <br>
+    <br>
+    <br>
+    <div id="players" >
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th class="light-font" scope="col">Nickname</th>
+            <th class="light-font" scope="col">Fullname</th>
+            <th class="light-font" scope="col">cell Phone</th>
+            <th class="light-font" scope="col">Position</th>
+            <th class="light-font" scope="col">Medical Conditions</th>
+            <th class="light-font" scope="col">Absent</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% if Player.any? %>
+            <% @players.each do |player| %>
+              <div id="<%= dom_id player %>">
+                <tr>
+
+                  <% if player.nickname.present? %>
+                    <td class="light-font" ><%= player.nickname %></td>
+                  <% else %>
+                    <td class="light-font" > - </td>
+                  <% end %>
+                  <td class="light-font" ><%= player.fullname %></td>
+                  <td class="light-font" ><%= player.cellphone_number %></td>
+                  <td class="light-font" ><%= player.player_position %></td>
+                  <td class="light-font" ><%= player.medical_conditions %></td>
+                  <% if player.has_id %>
+                    <td>
+                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                        <%= image_tag "green-tick-light.png", style:"width:20px" %>
+                      </div>
+                    </td>
+                  <% else %>
+                    <td>
+                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                        <%= image_tag "red-tick-light.png", style:"width:20px" %>
+                      </div>
+                    </td>
+                  <% end %>
+                  <% if player.portrait_photo %>
+                    <td>
+                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                        <%= image_tag "green-tick-light.png", style:"width:20px" %>
+                      </div>
+                    </td>
+                  <% else %>
+                    <td>
+                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                        <%= image_tag "red-tick-light.png", style:"width:20px" %>
+                      </div>
+                    </td>
+                  <% end %>
+                  <td class="light-font"><%= player.medical_aid %></td>
+                </tr>
+              </div>
+            <% end %>
+          <% else %>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+            <td class="text-center">-</td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>New absence</h1>
+
+<%= render "form", absence: @absence %>
+
+<br>
+
+<div>
+  <%= link_to "Back to absences", absences_path %>
+</div>
