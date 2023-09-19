@@ -4,6 +4,8 @@ lock "~> 3.17.3"
 set :application, "Rugby_Link"
 set :repo_url, "git@github.com:Kaai-dev/Rugby_Link.git"
 
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
