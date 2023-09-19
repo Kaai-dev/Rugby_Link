@@ -22,7 +22,6 @@
             <% @players.each do |player| %>
               <div id="<%= dom_id player %>">
                 <tr>
-
                   <% if player.nickname.present? %>
                     <td class="light-font" ><%= player.nickname %></td>
                   <% else %>
@@ -45,20 +44,6 @@
                       </div>
                     </td>
                   <% end %>
-                  <% if player.portrait_photo %>
-                    <td>
-                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                        <%= image_tag "green-tick-light.png", style:"width:20px" %>
-                      </div>
-                    </td>
-                  <% else %>
-                    <td>
-                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                        <%= image_tag "red-tick-light.png", style:"width:20px" %>
-                      </div>
-                    </td>
-                  <% end %>
-                  <td class="light-font"><%= player.medical_aid %></td>
                 </tr>
               </div>
             <% end %>
@@ -77,25 +62,9 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <h1>New absence</h1>
-
 <%= render "form", absence: @absence %>
-
 <br>
-
 <div>
   <%= link_to "Back to absences", absences_path %>
 </div>
