@@ -1,14 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Absences</h1>
+<div class="container">
+  <div class="back-card p-3">
+    <h1 class="light-font text-center mt-4">Absence form</h1>
+    
+    <%= render "form", absence: @absence %>
 
-<div id="absences">
-  <% @absences.each do |absence| %>
-    <%= render absence %>
-    <p>
-      <%= link_to "Show this absence", absence %>
-    </p>
-  <% end %>
+
+    <div id="absences">
+      <% @absences.each do |absence| %>
+        <%= render absence %>
+        <p>
+          <%= link_to "Show this absence", absence %>
+        </p>
+      <% end %>
+    </div>
+
+    <%= link_to "New absence", new_absence_path %>
+  </div>
 </div>
-
-<%= link_to "New absence", new_absence_path %>

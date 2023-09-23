@@ -4,6 +4,7 @@ class AbsencesController < ApplicationController
   # GET /absences or /absences.json
   def index
     @absences = Absence.all
+    @absence = Absence.new 
   end
 
   # GET /absences/1 or /absences/1.json

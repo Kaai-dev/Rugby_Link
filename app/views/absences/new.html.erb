@@ -19,34 +19,27 @@
         </thead>
         <tbody class="table-group-divider">
           <% if Player.any? %>
-            <% @players.each do |player| %>
-              <div id="<%= dom_id player %>">
-                <tr>
-                  <% if player.nickname.present? %>
-                    <td class="light-font" ><%= player.nickname %></td>
-                  <% else %>
-                    <td class="light-font" > - </td>
-                  <% end %>
-                  <td class="light-font" ><%= player.fullname %></td>
-                  <td class="light-font" ><%= player.cellphone_number %></td>
-                  <td class="light-font" ><%= player.player_position %></td>
-                  <td class="light-font" ><%= player.medical_conditions %></td>
-                  <% if player.has_id %>
-                    <td>
-                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                        <%= image_tag "green-tick-light.png", style:"width:20px" %>
-                      </div>
-                    </td>
-                  <% else %>
-                    <td>
-                      <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                        <%= image_tag "red-tick-light.png", style:"width:20px" %>
-                      </div>
-                    </td>
-                  <% end %>
-                </tr>
-              </div>
+
+
+            <%= simple_form_for :absence, url: new_absence_path, method: :post do |f| %>
+              <% @players.each do |player| %>
+                <div id="<%= dom_id player %>">
+                  <tr>
+                    <% if player.nickname.present? %>
+                      <td class="light-font" ><%= player.nickname %></td>
+                    <% else %>
+                      <td class="light-font" > - </td>
+                    <% end %>
+                    <td class="light-font" ><%= player.fullname %></td>
+                    <td class="light-font" ><%= player.cellphone_number %></td>
+                    <td class="light-font" ><%= player.player_position %></td>
+                    <td class="light-font" ><%= player.medical_conditions %></td>
+                    <td class="light-font" ><%= f.check_box :player_ids, { multiple: true }, player.id, nil %></td>
+                  </tr>
+                </div>
+              <% end %>
             <% end %>
+
           <% else %>
             <td class="text-center">-</td>
             <td class="text-center">-</td>
@@ -62,9 +55,25 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>New absence</h1>
+
 <%= render "form", absence: @absence %>
+
 <br>
+
 <div>
   <%= link_to "Back to absences", absences_path %>
 </div>
