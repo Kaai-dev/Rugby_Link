@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_224825) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_06_084953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_224825) do
   create_table "players", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "nickname"
     t.string "fullname"
-    t.string "cellphone_number"
+    t.string "encrypted_cellphone_number"
     t.integer "player_position", default: [], array: true
     t.text "medical_conditions"
     t.boolean "has_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_224825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_id_number_iv"
+    t.string "encrypted_cellphone_number_iv"
   end
 
   add_foreign_key "absences", "players"
