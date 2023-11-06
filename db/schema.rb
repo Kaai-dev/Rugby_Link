@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_200311) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_224825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_200311) do
     t.string "nickname"
     t.string "fullname"
     t.string "cellphone_number"
-    t.boolean "player_position"
+    t.integer "player_position", default: [], array: true
     t.text "medical_conditions"
     t.boolean "has_id"
     t.string "portrait_photo"
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_200311) do
     t.string "encrypted_id_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_id_number_iv"
   end
 
   add_foreign_key "absences", "players"

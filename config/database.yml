@@ -8,7 +8,7 @@ development:
   <<: *default
   database: rugbydata
   username: rugbyown
-  password: J0hn$m1%hl@y$
+  password: development1234
   host: localhost
 
 test:
