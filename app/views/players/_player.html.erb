@@ -1,11 +1,22 @@
 
     <div class="row">
       <div class="col-md-3">
-        <%= image_tag "profile-pic.png", style:"width:80%", class: "mx-auto d-block"%>
+
+
+        <% if @player.profile_pic.attached? %>
+          <%= profile_pic_for(@player) %>
+        <% else %>
+          <%= image_tag "profile-pic.png", style: "width:50%", class: "mt-5 mx-auto d-block" %>
+        <% end %>
+
+
         <h4 class="mt-5 light-font text-center">Positions</h4>
         <p class="text-center light-font">-</p>
-        <p class="text-center light-font">Position 1</p>
-        <p class="text-center light-font">Position 2</p>
+        <ul>
+          <% @player.player_position.each do |position| %>
+            <li><%= position %></li>
+          <% end %>
+        </ul>
       </div>
       <div class="col-md-9">
         <h1 class="light-font text-center"><%= player.fullname %></h1>
@@ -43,7 +54,7 @@
         <p class="mt-4 light-font" style="display: flex; justify-content: space-between; align-items: center;">
           ID Number:
           <span class="player-show-attributes" style="text-align: right;">
-            <%= player.cellphone_number %>
+            <%= player.id_number %>
           </span>
         </p>
 

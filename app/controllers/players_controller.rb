@@ -72,7 +72,8 @@ class PlayersController < ApplicationController
         :has_id, 
         :portrait_photo, 
         :medical_aid,
-        :encrypted_id_number,
+        :id_number,
+        :profile_pic,
         next_of_kin_attributes: [
           :id, 
           :player_id,

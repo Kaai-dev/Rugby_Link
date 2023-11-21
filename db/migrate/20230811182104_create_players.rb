@@ -9,7 +9,7 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
       t.boolean :has_id
       t.string :portrait_photo
       t.string :medical_aid
-      t.string :encrypted_id_number
+      t.string :id_number
       t.timestamps
     end
   end

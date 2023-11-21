@@ -1,16 +1,16 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar-bg-custom sidebar">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-    <span class="fs-4">Sidebar</span>
+    <span class="fs-4">Rugby Link Menu</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <%= link_to 'Players', players_path, class: "nav-link #{'active' if current_page?(players_path)} light-font" %>
+      <%= link_to 'Players', players_path, class: "nav-link #{'active' if current_page?(players_path)} light-font #{'primary-hover' if !current_page?(players_path)}" %>
     </li>
-    <li>
-      <%= link_to 'Register', new_absence_path, class: "nav-link #{'active' if current_page?(new_absence_path)} light-font" %>
-    </li>
+    <!--<li>
+      <%= link_to 'Attendance', absences_path, class: "nav-link #{'active' if current_page?(absences_path)} light-font #{'primary-hover' if !current_page?(absences_path)}" %>
+    </li>-->
   </ul>
   <hr>
   <div class="dropdown">
