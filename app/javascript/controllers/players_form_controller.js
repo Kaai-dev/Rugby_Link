@@ -3,15 +3,15 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="players-form"
 export default class extends Controller {
   static targets = ["positionDropdown", "dropdownButton"];
+
   connect() {
   }
-
-
 
   addDropdown(event){
 
     event.preventDefault();
 
+    
     const select = document.createElement("select")
     select.classList.add("btn", "btn-secondary", "dropdown-toggle", "d-block");
 
@@ -31,9 +31,9 @@ export default class extends Controller {
       ['13 - Outside Centre', 13],
       ['14 - Right Wing', 14],
       ['15 - Fullback', 15]
-      ];
-
-      options.forEach(([text, value]) =>{
+    ];
+    
+    options.forEach(([text, value]) =>{
         const option = document.createElement("option");
         option.text = text;
         option.value = value;
@@ -42,9 +42,11 @@ export default class extends Controller {
 
       this.positionDropdownTarget.appendChild(select);
 
-      // Append a break element to move to the next line
-      const br = document.createElement("br");
-      this.positionDropdownTarget.appendChild(br);
-
-  }
+      // Create a div that will act as a page break before the element
+      const pageBreak = document.createElement('div');
+      pageBreak.style.pageBreakBefore = 'always'; // This will force a page break before the element in print mode
+      pageBreak.style.display = 'none'; // This ensures the div doesn't affect layout on screen
+  
+      // Insert the page break div after the new select element
+      select.after(pageBreak);  }
 }

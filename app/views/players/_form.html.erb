@@ -1,4 +1,4 @@
-<div data-controller="players-form">
+<div data-controller="">
   <%= simple_form_for player do |f| %>
     <% if player.errors.any? %>
       <div style="color: red">
@@ -15,7 +15,16 @@
     <% end %>
     <div class="row">
       <div class="col-md-3">
-        <%= image_tag "profile-pic.png", style:"width:50%", class: "mt-5 mx-auto d-block"%>
+
+        <% if player.profile_pic.attached? %>
+          <%= profile_pic_for(player) %>
+        <% else %>
+          <%= image_tag "profile-pic.png", style: "width:50%", class: "mt-5 mx-auto d-block" %>
+        <% end %>
+
+        <%= f.input :profile_pic, as: :file %>
+
+
         <h4 class="mt-5 light-font text-center">Positions</h4>
         <br>
         <div id="dropdown-container" data-players-form-target="positionDropdown" class="d-flex justify-content-center dropdown">
@@ -35,10 +44,32 @@
             ['13 - Outside Centre', 13],
             ['14 - Right Wing', 14],
             ['15 - Fullback', 15]
-            ], {prompt: "Select a Position"}, {class:"btn btn-secondary dropdown-toggle"} %>
+            ], {prompt: "Select a Position"}, {class:"btn btn-secondary btn-md dropdown-toggle"} %>
+        </div>
+
+        <br>
+
+        <div id="dropdown-container" data-players-form-target="positionDropdown" class="d-flex justify-content-center dropdown">
+          <%= f.select :player_position, [
+            ['U21', ],
+            ['2nd Team'],
+            ['1st Team'],
+            # ['', 4],
+            # ['', 5],
+            # ['', 6],
+            # ['', 7],
+            # ['', 8],
+            # ['', 9],
+            # ['', 10],
+            # ['', 11],
+            # ['', 12],
+            # ['', 13],
+            # ['', 14],
+            # ['', 15]
+            ], {prompt: "Select a Team"}, {class:"btn btn-secondary btn-md dropdown-toggle"} %>
         </div>
         <br>
-        <p class="text-center light-font"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>
+        <!--<p class="text-center light-font"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>-->
       </div>
       <div class="col-md-9">
         <div class="text-center">
