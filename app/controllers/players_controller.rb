@@ -62,19 +62,19 @@ class PlayersController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def player_params
-      params.require(:player).permit(
-        :nickname, 
-        :fullname, 
-        :cellphone_number, 
-        :player_position, 
-        :medical_conditions, 
-        :has_id, 
-        :portrait_photo, 
-        :medical_aid,
-        :id_number,
-        :profile_pic,
-        next_of_kin_attributes: [
+      def player_params
+        params.require(:player).permit(
+          :nickname, 
+          :fullname, 
+          :cellphone_number, 
+          :medical_conditions, 
+          :has_id, 
+          :portrait_photo, 
+          :medical_aid,
+          :id_number,
+          :profile_pic,
+          :player_position, # No comma after this line
+          next_of_kin_attributes: [
           :id, 
           :player_id,
           :name,
@@ -82,5 +82,5 @@ class PlayersController < ApplicationController
           :relationship
           ]
         )
-    end
+      end
 end

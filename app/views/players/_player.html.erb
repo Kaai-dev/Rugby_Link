@@ -1,14 +1,13 @@
-
     <div class="row">
       <div class="col-md-3">
 
-
+      <div class="profile-container">
         <% if @player.profile_pic.attached? %>
           <%= profile_pic_for(@player) %>
         <% else %>
           <%= image_tag "profile-pic.png", style: "width:50%", class: "mt-5 mx-auto d-block" %>
         <% end %>
-
+      </div>
 
         <h4 class="mt-5 light-font text-center">Positions</h4>
         <p class="text-center light-font">-</p>

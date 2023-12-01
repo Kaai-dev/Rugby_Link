@@ -16,11 +16,13 @@
     <div class="row">
       <div class="col-md-3">
 
-        <% if player.profile_pic.attached? %>
-          <%= profile_pic_for(player) %>
-        <% else %>
-          <%= image_tag "profile-pic.png", style: "width:50%", class: "mt-5 mx-auto d-block" %>
-        <% end %>
+        <div class="profile-container">
+          <% if player.profile_pic.attached? %>
+            <%= profile_pic_for(player) %>
+          <% else %>
+            <%= image_tag "profile-pic.png", style: "width:50%", class: "mt-5 mx-auto d-block" %>
+          <% end %>
+        </div>
 
         <%= f.input :profile_pic, as: :file %>
 

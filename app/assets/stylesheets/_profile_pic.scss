@@ -1,15 +1,22 @@
-.profile-pic {
-    width: 175px; /* Adjust as needed */
-    height: 175px; /* Adjust as needed */
-    margin: auto;
-    border-radius: 50%; /* This creates the circular shape */
-    object-fit: cover; /* This ensures the image covers the area without stretching */
-  }
+.profile-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 200px; /* Adjust as needed */
+}
 
-  .profile-pic-avatar {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
-    border-radius: 50%; /* This creates the circular shape */
-    object-fit: cover; /* This ensures the image covers the area without stretching */
-  }
+.profile-pic {
+  width: 175px; /* Adjust as needed */
+  height: 175px; /* Adjust as needed */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Cover area without stretching */
+  /* margin: auto; is not necessary with flexbox centering */
+}
+
+.profile-pic-avatar {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%; /* This creates the circular shape */
+  object-fit: cover; /* This ensures the image covers the area without stretching */
+}
 
