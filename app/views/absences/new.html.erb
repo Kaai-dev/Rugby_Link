@@ -1,7 +1,7 @@
 <!--<p style="color: green"><%= notice %></p>-->
 <div class="container">
   <div class="back-card p-3">
-    <h1 class="light-font text-center mt-4">Absence form</h1>
+    <h1 class="font-color-custom-1 text-center mt-4">Absence form</h1>
     <br>
     <br>
     <br>
@@ -9,12 +9,12 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th class="light-font" scope="col">Nickname</th>
-            <th class="light-font" scope="col">Fullname</th>
-            <th class="light-font" scope="col">cell Phone</th>
-            <th class="light-font" scope="col">Position</th>
-            <th class="light-font" scope="col">Medical Conditions</th>
-            <th class="light-font" scope="col">Absent</th>
+            <th class="font-color-custom-1" scope="col">Nickname</th>
+            <th class="font-color-custom-1" scope="col">Fullname</th>
+            <th class="font-color-custom-1" scope="col">cell Phone</th>
+            <th class="font-color-custom-1" scope="col">Position</th>
+            <th class="font-color-custom-1" scope="col">Medical Conditions</th>
+            <th class="font-color-custom-1" scope="col">Absent</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -26,15 +26,15 @@
                 <div id="<%= dom_id player %>">
                   <tr>
                     <% if player.nickname.present? %>
-                      <td class="light-font" ><%= player.nickname %></td>
+                      <td class="font-color-custom-1" ><%= player.nickname %></td>
                     <% else %>
-                      <td class="light-font" > - </td>
+                      <td class="font-color-custom-1" > - </td>
                     <% end %>
-                    <td class="light-font" ><%= player.fullname %></td>
-                    <td class="light-font" ><%= player.cellphone_number %></td>
-                    <td class="light-font" ><%= player.player_position %></td>
-                    <td class="light-font" ><%= player.medical_conditions %></td>
-                    <td class="light-font" ><%= f.check_box :player_ids, { multiple: true }, player.id, nil %></td>
+                    <td class="font-color-custom-1" ><%= player.fullname %></td>
+                    <td class="font-color-custom-1" ><%= player.cellphone_number %></td>
+                    <td class="font-color-custom-1" ><%= player.player_position %></td>
+                    <td class="font-color-custom-1" ><%= player.medical_conditions %></td>
+                    <td class="font-color-custom-1" ><%= f.check_box :player_ids, { multiple: true }, player.id, nil %></td>
                   </tr>
                 </div>
               <% end %>

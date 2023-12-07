@@ -1,7 +1,10 @@
 @import "bootstrap";
+@import "navbar";
+@import "fonts";
 @import "player_profile";
 @import "sidebar";
 @import "profile_pic";
+
 
 
 :root {
@@ -39,18 +42,8 @@ body{
   background-color: var(--secondary);}
 
 
-.yield-content{
-  margin: 50px 0 0 20%;
-  display: inline-block; 
-  width: 75%
-}
-
 .nav-link.active {
   background-color: var(--primary) !important; // Use !important to ensure your styles take precedence
-}
-
-.light-font {
-  color: var(--quaternary)
 }
 
 .primary-background{
@@ -58,7 +51,7 @@ body{
   ;
 }
 
-.table-hover tbody tr:hover td.light-font {
+.table-hover tbody tr:hover td.font-color-custom-1 {
   color: var(--quaternary); /* Replace 'inherit' with the actual color if needed */
 }
 

@@ -27,14 +27,14 @@
     font-family: Arial, sans-serif;
   }
 </style>
+
   </head>
 
-  <body style="height: 100%;">
+  <body>
 
-    <%= render "common/sidebar" %>
-    <div class="yield-content">
-      <%= yield %>
-    </div>
+    <%= render "layouts/navbar" %>
+
+    <%= yield %>
       
       <!--<p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>-->
