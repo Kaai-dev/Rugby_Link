@@ -19,10 +19,39 @@
         <% if player.profile_pic.attached? %>
           <%= profile_pic_for(player) %>
         <% else %>
-          <%= image_tag "profile-pic.png", style: "width:70%", class: "mt-5 mx-auto d-block" %>
+          <%= empty_profile_pic %>
         <% end %>
+        <br>
 
-        <%= f.input :profile_pic, as: :file %>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profilePicModal">
+          Profile Picture
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5 text-center" id="profilePicModalLabel">Edit Profile Pic</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <% if player.profile_pic.attached? %>
+                  <%= profile_pic_for(player) %>
+                <% else %>
+                  <%= empty_profile_pic %>
+                <% end %>
+              </div>
+              <div class="modal-footer text-center">
+                  <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
+                  <%= f.file_field :profile_pic, class: "d-none" %>
+                  <%= button_to "Delete Pic", delete_profile_pic_player_path(player), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 
 
         <h4 class="mt-5 font-color-custom-1 text-center">Positions</h4>

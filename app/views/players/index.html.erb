@@ -51,7 +51,7 @@
                             </div>
                           </td>
                         <% end %>
-                        <% if player.portrait_photo %>
+                        <% if player.profile_pic.attached? %>
                           <td>
                             <div class="d-flex justify-content-center align-items-center" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>

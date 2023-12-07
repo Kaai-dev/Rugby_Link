@@ -3,11 +3,14 @@
       <div class="col-md-3 text-center">
 
 
-        <% if @player.profile_pic.attached? %>
-          <%= profile_pic_for(@player) %>
+        <% if player.profile_pic.attached? %>
+          <%= profile_pic_for(player) %>
         <% else %>
-          <%= image_tag "profile-pic.png", style: "width:50%", class: "mt-5 mx-auto d-block" %>
+          <%= empty_profile_pic %>
         <% end %>
+
+        <br>
+                <br>
 
 
         <h4 class="mt-5 font-color-custom-1 text-center">Positions</h4>
