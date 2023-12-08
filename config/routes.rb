@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :players do
     resources :absences
     member do
-      delete "delete_profile_pic"
+      get "delete_profile_pic"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

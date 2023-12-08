@@ -1,12 +1,26 @@
-Vra wat hs in player excell is (stored as: did_highschool:boolean) Moet wees Headshot photo
+// Vra wat hs in player excell is (stored as: did_highschool:boolean) Moet wees Headshot photo
 
 
 
 
-Store medical aid in dropdown when adding new Player, split collumns in seperate model
+// Store medical aid in dropdown when adding new Player, split collumns in seperate model
 
-encrypt id number model(maybe also add all the personal info)
+// encrypt id number model(maybe also add all the personal info)
 
 or 
 
-encrypt everything?
+// encrypt everything?
+
+Fix sidebar for mobile
+
+Make tables responsive (mobile)
+
+Build teams
+
+Player positions
+
+Fix sidebar
+
+Finish Absences
+
+Finish when games are played > needs JS

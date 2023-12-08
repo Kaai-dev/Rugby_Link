@@ -4,7 +4,7 @@ module ApplicationHelper
     end
 
     def empty_profile_pic
-        image_tag("/app/assets/images/profile-pic.png",  class: "profile-pic mb-4")
+        image_tag("profile-pic.jpg",  class: "profile-pic mb-4")
     end
 
     def profile_pic_avatar_for(player)

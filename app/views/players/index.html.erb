@@ -6,6 +6,7 @@
         <div class="card-body">
           <h5 class="card-title font-color-custom-1 fs-6">Welcome new players to the club!</h5>
           <h1 class="font-color-custom-1 text-center mt-4">Players</h1>
+          <br>
           <%= link_to "Register Player", new_player_path, class: "btn btn-danger primary-background" %>
           <br>
           <br>
@@ -13,79 +14,79 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th class="font-color-custom-1" scope="col">Nickname</th>
-                  <th class="font-color-custom-1" scope="col">Fullname</th>
-                  <th class="font-color-custom-1" scope="col">cell Phone</th>
-                  <th class="font-color-custom-1" scope="col">Position</th>
-                  <th class="font-color-custom-1" scope="col">Medical Conditions</th>
-                  <th class="font-color-custom-1" scope="col">ID</th>
-                  <th class="font-color-custom-1" scope="col">Photo</th>
-                  <th class="font-color-custom-1" scope="col">Medical Aid</th>
+                  <th class="font-color-custom-1 mobile-tables" scope="col">Nickname</th>
+                  <th class="font-color-custom-1" scope="col">Name</th>
+                  <th class="font-color-custom-1" scope="col">Cell Phone</th>
+                  <th class="font-color-custom-1 mobile-tables" scope="col">Position</th>
+                  <th class="font-color-custom-1 mobile-tables" scope="col">Medical Conditions</th>
+                  <th class="font-color-custom-1 mobile-tables" scope="col">ID</th>
+                  <th class="font-color-custom-1 mobile-tables" scope="col">Photo</th>
+                  <th class="font-color-custom-1 mobile-tables" scope="col">Medical Aid</th>
                 </tr>
               </thead>
               <tbody class="table-group-divider">
                 <% if Player.any? %>
                   <% @players.each do |player| %>
                     <div id="<%= dom_id player %>">
-                      <tr>
+                      <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= player.id %>" data-action="click->clickable-table-row#clicked">
 
                         <% if player.nickname.present? %>
-                          <td class="font-color-custom-1" ><%= player.nickname %></td>
+                          <td class="font-color-custom-1 mobile-tables" ><%= player.nickname %></td>
                         <% else %>
-                          <td class="font-color-custom-1" > - </td>
+                          <td class="font-color-custom-1 mobile-tables" > - </td>
                         <% end %>
                         <td class="font-color-custom-1" ><%= player.fullname %></td>
                         <td class="font-color-custom-1" ><%= player.cellphone_number %></td>
-                        <td class="font-color-custom-1" ><%= player.player_position %></td>
-                        <td class="font-color-custom-1" ><%= player.medical_conditions %></td>
+                        <td class="font-color-custom-1 mobile-tables" ><%= player.player_position %></td>
+                        <td class="font-color-custom-1 mobile-tables" ><%= player.medical_conditions %></td>
                         <% if player.has_id %>
-                          <td>
-                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                          <td class="mobile-tables">
+                            <div class="d-flex justify-content-center align-items-center mobile-tables" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% else %>
-                          <td>
+                          <td class="mobile-tables">
                             <div class="d-flex justify-content-center align-items-center" style="height:100%;">
                               <%= image_tag "red-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% end %>
                         <% if player.profile_pic.attached? %>
-                          <td>
-                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                          <td class="mobile-tables">
+                            <div class="d-flex justify-content-center align-items-centes" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% else %>
-                          <td>
+                          <td class="mobile-tables">
                             <div class="d-flex justify-content-center align-items-center" style="height:100%;">
                               <%= image_tag "red-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% end %>
-                        <td class="font-color-custom-1"><%= player.medical_aid %></td>
-                        <td style="width: 50px">
+                        <td class="font-color-custom-1 mobile-tables"><%= player.medical_aid %></td>
+                        <td style="width: 50px" class="mobile-tables">
                           <%= link_to "View", player, class: 'btn btn-primary btn-sm montserrat-regular-font' %>
                         </td>
-                        <td style="width: 50px">
+                        <td style="width: 50px" class="mobile-tables">
                           <%= button_to "Remove", player, method: :delete, class: "btn btn-danger btn-sm montserrat-regular-font" %>
                         </td>
-                        <td style="width: 50px">
+                        <td style="width: 50px" class="mobile-tables">
                           <%= link_to "Edit", edit_player_path(player), class: "btn btn-success btn-sm montserrat-regular-font" %>
                         </td>
                       </tr>
                     </div>
                   <% end %>
                 <% else %>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
                 <% end %>
               </tbody>
             </table>
@@ -94,3 +95,5 @@
       </div>
     </div>
   </div>
+<br>
+<br>
