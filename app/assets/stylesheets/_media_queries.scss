@@ -1,0 +1,9 @@
+@media screen and (max-width: 991px) { /* Adjust 600px to your requirement */
+  .mobile-tables {
+      display: none;
+    }
+}
+
+.mobile-tables {
+    display: 'inline-block';
+}

@@ -2,3 +2,14 @@
 .primary-hover:hover {
     color: var(--primary) !important; /* Bootstrap 5 'danger' color */
   }
+
+.sidebar{
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  display: inline-block;
+}
+
+.sidebar-bg-custom{
+  background-color: var(--secondary);
+}

@@ -1,12 +1,86 @@
-Vra wat hs in player excell is (stored as: did_highschool:boolean) Moet wees Headshot photo
+// Vra wat hs in player excell is (stored as: did_highschool:boolean) Moet wees Headshot photo
 
 
 
 
-Store medical aid in dropdown when adding new Player, split collumns in seperate model
+// Store medical aid in dropdown when adding new Player, split collumns in seperate model
 
-encrypt id number model(maybe also add all the personal info)
+// encrypt id number model(maybe also add all the personal info)
 
 or 
 
-encrypt everything?
+// encrypt everything?
+
+// Profile pic uploads
+    >>Delete button to remove on the fly (instead of redirecting to SHOW PAGE)
+
+Validations Player form
+
+Fix sidebar for mobile
+
+Make tables responsive (mobile)
+
+Build teams
+
+Player positions
+
+Fix sidebar
+
+Finish Absences
+
+Finish when games are played > needs JS
+
+
+
+
+
+
+
+
+
+
+THINK TANK:
+
+        <h4 class="mt-5 font-color-custom-1 text-center">Positions</h4>
+        <br>
+        <div id="dropdown-container" data-players-form-target="positionDropdown" class="d-flex justify-content-center dropdown">
+          <%= f.select :player_position, [
+            ['1 - Loosehead Prop', 1],
+            ['2 - Hooker', 2],
+            ['3 - Tighthead Prop', 3],
+            ['4 - Lock (Second Row)', 4],
+            ['5 - Lock (Second Row)', 5],
+            ['6 - Blindside Flanker', 6],
+            ['7 - Openside Flanker', 7],
+            ['8 - Number Eight', 8],
+            ['9 - Scrum-Half', 9],
+            ['10 - Fly-Half', 10],
+            ['11 - Left Wing', 11],
+            ['12 - Inside Centre', 12],
+            ['13 - Outside Centre', 13],
+            ['14 - Right Wing', 14],
+            ['15 - Fullback', 15]
+            ], {prompt: "Select a Position"}, {class:"btn btn-secondary btn-md dropdown-toggle"} %>
+        </div>
+
+        <br>
+
+        <div id="dropdown-container" data-players-form-target="positionDropdown" class="d-flex justify-content-center dropdown">
+          <%= f.select :player_position, [
+            ['U21', ],
+            ['2nd Team'],
+            ['1st Team'],
+            # ['', 4],
+            # ['', 5],
+            # ['', 6],
+            # ['', 7],
+            # ['', 8],
+            # ['', 9],
+            # ['', 10],
+            # ['', 11],
+            # ['', 12],
+            # ['', 13],
+            # ['', 14],
+            # ['', 15]
+            ], {prompt: "Select a Team"}, {class:"btn btn-secondary btn-md dropdown-toggle"} %>
+        </div>

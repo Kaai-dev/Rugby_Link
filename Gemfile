@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.6"
+ruby "3.2.2"
 gem 'attr_encrypted'
 gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'devise'
@@ -16,20 +16,23 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 gem 'simple_form'
 
+gem 'sassc-rails'
+
+
 # gem 'country_select'
 
 
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.5"
+gem "rails", "~> 7.1.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
