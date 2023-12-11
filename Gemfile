@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.2"
 gem 'attr_encrypted'
 gem 'bootstrap', '~> 5.3.0.alpha3'
-gem 'devise'
+gem 'devise', '~> 4.9.3'
 gem 'figaro'
 gem 'jquery-rails'
 gem 'pg', '~> 1.5', '>= 1.5.3'
