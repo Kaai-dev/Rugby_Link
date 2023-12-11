@@ -1,8 +1,8 @@
 # README
 
-* Ruby version: 2.7.6
+* Ruby version: 3.2.2
 
-* Rails version: 7.0.5
+* Rails version: 7.1.2
 
 * Database: PSQL
 
