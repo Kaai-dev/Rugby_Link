@@ -11,6 +11,11 @@ or
 
 // encrypt everything?
 
+// Profile pic uploads
+    >>Delete button to remove on the fly (instead of redirecting to SHOW PAGE)
+
+Validations Player form
+
 Fix sidebar for mobile
 
 Make tables responsive (mobile)

@@ -8,6 +8,7 @@ export default class extends Controller {
   }
 
   clicked(event){
+    // event.preventDefault();
     console.log("Clicked");
     const playerId = this.element.dataset.value
 

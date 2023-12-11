@@ -14,13 +14,15 @@
       </div>
     <% end %>
     <div class="row">
-      <div class="col-md-3 text-center">
-
-        <% if player.profile_pic.attached? %>
-          <%= profile_pic_for(player) %>
-        <% else %>
-          <%= empty_profile_pic %>
-        <% end %>
+      <div class="col-md-3 text-center" data-controller="profile-pic-preview">
+          <% if player.profile_pic.attached? %>
+            <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+            <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+          <% else %>
+            <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+            <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+          <% end %>
+        <br>
         <br>
 
         <!-- Button trigger modal -->
@@ -30,21 +32,30 @@
         <!-- Modal -->
         <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center" id="profilePicModalLabel">Edit Profile Pic</h1>
+            <div class="modal-content secondary-background" >
+              <div class="modal-header border border-0">
+                <h1 class="modal-title fs-5 text-center font-color-custom-1" id="profilePicModalLabel">Edit Profile Pic</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <div class="border-bottom hr-show-custom mb-4" style="margin-left:4%;"></div>
               <div class="modal-body">
+                <div class="d-flex justify-content-center align-items-center">
+
                 <% if player.profile_pic.attached? %>
-                  <%= profile_pic_for(player) %>
+                  <%= image_tag player.profile_pic, class: "preview-profile-pic", data:{"profile-pic-preview-target": "existing"} %>
+                  <%= image_tag '', class:"preview-profile-pic", data: { "profile-pic-preview-target": "preview", style: "display: none;" } %>
                 <% else %>
-                  <%= empty_profile_pic %>
+                  <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existing"} %>
+                  <%= image_tag '', class:"preview-profile-pic", data: { "profile-pic-preview-target": "preview", style: "display: none;" } %>
                 <% end %>
+
+                </div>
               </div>
-              <div class="modal-footer text-center">
+                <br>
+              <div class="border-bottom hr-show-custom mb-4" style="margin-left:4%;" ></div>
+              <div class="modal-footer border border-0">
                   <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
-                  <%= f.file_field :profile_pic, class: "d-none" %>
+                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview"} %>
                   <% if player.profile_pic.attached? %>
                     <%= link_to "Delete Pic", delete_profile_pic_player_path(player), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
                   <% end %>
@@ -212,6 +223,3 @@
     </div>
   <% end %>
 </div>
-<%# TODO: make another dropdown appear when pressing + 
-: Change positions attribute type to array
-: display in show case when eg. scrummy = 9 %>
