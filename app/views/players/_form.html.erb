@@ -22,13 +22,15 @@
             <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
             <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
           <% end %>
+          <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
+
+
+
         <br>
         <br>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profilePicModal">
-          Profile Picture
-        </button>
+
         <!-- Modal -->
         <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
@@ -39,14 +41,14 @@
               </div>
               <div class="border-bottom hr-show-custom mb-4" style="margin-left:4%;"></div>
               <div class="modal-body">
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center" style="heigt:30%;">
 
                 <% if player.profile_pic.attached? %>
-                  <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existing"} %>
-                  <%= image_tag '', class:"preview-profile-pic", data: { "profile-pic-preview-target": "preview", style: "display: none;" } %>
+                  <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data: {"profile-pic-preview-target": "existing" } %>
+                  <%= image_tag '', class:"preview-profile-pic",  style: "display: none;", data: { "profile-pic-preview-target": "preview" } %>
                 <% else %>
-                  <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existing"} %>
-                  <%= image_tag '', class:"preview-profile-pic", data: { "profile-pic-preview-target": "preview", style: "display: none;" } %>
+                  <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data: { "profile-pic-preview-target": "existing" } %>
+                  <%= image_tag '', class:"preview-profile-pic",  style: "display: none;", data: { "profile-pic-preview-target": "preview" } %>
                 <% end %>
 
                 </div>

@@ -66,15 +66,7 @@
                           </td>
                         <% end %>
                         <td class="font-color-custom-1 mobile-tables"><%= player.medical_aid %></td>
-                        <td style="width: 50px" class="mobile-tables">
-                          <%= link_to "View", player, class: 'btn btn-primary btn-sm montserrat-regular-font' %>
-                        </td>
-                        <td style="width: 50px" class="mobile-tables">
-                          <%= button_to "Remove", player, method: :delete, class: "btn btn-danger btn-sm montserrat-regular-font" %>
-                        </td>
-                        <td style="width: 50px" class="mobile-tables">
-                          <%= link_to "Edit", edit_player_path(player), class: "btn btn-success btn-sm montserrat-regular-font" %>
-                        </td>
+
                       </tr>
                     </div>
                   <% end %>
