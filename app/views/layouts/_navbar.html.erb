@@ -1,5 +1,5 @@
-<div class="sticky-top">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" >
+<div class="sticky-top" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand me-5 ms-3 font-color-custom-1 fs-2 primary-hover" href="#">RugbyLink</a>
       <button class="navbar-toggler navbar-toggle-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,15 +19,18 @@
           <li class="nav-item">
             <%= link_to 'Games', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
           </li>
+
+
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle font-color-custom-1 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <ul class="dropdown-menu dropdown-menu-start">
+              <li><a class="dropdown-item primary-active" href="#">Action</a></li>
+              <li><a class="dropdown-item primary-active" href="#">Another action</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item primary-active" href="#">Something else here</a></li>
             </ul>
           </li>
         </ul>
@@ -37,13 +40,13 @@
           <button class="btn btn-sm btn-danger me-3" type="submit">Search</button>
         </form>
 
-        <div class="dropdown">
-          <a class="nav-link dropdown-toggle font-color-custom-1 ms-4 me-4 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle ms-4 me-4 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span><i class="bi bi-person-circle"></i></span>&nbsp;&nbsp;Profile
           </a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#"><i class="bi bi-people"></i>&nbsp;&nbsp;&nbsp;Users</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-sliders2-vertical"></i>&nbsp;&nbsp;&nbsp;Settings</a></li>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item primary-active" href="/users"><i class="bi bi-people"></i>&nbsp;&nbsp;&nbsp;Users</a></li>
+            <li><a class="dropdown-item primary-active" href="#"><i class="bi bi-sliders2-vertical"></i>&nbsp;&nbsp;&nbsp;Settings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li class="text-center"><%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm', data: {"turbo-confirm": "Are you sure?"} %></li>
           </ul>
@@ -53,9 +56,7 @@
   </nav>
 </div>
 
-
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-theme="dark">
   <div class="offcanvas-header font-color-custom-1">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel font-color-custom-1">Menu</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -83,9 +84,9 @@
         Dropdown button
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><a class="dropdown-item primary-active" href="#">Action</a></li>
+        <li><a class="dropdown-item primary-active" href="#">Another action</a></li>
+        <li><a class="dropdown-item primary-active" href="#">Something else here</a></li>
       </ul>
       <%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm me-5', data: {"turbo-confirm": "Are you sure?"} %>
 

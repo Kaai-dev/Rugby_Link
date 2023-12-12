@@ -3,15 +3,17 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="clickable-table-row"
 export default class extends Controller {
   connect() {
-    console.log(this.element.dataset.value)
+    
     
   }
 
   clicked(event){
+    event.stopPropagation();
     // event.preventDefault();
     console.log("Clicked");
-    const playerId = this.element.dataset.value
+    const objectId = this.element.dataset.value;
+    const url = window.location.href;
 
-    window.location.href = `/players/${playerId}`;
+    window.location.href = `${url}/${objectId}`;
   }
 }

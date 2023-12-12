@@ -9,9 +9,10 @@
 
 unless User.find_by(email: 'defaultuser@gmail.com')
     user = User.new(
-        username: 'user',
-        password: 'user*1234',
-        password_confirmation: 'user*1234'
+        username: 'User',
+        password: 'User*1234',
+        password_confirmation: 'User*1234',
+        email: 'user@example.com'
     )
 
     if user.save

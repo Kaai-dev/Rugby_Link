@@ -1,4 +1,4 @@
-<div data-controller="">
+<div data-controller="" data-bs-theme="light">
   <%= simple_form_for player do |f| %>
     <% if player.errors.any? %>
       <div style="color: red">
@@ -23,8 +23,6 @@
             <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
           <% end %>
           <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
-
-
 
         <br>
         <br>
@@ -69,6 +67,7 @@
 
         <br>
         <!--<p class="text-center font-color-custom-1"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>-->
+        
       </div>
       <div class="col-md-9">
         <div class="text-center">

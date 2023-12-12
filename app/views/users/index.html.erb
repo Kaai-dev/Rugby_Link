@@ -1,0 +1,57 @@
+<!--<p style="color: green"><%= notice %></p>-->
+<div class="container">
+
+  <div class="mb-3 mb-sm-0">
+      <div class="card" data-bs-theme="dark">
+        <div class="card-body">
+          <h5 class="card-title font-color-custom-1 fs-6">Welcome new users to the club!</h5>
+          <h1 class="font-color-custom-1 text-center mt-4">Users</h1>
+          <br>
+          <%= link_to "Register User", new_user_path, class: "btn btn-danger primary-background" %>
+          <br>
+          <br>
+          <div id="users" >
+            <table class="table table-hover">
+              <thead>
+                <tr >
+                  <th scope="col"><p>Username</p></th>
+                  <th scope="col"><p>Created</p></th>
+                  <th scope="col"><p>Email</p></th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <% if User.any? %>
+                  <% @users.each do |user| %>
+                    <div id="<%= dom_id user %>">
+                      <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= user.id %>" data-action="click->clickable-table-row#clicked">
+
+                        <% if user.username.present? %>
+                          <td class=" mobile-tables" ><%= user.username %></td>
+                        <% else %>
+                          <td class=" mobile-tables" > - </td>
+                        <% end %>
+                        <td class="" ><%= user.created_at %></td>
+                        <td class="" ><%= user.email %></td>
+
+                      </tr>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables">-</td>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+<br>
