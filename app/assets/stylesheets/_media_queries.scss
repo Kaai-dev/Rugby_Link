@@ -2,24 +2,33 @@
   .mobile-tables {
       display: none;
     }
+
+    .mobile-container{
+      width: 100%
+    }
 }
 
 .mobile-tables {
-    display: 'inline-block';
-  
-  .circle-icon, .show-circle-icon {
-    /* Adjusted properties for mobile */
-    position: absolute;
-    left: 30%;
-    top: 50%;
-  }
-  
-  .show-circle-icon {
-    /* Additional adjustments for .show-circle-icon if needed */
-    left: 16%;
-    top: 30%;
-  }
+  display: 'inline-block';
 }
+
+.mobile-container{
+      width: 50%
+    }
+    
+.circle-icon, .show-circle-icon {
+  /* Adjusted properties for mobile */
+  position: absolute;
+  left: 30%;
+  top: 50%;
+}
+  
+.show-circle-icon {
+  /* Additional adjustments for .show-circle-icon if needed */
+  left: 16%;
+  top: 30%;
+}
+
 
 .circle-icon, .show-circle-icon {
     /* Common properties */
@@ -66,3 +75,5 @@
         top: 30%;
     }
 }
+
+

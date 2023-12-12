@@ -1,29 +1,49 @@
-<main class="form-signin form-custom">
-  <div class="container text-center">
-    <h2 class="h3 mb-3 fw-normal">Log-In</h2>
-    <br/>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-floating">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "floatingInput", placeholder: "Email" %>
-        <%= f.label :email %>
+<!--<p style="color: green"><%= notice %></p>-->
+<div class="container-sm">
+  <div class="d-flex justify-content-center text-center">
+    <div class="card mobile-card">
+      <div class="card-body">
+        <h1 class="font-color-custom-1 mt-4">Log-In</h1>
+        <br>
+        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <br>
+        <h1 class="font-color-custom-1" >
+          ######LOGO HERE#####
+        </h1>
+        <br>
+        <br>
+        <br>
+        
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-floating">
+            <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control-sm", id: "floatingInput", placeholder: "Username" %>
+            <%= f.label :username %>
+          </div>
+          <br/>
+          <div class="form-floating">
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-sm", id: "floatingPassword", placeholder: "Password" %>
+            <%= f.label :password %>
+          </div>
+          <br/>
+          <% if devise_mapping.rememberable? %>
+            <div class="checkbox mb-3">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, class: "font-color-custom-1" %>
+            </div>
+          <% end %>
+          <div class="actions">
+            <%= f.submit "Log-in", class:"btn btn-primary form-custom-button" %>
+          </div>
+        <% end %>
+
+        <br/>
+        <%= render "devise/shared/links" %>
+        <br/>
+
       </div>
-      <br/>
-      <div class="form-floating">
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
-        <%= f.label :password %>
-      </div>
-      <br/>
-      <% if devise_mapping.rememberable? %>
-        <div class="checkbox mb-3">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-      <div class="actions">
-        <%= f.submit "Log-in", class:"btn btn-primary form-custom-button" %>
-      </div>
-    <% end %>
-    <br/>
-    <%= render "devise/shared/links" %>
+    </div>
   </div>
-</main>
+</div>
+<br>
+<br>
+

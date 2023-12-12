@@ -35,8 +35,11 @@
     <div class="sticky-top">
       <%= render "layouts/navbar" %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <div class="d-flex">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
       
       <!--<p class="notice"><%= notice %></p>

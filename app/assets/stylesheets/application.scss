@@ -3,7 +3,7 @@
 @import "navbar";
 @import "fonts";
 @import "player_profile";
-@import "sidebar";
+// @import "sidebar";
 @import "profile_pic";
 
 
@@ -18,6 +18,10 @@
 body{
   background-color: var(--tertiary) !important;
 }
+
+.primary-hover:hover {
+    color: var(--primary) !important; /* Bootstrap 5 'danger' color */
+  }
 
 .cursor-pointer {
   cursor: pointer;

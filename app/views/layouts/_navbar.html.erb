@@ -1,28 +1,28 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand me-5 ms-3 font-color-custom-1 fs-2" href="#">RugbyLink</a>
+    <a class="navbar-brand me-5 ms-3 font-color-custom-1 fs-2 primary-hover" href="#">RugbyLink</a>
     <button class="navbar-toggler navbar-toggle-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to 'Teams', "#", class: "nav-link font-color-custom-1 fs-6" %>
+          <%= link_to 'Teams', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Players', players_path, class: "nav-link font-color-custom-1 fs-6" %>
+          <%= link_to 'Players', players_path, class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Absences', "#", class: "nav-link font-color-custom-1 fs-6" %>
+          <%= link_to 'Absences', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Games', "#", class: "nav-link font-color-custom-1 fs-6" %>
+          <%= link_to 'Games', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle font-color-custom-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle font-color-custom-1 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -30,10 +30,23 @@
           </ul>
         </li>
       </ul>
+
       <form class="d-flex" role="search">
         <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-sm btn-danger me-3" type="submit">Search</button>
       </form>
+
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle font-color-custom-1 ms-4 me-4 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span><i class="bi bi-person-circle"></i></span>&nbsp;&nbsp;Profile
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#"><i class="bi bi-people"></i>&nbsp;&nbsp;&nbsp;Users</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-sliders2-vertical"></i>&nbsp;&nbsp;&nbsp;Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="text-center"><%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm', data: {"turbo-confirm": "Are you sure?"} %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
@@ -66,11 +79,13 @@
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
         Dropdown button
       </button>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-dark">
         <li><a class="dropdown-item" href="#">Action</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
+      <%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm me-5', data: {"turbo-confirm": "Are you sure?"} %>
+
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
