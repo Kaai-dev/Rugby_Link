@@ -2,7 +2,7 @@
 <div class="container">
 
   <div class="mb-3 mb-sm-0">
-      <div class="card">
+      <div class="card" data-bs-theme="dark">
         <div class="card-body">
           <h5 class="card-title font-color-custom-1 fs-6">Welcome new players to the club!</h5>
           <h1 class="font-color-custom-1 text-center mt-4">Players</h1>
@@ -11,9 +11,9 @@
           <br>
           <br>
           <div id="players" >
-            <table class="table table-hover table-dark">
+            <table class="table table-hover">
               <thead>
-                <tr>
+                <tr >
                   <th class="mobile-tables" scope="col"><p>Nickname</p></th>
                   <th scope="col"><p>Name</p></th>
                   <th scope="col"><p>Cell Phone</p></th>
@@ -31,14 +31,14 @@
                       <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= player.id %>" data-action="click->clickable-table-row#clicked">
 
                         <% if player.nickname.present? %>
-                          <td class="font-color-custom-1 mobile-tables" ><%= player.nickname %></td>
+                          <td class=" mobile-tables" ><%= player.nickname %></td>
                         <% else %>
-                          <td class="font-color-custom-1 mobile-tables" > - </td>
+                          <td class=" mobile-tables" > - </td>
                         <% end %>
-                        <td class="font-color-custom-1" ><%= player.fullname %></td>
-                        <td class="font-color-custom-1" ><%= player.cellphone_number %></td>
-                        <td class="font-color-custom-1 mobile-tables" ><%= player.player_position %></td>
-                        <td class="font-color-custom-1 mobile-tables" ><%= player.medical_conditions %></td>
+                        <td class="" ><%= player.fullname %></td>
+                        <td class="" ><%= player.cellphone_number %></td>
+                        <td class=" mobile-tables" ><%= player.player_position %></td>
+                        <td class=" mobile-tables" ><%= player.medical_conditions %></td>
                         <% if player.has_id %>
                           <td class="mobile-tables">
                             <div class="d-flex justify-content-center align-items-center mobile-tables" style="height:100%;">

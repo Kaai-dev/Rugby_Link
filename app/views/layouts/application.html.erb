@@ -32,9 +32,11 @@
   </head>
 
   <body>
-    <div class="sticky-top">
+
+    <% if user_signed_in? %>
+      
       <%= render "layouts/navbar" %>
-    </div>
+    <% end %>      
 
     <div class="d-flex">
       <p class="notice"><%= notice %></p>

@@ -5,6 +5,7 @@
 @import "player_profile";
 // @import "sidebar";
 @import "profile_pic";
+@import "tables";
 
 
 
@@ -40,9 +41,6 @@ body{
   border-color: var(--primary);
 }
 
-
-
-
 .nav-link.active {
   background-color: var(--primary) !important; // Use !important to ensure your styles take precedence
 }
@@ -51,9 +49,7 @@ body{
   background-color: var(--primary);
 }
 
-.secondary-background{
-  background-color: var(--secondary);
-}
+
 
 
 .table-hover tbody tr:hover td.font-color-custom-1 {
