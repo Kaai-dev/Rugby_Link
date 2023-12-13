@@ -1,4 +1,4 @@
-<div data-controller="" data-bs-theme="light">
+<div data-controller="">
   <%= simple_form_for user do |f| %>
     <% if user.errors.any? %>
       <div style="color: red">
@@ -30,7 +30,7 @@
         <!-- Button trigger modal -->
 
         <!-- Modal -->
-        <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true" >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" >
               <div class="modal-header border border-0">
@@ -54,8 +54,8 @@
                 <br>
               <div class="border-bottom hr-show-custom mb-4" style="margin-left:4%;" ></div>
               <div class="modal-footer border border-0">
-                  <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
-                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview"} %>
+                  <%= f.label :user_profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
+                  <%= f.file_field :user_profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview"} %>
                   <% if user.user_profile_pic.attached? %>
                     <%= link_to "Delete Pic", delete_user_profile_pic_user_path(user), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
                   <% end %>
