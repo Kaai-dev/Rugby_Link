@@ -7,17 +7,39 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-unless User.find_by(email: 'defaultuser@gmail.com')
+unless User.find_by(email: 'user@example.com')
+
     user = User.new(
         username: 'User',
         password: 'User*1234',
         password_confirmation: 'User*1234',
-        email: 'user@example.com'
+        email: 'user@example.com',
+        role: 0
     )
+    user.save
+
+    coach = User.new(
+        username: 'Coach',
+        password: 'Coach*1234',
+        password_confirmation: 'Coach*1234',
+        email: 'coach@example.com',
+        role: 1
+    )
+    coach.save
+
+    admin = User.new(
+        username: 'Admin',
+        password: 'Admin*1234',
+        password_confirmation: 'Admin*1234',
+        email: 'admin@example.com',
+        role: 2
+    )
+    admin.save
 
     if user.save
-        puts "User created successfully."
+        puts "Users created successfully."
     else
         puts "Failed to create user: #{user.errors.full_messages}"
     end
+
 end

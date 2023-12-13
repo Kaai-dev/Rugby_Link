@@ -1,29 +1,29 @@
 <div class="sticky-top" data-bs-theme="dark">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand me-5 ms-3 font-color-custom-1 fs-2 primary-hover" href="#">RugbyLink</a>
+      <a class="navbar-brand me-5 ms-3 fs-2 primary-hover" href="#">Rugby-Link</a>
       <button class="navbar-toggler navbar-toggle-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <%= link_to 'Teams', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
+            <%= link_to 'Teams', "#", class: "nav-link fs-6 primary-hover" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Players', players_path, class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
+            <%= link_to 'Players', players_path, class: "nav-link fs-6 primary-hover" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Absences', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
+            <%= link_to 'Absences', "#", class: "nav-link fs-6 primary-hover" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Games', "#", class: "nav-link font-color-custom-1 fs-6 primary-hover" %>
+            <%= link_to 'Games', "#", class: "nav-link fs-6 primary-hover" %>
           </li>
 
 
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle font-color-custom-1 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu dropdown-menu-start">
@@ -57,26 +57,26 @@
 </div>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-theme="dark">
-  <div class="offcanvas-header font-color-custom-1">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel font-color-custom-1">Menu</h5>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body p-4">
-    <div class="fs-2 text-center mb-5 font-color-custom-1">
-      #LOGO HERE#
+    <div class="fs-2 text-center mb-5">
+      <%= image_tag 'rugby-link-logo.png', style: "width:100%; max-height:250px;" %>
     </div>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <%= link_to 'Teams', "#", class: "nav-link font-color-custom-1 fs-6" %>
+        <%= link_to 'Teams', "#", class: "nav-link fs-6" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Players', players_path, class: "nav-link font-color-custom-1 fs-6" %>
+        <%= link_to 'Players', players_path, class: "nav-link fs-6" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Absences', "#", class: "nav-link font-color-custom-1 fs-6" %>
+        <%= link_to 'Absences', "#", class: "nav-link fs-6" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Games', "#", class: "nav-link font-color-custom-1 fs-6" %>
+        <%= link_to 'Games', "#", class: "nav-link fs-6" %>
       </li>
     </ul>
     <div class="dropdown mb-3">
