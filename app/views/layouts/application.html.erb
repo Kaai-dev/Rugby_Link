@@ -19,14 +19,12 @@
   <body>
 
     <% if user_signed_in? %>
-      
       <%= render "layouts/navbar" %>
-    <% end %>      
+    <% end %>
+    
 
-    <div class="d-flex">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    </div>
     <%= yield %>
       
       <!--<p class="notice"><%= notice %></p>
