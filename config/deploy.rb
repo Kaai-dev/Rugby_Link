@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.3"
 
-set :application, "Rugby_Link"
+set :application, "rugby_link"
 set :repo_url, "git@github.com:Kaai-dev/Rugby_Link.git"
 
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
