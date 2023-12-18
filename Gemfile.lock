@@ -93,7 +93,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
-    capistrano (3.18.0)
+    capistrano (3.17.3)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -312,7 +312,7 @@ DEPENDENCIES
   attr_encrypted
   bootsnap
   bootstrap (~> 5.3.0.alpha3)
-  capistrano (~> 3.11)
+  capistrano (~> 3.17.3)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
   capistrano-rbenv (~> 2.1, >= 2.1.4)
