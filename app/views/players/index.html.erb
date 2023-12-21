@@ -19,7 +19,7 @@
                   <th scope="col"><p>Cell Phone</p></th>
                   <th class="mobile-tables" scope="col"><p>Position</p></th>
                   <th class="mobile-tables" scope="col"><p>Medical Conditions</p></th>
-                  <th class="mobile-tables" scope="col"><p>ID</p></th>
+                  <th class="mobile-tables" scope="col"><p>ID number</p></th>
                   <th class="mobile-tables" scope="col"><p>Photo</p></th>
                   <th class="mobile-tables" scope="col"><p>Medical Aid</p></th>
                 </tr>
@@ -39,7 +39,7 @@
                         <td class="" ><%= player.cellphone_number %></td>
                         <td class=" mobile-tables" ><%= player.player_position %></td>
                         <td class=" mobile-tables" ><%= player.medical_conditions %></td>
-                        <% if player.has_id %>
+                        <% if player.encrypted_id_number.present? %>
                           <td class="mobile-tables">
                             <div class="d-flex justify-content-center align-items-center mobile-tables" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>

@@ -1,27 +1,38 @@
+
+@media screen and (min-width: 991px) { /* Adjust 600px to your requirement */
+  .dark-mode-div {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: 991px) { /* Adjust 600px to your requirement */
   .mobile-tables {
-      display: none;
-    }
-
-    .mobile-container{
-      width: 100%
-    }
+    display: none;
+  }
+  
+  .mobile-container{
+    width: 100%
+  }
 }
 
-.mobile-tables {
-  display: 'inline-block';
-}
 
-.mobile-container{
-      width: 50%
-    }
-    
-.circle-icon, .show-circle-icon {
-  /* Adjusted properties for mobile */
+
+
+
+.circle-icon {
+  /* Default position */
   position: absolute;
-  left: 30%;
-  top: 50%;
+  left: 16%;
+  top: 23%;
 }
+
+.show-circle-icon {
+    /* Default position */
+    position: absolute;
+    left: 16%;
+    top: 30%;
+}
+
   
 .show-circle-icon {
   /* Additional adjustments for .show-circle-icon if needed */
@@ -44,24 +55,9 @@
     width: 40px;
     height: 40px;
   }
-  
-  .circle-icon {
-    /* Default position */
-    position: absolute;
-    left: 16%;
-    top: 23%;
-  }
-
-.show-circle-icon {
-    /* Default position */
-    position: absolute;
-    left: 16%;
-    top: 30%;
-}
 
 @media screen and (max-width: 768px) {
 
-  
   .circle-icon, .show-circle-icon {
         /* Adjusted properties for mobile */
         position: absolute;
@@ -69,11 +65,9 @@
         top: 16%;
     }
 
-    .show-circle-icon {
-        /* Additional adjustments for .show-circle-icon if needed */
-        left: 16%;
-        top: 30%;
-    }
+  .show-circle-icon {
+      /* Additional adjustments for .show-circle-icon if needed */
+      left: 16%;
+      top: 30%;
+  }
 }
-
-

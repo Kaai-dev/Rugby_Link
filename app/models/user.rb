@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :rememberable, :validatable, authentication_keys: [:username]
 
   has_one_attached :user_profile_pic, dependent: :destroy
+  has_many :user_settings, dependent: :destroy
 
   # validates :email, uniqueness: true
   validates :username, uniqueness: true

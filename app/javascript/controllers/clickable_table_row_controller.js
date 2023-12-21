@@ -8,12 +8,13 @@ export default class extends Controller {
   }
 
   clicked(event){
-    event.stopPropagation();
-    // event.preventDefault();
+    event.preventDefault();
     console.log("Clicked");
     const objectId = this.element.dataset.value;
     const url = window.location.href;
 
+    window.location.href = ``;
     window.location.href = `${url}/${objectId}`;
+
   }
 }
