@@ -18,6 +18,17 @@ unless User.find_by(email: 'user@example.com')
     )
     user.save
 
+    if user.save
+        UserSetting.create(
+            dark_mode: false,
+            user: user
+        )
+    puts 'User created Successfully'
+    else
+        puts "User could not be created: #{user.errors.full_messages.join(", ")}"
+    end
+    
+
     coach = User.new(
         username: 'Coach',
         password: 'Coach*1234',
@@ -26,6 +37,16 @@ unless User.find_by(email: 'user@example.com')
         role: 1
     )
     coach.save
+
+    if coach.save
+        UserSetting.create(
+            dark_mode: false,
+            user: coach
+        )
+        puts 'Coach created Successfully'
+    else
+        puts "Coach could not be created: #{user.errors.full_messages.join(", ")}"
+    end
 
     admin = User.new(
         username: 'Admin',
@@ -36,10 +57,16 @@ unless User.find_by(email: 'user@example.com')
     )
     admin.save
 
-    if user.save
-        puts "Users created successfully."
+    if admin.save
+        UserSetting.create(
+            dark_mode: false,
+            user: admin
+        )
+        puts 'Admin created Successfully'
     else
-        puts "Failed to create user: #{user.errors.full_messages}"
+        puts "Admin could not be created: #{user.errors.full_messages.join(", ")}"
     end
+
+
 
 end

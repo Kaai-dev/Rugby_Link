@@ -1,13 +1,5 @@
-
-
-
 .sidebar{
+  float: left;
+  width: 150px;
   height: 100%;
-  width: 15%;
-  position: fixed;
-  display: inline-block;
-}
-
-.sidebar-bg-custom{
-  background-color: var(--secondary);
 }

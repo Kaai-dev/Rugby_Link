@@ -26,8 +26,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    
     respond_to do |format|
       if @user.save
+
+        default_user_setting = UserSetting.create(
+          dark_mode: false,
+          user_id: @user.id,
+        )
+        
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -63,6 +70,7 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), notice: 'Profile picture was successfully deleted.'
 
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

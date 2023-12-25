@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html style="height: 100%; padding: 0;" data-bs-theme="dark" data-controller="dark-mode">
+<html style="height: 100%; padding: 0;" data-bs-theme="<%= theme_setting %>" data-controller="dark-mode">
 
   <head>
   
@@ -16,10 +16,12 @@
 
   </head>
 
-  <body>
+  <body style="background-color: <%= current_user&.user_setting&.dark_mode ? '#505050' : '#b8b8b8' %>">
 
     <% if user_signed_in? %>
       <%= render "layouts/navbar" %>
+      <%= render "layouts/sidebar" %>
+
     <% end %>
     
 

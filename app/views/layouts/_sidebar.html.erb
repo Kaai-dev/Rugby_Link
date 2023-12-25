@@ -1,29 +1,15 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar-bg-custom sidebar">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-    <span class="fs-4">Rugby Link Menu</span>
-  </a>
-  <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <%= link_to 'Players', players_path, class: "nav-link #{'active' if current_page?(players_path)} font-color-custom-1 #{'primary-hover' if !current_page?(players_path)}" %>
-    </li>
-    <!--<li>
-      <%= link_to 'Attendance', absences_path, class: "nav-link #{'active' if current_page?(absences_path)} font-color-custom-1 #{'primary-hover' if !current_page?(absences_path)}" %>
-    </li>-->
-  </ul>
-  <hr>
-  <div class="dropdown">
-    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>mdo</strong>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-      <li><a class="dropdown-item" href="#">New project...</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
-    </ul>
+<div class="sidebar">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
   </div>
+
+
 </div>
