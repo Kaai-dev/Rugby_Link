@@ -16,21 +16,25 @@
 
   </head>
 
-  <body style="background-color: <%= current_user&.user_setting&.dark_mode ? '#505050' : '#b8b8b8' %>">
+  <menu>
+  </menu>
 
+  <body style="background-color: <%= current_user&.user_setting&.dark_mode ? '#505050' : '#b8b8b8' %>;">
+    
     <% if user_signed_in? %>
       <%= render "layouts/navbar" %>
       <%= render "layouts/sidebar" %>
-
     <% end %>
-    
 
+    <div class="sidebar-side">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <%= yield %>
+    </div> 
+
+  
+
       
-      <!--<p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>-->
 
   </body>
 

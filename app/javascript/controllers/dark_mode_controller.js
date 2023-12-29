@@ -79,6 +79,9 @@ export default class extends Controller {
         }
       });
 
+      document.querySelector(".sidebar").classList.remove("bg-dark");
+      document.querySelector(".sidebar").classList.add("bg-light");
+
     } else {
       document.documentElement.setAttribute("data-bs-theme", "dark");
       const body = document.querySelector("body");
@@ -98,6 +101,9 @@ export default class extends Controller {
           throw new Error("Network response was not ok.");
         }
       });
+
+      document.querySelector(".sidebar").classList.remove("bg-light");
+      document.querySelector(".sidebar").classList.add("bg-dark");
     }
   }
 

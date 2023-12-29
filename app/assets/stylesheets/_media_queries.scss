@@ -3,6 +3,7 @@
   .dark-mode-div {
     display: none !important;
   }
+
 }
 
 @media screen and (max-width: 991px) { /* Adjust 600px to your requirement */
@@ -12,6 +13,16 @@
   
   .mobile-container{
     width: 100%
+  }
+  
+  .sidebar{
+    display: none;
+  }
+
+  .sidebar-side{
+    width: 100%;
+    margin-left: 0%;
+
   }
 }
 
