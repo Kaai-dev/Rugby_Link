@@ -22,8 +22,20 @@
         <br>
         <br>
 
-        <h4 class="mt-5 font-color-custom-1 text-center">Positions</h4>
-        <p class="text-center font-color-custom-1">-</p>
+        <table class="table">
+          <thead>
+            <th>Number</th>
+            <th>Position</th>
+          </thead>
+          <tbody>
+            <% @player.positions.each do |position, number| %>
+              <tr>
+                <th scope="row"><%= position.number %></th>
+                <td><%= position.position %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
 
 

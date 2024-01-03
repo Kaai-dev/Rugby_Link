@@ -67,8 +67,8 @@
         <h4 class="mb-3">Positions</h4>
 
         <%= f.collection_check_boxes :position_ids, Position.all, :id, :position do |b| %>
-          <%= b.check_box class: "btn-check", style: "width: 50%;" %>
-          <%= b.label(class: "btn btn-outline-primary mb-1", style: "width: 50%;") { "#{b.object.number} - #{b.text}" } %>
+          <%= b.check_box class: "btn-check", style: "width: 100%;" %>
+          <%= b.label(class: "btn btn-outline-primary mb-1", style: "width: 100%;") { "#{b.object.number} - #{b.text}" } %>
           <br>
         <% end %>
 
