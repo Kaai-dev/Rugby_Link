@@ -14,13 +14,13 @@
             <table class="table table-hover">
               <thead>
                 <tr >
+                  <th scope="col"><p>Photo</p></th>
                   <th class="mobile-tables" scope="col"><p>Nickname</p></th>
                   <th scope="col"><p>Name</p></th>
                   <th scope="col"><p>Cell Phone</p></th>
                   <th class="mobile-tables" scope="col"><p>Position</p></th>
                   <th class="mobile-tables" scope="col"><p>Medical Conditions</p></th>
                   <th class="mobile-tables" scope="col"><p>ID number</p></th>
-                  <th class="mobile-tables" scope="col"><p>Photo</p></th>
                   <th class="mobile-tables" scope="col"><p>Medical Aid</p></th>
                 </tr>
               </thead>
@@ -29,6 +29,13 @@
                   <% @players.each do |player| %>
                     <div id="<%= dom_id player %>">
                       <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= player.id %>" data-action="click->clickable-table-row#clicked">
+                      
+
+                        <% if player.profile_pic.attached? %>
+                          <td class=" mobile-tables" ><%= profile_pic_avatar_for(player) %></td>
+                        <% else %>
+                          <td class=" mobile-tables" > - </td>
+                        <% end %>
 
                         <% if player.nickname.present? %>
                           <td class=" mobile-tables" ><%= player.nickname %></td>

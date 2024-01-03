@@ -1,11 +1,19 @@
+    
+    
     <div class="row">
-      <div class="col-sm-6 text-center mb-3">
-        <%= link_to "Edit Player", edit_player_path, class: "btn btn-primary" %>
+      <div class="col-sm-4 text-center mb-3">
+        <%= link_to "Back", players_path, class: "btn btn-warning btn-sm" %>
       </div>
-      <div class="col-sm-6 text-center mb-3">
-        <%= button_to "Delete Player", player_path(@player), method: :delete, class: "btn btn-danger primary-background" %>
+      <div class="col-sm-4 text-center mb-3">
+        <%= link_to "Edit Player", edit_player_path, class: "btn btn-primary btn-sm" %>
+      </div>
+      <div class="col-sm-4 text-center mb-3">
+        <%= button_to "Delete Player", player_path(@player), method: :delete, class: "btn btn-danger primary-background btn-sm" %>
       </div>          
     </div>
+
+
+
     <div class="border-bottom hr-show-custom mb-2" ></div>      
     <br>
     <br>
@@ -22,24 +30,15 @@
         <br>
         <br>
 
-        <table class="table">
-          <thead>
-            <th>Number</th>
-            <th>Position</th>
-          </thead>
-          <tbody>
-            <% @player.positions.each do |position, number| %>
-              <tr>
-                <th scope="row"><%= position.number %></th>
-                <td><%= position.position %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-
-
-
+        <% @player.positions.each do |position, number| %>
+          <div class="btn-group-vertical d-block" role="group" aria-label="Vertical button group", style="width: 80%; margin-left: auto; margin-right: auto;">
+            <%= link_to  "#{position.number} - #{position.position}", "#", class: "btn btn-outline-secondary btn-sm mb-1" %>
+          </div>
+        <% end %>
+        <br>
+        <br>
       </div>
+
       <div class="col-md-9">
         <h1 class="font-color-custom-1 text-center"><%= player.fullname %></h1>
         <h4 class="mt-1 font-color-custom-1 text-center"><%= player.nickname %></h4>

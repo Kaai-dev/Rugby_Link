@@ -16,6 +16,8 @@
             </ul>
           </div>
         </div>
+        <br>
+        <br>
       <% end %>
     </div>
 
@@ -61,8 +63,11 @@
                 <br>
               <div class="border-bottom hr-show-custom mb-4"></div>
               <div class="modal-footer border border-0">
+                  <%= link_to "Remove", "#",class: "btn btn-sm btn-danger", style: "display: none;", data: { action: "click->profile-pic-preview#removePreview", "profile-pic-preview-target": "remove"} %>
+                  <%= link_to "Save", "#",class: "btn btn-sm btn-success", style: "display: none;", data: { "profile-pic-preview-target": "save", "bs-dismiss": "modal" } %>
                   <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
-                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview"} %>
+                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField"  } %>
+
                   <% if player.profile_pic.attached? %>
                     <%= link_to "Delete Pic", delete_profile_pic_player_path(player), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
                   <% end %>
@@ -71,11 +76,11 @@
           </div>
         </div>
 
-        <h4 class="mb-3">Positions</h4>
+        <h4 class="mb-4">Positions</h4>
 
         <%= f.collection_check_boxes :position_ids, Position.all, :id, :position do |b| %>
-          <%= b.check_box class: "btn-check", style: "width: 100%;" %>
-          <%= b.label(class: "btn btn-outline-primary mb-1", style: "width: 100%;") { "#{b.object.number} - #{b.text}" } %>
+          <%= b.check_box class: "btn-check" %>
+          <%= b.label(class: "btn btn-outline-secondary mb-1", style: "width: 80%;") { "#{b.object.number} - #{b.text}" } %>
           <br>
         <% end %>
 
