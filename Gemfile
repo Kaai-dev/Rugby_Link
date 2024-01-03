@@ -9,7 +9,6 @@ gem 'figaro'
 gem 'jquery-rails'
 gem 'pg', '~> 1.5', '>= 1.5.3'
 
-gem 'capistrano', '~> 3.17.3'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'

@@ -1,18 +1,24 @@
 <div data-controller="">
   <%= simple_form_for user do |f| %>
-    <% if user.errors.any? %>
-      <div style="color: red">
-        <br>
-        <h2 class="text-center"><%= pluralize(user.errors.count, "error")%> prohibited this user from being saved:</h2>
-        <ul>
-          <div class="mx-auto" style="width: 50%;">
-            <% user.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
+
+    <div class="d-block">
+      <% if user.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <div style="color: red">
+            <br>
+            <h2 class="text-center"><%= pluralize(user.errors.count, "error")%> prohibited this user from being saved:</h2>
+            <ul>
+              <div class="mx-auto" style="width: 50%;">
+                <% user.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </div>
+            </ul>
           </div>
-        </ul>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
+
     <div class="row">
       <div class="col-md-3 text-center" data-controller="profile-pic-preview">
           <% if user.user_profile_pic.attached? %>

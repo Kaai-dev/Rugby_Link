@@ -312,7 +312,6 @@ DEPENDENCIES
   attr_encrypted
   bootsnap
   bootstrap (~> 5.3.0.alpha3)
-  capistrano (~> 3.17.3)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
   capistrano-rbenv (~> 2.1, >= 2.1.4)
