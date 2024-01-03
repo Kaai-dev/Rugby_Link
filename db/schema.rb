@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_21_141256) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_29_131154) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_21_141256) do
     t.string "nickname"
     t.string "fullname"
     t.string "encrypted_cellphone_number"
-    t.integer "player_position", default: [], array: true
     t.text "medical_conditions"
     t.boolean "has_id"
     t.string "portrait_photo"
@@ -75,6 +74,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_21_141256) do
     t.datetime "updated_at", null: false
     t.string "encrypted_id_number_iv"
     t.string "encrypted_cellphone_number_iv"
+  end
+
+  create_table "players_positions", id: false, force: :cascade do |t|
+    t.uuid "player_id", null: false
+    t.uuid "position_id", null: false
+    t.index ["player_id"], name: "index_players_positions_on_player_id"
+    t.index ["position_id"], name: "index_players_positions_on_position_id"
+  end
+
+  create_table "positions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "number"
+    t.string "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

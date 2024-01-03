@@ -37,7 +37,7 @@
                 <h1 class="modal-title fs-5 text-center font-color-custom-1" id="profilePicModalLabel">Edit Profile Pic</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="border-bottom hr-show-custom mb-4" style="margin-left:4%;"></div>
+              <div class="border-bottom hr-show-custom mb-4" ></div>
               <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center" style="heigt:30%;">
 
@@ -52,7 +52,7 @@
                 </div>
               </div>
                 <br>
-              <div class="border-bottom hr-show-custom mb-4" style="margin-left:4%;" ></div>
+              <div class="border-bottom hr-show-custom mb-4"></div>
               <div class="modal-footer border border-0">
                   <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
                   <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview"} %>
@@ -63,6 +63,16 @@
             </div>
           </div>
         </div>
+
+        <h4 class="mb-3">Positions</h4>
+
+        <%= f.collection_check_boxes :position_ids, Position.all, :id, :position do |b| %>
+          <%= b.check_box class: "btn-check", style: "width: 50%;" %>
+          <%= b.label(class: "btn btn-outline-primary mb-1", style: "width: 50%;") { "#{b.object.number} - #{b.text}" } %>
+          <br>
+        <% end %>
+
+
 
 
         <br>

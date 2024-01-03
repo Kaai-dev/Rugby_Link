@@ -24,17 +24,15 @@
     <% if user_signed_in? %>
       <%= render "layouts/navbar" %>
       <%= render "layouts/sidebar" %>
-    <% end %>
-
-    <div class="sidebar-side">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="sidebar-side">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div> 
+    <% else %>
+      <br>
       <%= yield %>
-    </div> 
-
-  
-
-      
+    <% end %>
 
   </body>
 

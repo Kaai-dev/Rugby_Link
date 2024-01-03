@@ -10,6 +10,8 @@ class Player < ApplicationRecord
 
     has_one_attached :profile_pic, dependent: :destroy
 
+    has_and_belongs_to_many :positions
+
     # validates :profile_pic, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
     # validates :fullname, presence: true
