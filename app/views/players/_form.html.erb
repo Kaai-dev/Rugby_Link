@@ -1,29 +1,38 @@
 <div data-controller="">
   <%= simple_form_for player do |f| %>
-    <% if player.errors.any? %>
-      <div style="color: red">
-        <br>
-        <h2 class="text-center"><%= pluralize(player.errors.count, "error")%> prohibited this player from being saved:</h2>
-        <ul>
-          <div class="mx-auto" style="width: 50%;">
-            <% player.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
+
+
+    <div class="d-block">
+      <% if player.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <div style="color: red">
+            <br>
+            <h2 class="text-center"><%= pluralize(player.errors.count, "error")%> prohibited this player from being saved:</h2>
+            <ul>
+              <div class="mx-auto" style="width: 50%;">
+                <% player.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </div>
+            </ul>
           </div>
-        </ul>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
     <div class="row">
       <div class="col-md-3 text-center" data-controller="profile-pic-preview">
-          <% if player.profile_pic.attached? %>
-            <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
-            <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
-          <% else %>
-            <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
-            <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
-          <% end %>
-          <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
-
+        <div class="position-relative">  
+            <% if player.profile_pic.attached? %>
+              <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+              <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+            <% else %>
+              <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+              <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+            <% end %>
+            <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
+        </div>
         <br>
         <br>
 
@@ -79,6 +88,8 @@
         <!--<p class="text-center font-color-custom-1"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>-->
         
       </div>
+
+
       <div class="col-md-9">
         <div class="text-center">
           <h1 class="mt-4 font-color-custom-1">

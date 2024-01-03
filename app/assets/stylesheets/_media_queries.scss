@@ -33,8 +33,8 @@
 .circle-icon {
   /* Default position */
   position: absolute;
-  left: 16%;
-  top: 23%;
+  right: 20%;
+  bottom: 10%;
 }
 
 .show-circle-icon {
@@ -72,8 +72,8 @@
   .circle-icon, .show-circle-icon {
         /* Adjusted properties for mobile */
         position: absolute;
-        left: 58%;
-        top: 16%;
+        right: 30%;
+        bottom: 5%;
     }
 
   .show-circle-icon {
