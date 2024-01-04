@@ -25,7 +25,8 @@ class UserSettingsController < ApplicationController
 
     respond_to do |format|
       if @user_setting.save
-        format.html { redirect_to user_setting_url(@user_setting), notice: "User setting was successfully created." }
+        flash[:success] = "User setting was successfully created."
+        format.html { redirect_to user_setting_url(@user_setting) }
         format.json { render :show, status: :created, location: @user_setting }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,8 @@ class UserSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @user_setting.update(user_setting_params)
-        format.html { redirect_to user_setting_url(@user_setting), notice: "User setting was successfully updated." }
+        flash[:success] = "User setting was successfully updated."
+        format.html { redirect_to user_setting_url(@user_setting) }
         format.json { render :show, status: :ok, location: @user_setting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,8 @@ class UserSettingsController < ApplicationController
     @user_setting.destroy!
 
     respond_to do |format|
-      format.html { redirect_to user_settings_url, notice: "User setting was successfully destroyed." }
+      flash[:success] = "User setting was successfully destroyed."
+      format.html { redirect_to user_settings_url }
       format.json { head :no_content }
     end
   end

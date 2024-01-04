@@ -23,8 +23,8 @@
     <div class="row">
       <div class="col-md-3 text-center" data-controller="profile-pic-preview">
         <div class="position-relative">  
-            <% if player.profile_pic.attached? %>
-              <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+            <% if player.player_profile_pic.attached? %>
+              <%= image_tag player.player_profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
               <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
             <% else %>
               <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
@@ -49,8 +49,8 @@
               <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center" style="heigt:30%;">
 
-                <% if player.profile_pic.attached? %>
-                  <%= image_tag player.profile_pic, class: "preview-profile-pic profile-pic", data: {"profile-pic-preview-target": "existing" } %>
+                <% if player.player_profile_pic.attached? %>
+                  <%= image_tag player.player_profile_pic, class: "preview-profile-pic profile-pic", data: {"profile-pic-preview-target": "existing" } %>
                   <%= image_tag '', class:"preview-profile-pic",  style: "display: none;", data: { "profile-pic-preview-target": "preview" } %>
                 <% else %>
                   <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data: { "profile-pic-preview-target": "existing" } %>
@@ -64,11 +64,11 @@
               <div class="modal-footer border border-0">
                   <%= link_to "Remove", "#",class: "btn btn-sm btn-danger", style: "display: none;", data: { action: "click->profile-pic-preview#removePreview", "profile-pic-preview-target": "remove"} %>
                   <%= link_to "Save", "#",class: "btn btn-sm btn-success", style: "display: none;", data: { "profile-pic-preview-target": "save", "bs-dismiss": "modal" } %>
-                  <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
-                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField", max_file_size: 80.megabytes  }, accept: 'image/jpeg,image/png,image/jpg' %>
+                  <%= f.label :player_profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
+                  <%= f.file_field :player_profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField", max_file_size: 80.megabytes  }, accept: 'image/jpeg,image/png,image/jpg' %>
 
-                  <% if player.profile_pic.attached? %>
-                    <%= link_to "Delete Pic", delete_profile_pic_player_path(player), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
+                  <% if player.player_profile_pic.attached? %>
+                    <%= link_to "Delete Pic", delete_player_profile_pic_player_path(player), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
                   <% end %>
               </div>
             </div>
@@ -91,10 +91,10 @@
       <div class="col-md-9">
         <div class="text-center">
           <h1 class="mt-4 font-color-custom-1">
-            <%= f.text_field :fullname, class: "form-control player-show-names text-center", placeholder:"Fullname", style: "display: inline-block;", required: true %>
+            <%= f.text_field :fullname, class: "form-control profile-show-names text-center", placeholder:"Fullname", style: "display: inline-block;", required: true %>
           </h1>
           <h4 class="mt-1 font-color-custom-1">
-            <%= f.text_field :nickname, class: "form-control player-show-names text-center", placeholder:"Nickname", style: "display: inline-block;" %>
+            <%= f.text_field :nickname, class: "form-control profile-show-names text-center", placeholder:"Nickname", style: "display: inline-block;" %>
           </h4>
         </div>
         <br>
@@ -108,7 +108,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-            <%= f.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number", required: true %>
+            <%= f.text_field :cellphone_number, class: "form-control custom-form-field w-100", placeholder:"Cell number", required: true %>
           </div>
         </div>
 
@@ -120,7 +120,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Aid:
           </div>
           <div class="col-md-5 d-flex align-items-center mb-3 mt-3">
-              <%= f.text_area :medical_aid, class: "form-control player-form-field w-100", id: "floatingMedicalAid", placeholder:"Medical-Aid"%>
+              <%= f.text_area :medical_aid, class: "form-control custom-form-field w-100", id: "floatingMedicalAid", placeholder:"Medical-Aid"%>
           </div>
         </div>
 
@@ -131,7 +131,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Condition:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex mb-3 mt-3">
-            <%= f.text_area :medical_conditions, class: "form-control player-form-field w-100", id: "floatingMedicalCondition", placeholder:"Condition" %>        
+            <%= f.text_area :medical_conditions, class: "form-control custom-form-field w-100", id: "floatingMedicalCondition", placeholder:"Condition" %>        
           </div>
         </div>
 
@@ -142,7 +142,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;ID Number:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= f.text_field :id_number, class: "form-control player-form-field w-100", placeholder:"ID number", required: true %></td>
+              <td colspan="2"><%= f.text_field :id_number, class: "form-control custom-form-field w-100", placeholder:"ID number", required: true %></td>
           </div>
         </div>
 
@@ -159,7 +159,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Name:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= nokf.text_field :name, class: "form-control player-form-field w-100", placeholder:"Name", required: true %></td>
+              <td colspan="2"><%= nokf.text_field :name, class: "form-control custom-form-field w-100", placeholder:"Name", required: true %></td>
           </div>
         </div>
         <hr>
@@ -170,7 +170,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Relationship:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= nokf.text_field :relationship, class: "form-control player-form-field w-100", placeholder:"Relationship", required: true %></td>
+              <td colspan="2"><%= nokf.text_field :relationship, class: "form-control custom-form-field w-100", placeholder:"Relationship", required: true %></td>
           </div>
 
         </div>
@@ -182,7 +182,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= nokf.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number", required: true %></td>
+              <td colspan="2"><%= nokf.text_field :cellphone_number, class: "form-control custom-form-field w-100", placeholder:"Cell number", required: true %></td>
           </div>
         </div>
         <% end %>

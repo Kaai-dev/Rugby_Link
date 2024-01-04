@@ -29,7 +29,8 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to player_url(@player), notice: "Player was successfully created." }
+        flash[:success] = "Player was successfully created."
+        format.html { redirect_to player_url(@player) }
         format.json { render :show, status: :created, location: @player }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +43,8 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to player_url(@player), notice: "Player was successfully updated." }
+        flash[:success] = "Player was successfully updated."
+        format.html { redirect_to player_url(@player) }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,15 +56,28 @@ class PlayersController < ApplicationController
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
-    redirect_to players_path, notice: 'Player was successfully deleted.'
+    flash[:success] = 'Player was successfully deleted.'
+    redirect_to players_path
   end
 
-  def delete_profile_pic
+  def delete_player_profile_pic
     @player = Player.find(params[:id])
-    @player.profile_pic.purge
+    @player.player_profile_pic.purge
 
-    redirect_to player_path(@player), notice: 'Profile picture was successfully deleted.'
+    flash[:info] = 'Player profile picture was successfully deleted.'
 
+    redirect_to player_path(@player)
+  end
+
+  def flash_back_to_index
+    flash[:warning] = "Registration canceled."
+    redirect_to players_path
+  end
+
+  def flash_cancel_edit
+    @player = Player.find(params[:id])
+    flash[:warning] = "Editing canceled."
+    redirect_to player_path(@player)
   end
 
   private
@@ -82,7 +97,7 @@ class PlayersController < ApplicationController
           :portrait_photo, 
           :medical_aid,
           :id_number,
-          :profile_pic,
+          :player_profile_pic,
           :player_position, # No comma after this line
           position_ids: [],
           next_of_kin_attributes: [

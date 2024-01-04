@@ -8,11 +8,11 @@ class Player < ApplicationRecord
     has_many :absences, dependent: :destroy
     accepts_nested_attributes_for :absences
 
-    has_one_attached :profile_pic, dependent: :destroy
+    has_one_attached :player_profile_pic, dependent: :destroy
 
     has_and_belongs_to_many :positions
 
-    validate :validate_profile_pic
+    validate :validate_player_profile_pic
 
     validates :fullname, presence: true, length: { maximum: 20 }
     validates :nickname, length: { maximum: 20 }
@@ -25,17 +25,17 @@ class Player < ApplicationRecord
 
     private
 
-    def validate_profile_pic
-        return unless profile_pic.attached?
+    def validate_player_profile_pic
+        return unless player_profile_pic.attached?
 
-        if profile_pic.blob.byte_size > 80.megabytes
-            errors.add(:profile_pic, 'is too large. Maximum size allowed is 80MB.')
+        if player_profile_pic.blob.byte_size > 80.megabytes
+            errors.add(:player_profile_pic, 'is too large. Maximum size allowed is 80MB.')
         end
 
         acceptable_types = ["image/jpeg", "image/png", "image/jpg"]
 
-        unless acceptable_types.include?(profile_pic.blob.content_type)
-            errors.add(:profile_pic, 'must be a JPEG, PNG or JPG.')
+        unless acceptable_types.include?(player_profile_pic.blob.content_type)
+            errors.add(:player_profile_pic, 'must be a JPEG, PNG or JPG.')
         end
     end
 

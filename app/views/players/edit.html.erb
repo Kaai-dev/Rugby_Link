@@ -1,10 +1,11 @@
 <!--<p style="color: green"><%= notice %></p>-->
 <div class="container" >
+  <%= flash_messages %>
   <div class="mb-3 mb-sm-0">
     <div class="card">
       <div class="card-body">
         
-        <%= link_to player_path(@player), class: "btn btn-warning btn-sm" do %>
+        <%= link_to flash_cancel_edit_player_path, class: "btn btn-warning btn-sm" do %>
           <i class="bi bi-x-octagon"></i> Cancel
         <% end %>        
         <hr>
@@ -20,5 +21,4 @@
     </div>
   </div>
 </div>
-<br>
 <br>

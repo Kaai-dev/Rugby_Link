@@ -1,5 +1,4 @@
-<div data-controller="">
-  <%= simple_form_for user do |f| %>
+  <%= simple_form_for user, html: { novalidate: true, class: "needs-validation", data: {controller: "bootstrap-validation" }} do |f| %>
 
     <div class="d-block">
       <% if user.errors.any? %>
@@ -16,20 +15,23 @@
             </ul>
           </div>
         </div>
+        <br>
+        <br>
       <% end %>
     </div>
 
     <div class="row">
       <div class="col-md-3 text-center" data-controller="profile-pic-preview">
-          <% if user.user_profile_pic.attached? %>
-            <%= image_tag user.user_profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
-            <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
-          <% else %>
-            <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
-            <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
-          <% end %>
-          <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
-
+        <div class="position-relative">  
+            <% if user.user_profile_pic.attached? %>
+              <%= image_tag user.user_profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+              <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+            <% else %>
+              <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+              <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+            <% end %>
+            <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
+        </div>
         <br>
         <br>
 
@@ -40,10 +42,10 @@
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" >
               <div class="modal-header border border-0">
-                <h1 class="modal-title fs-5 text-center font-color-custom-1" id="profilePicModalLabel">Edit User Profile Pic</h1>
+                <h1 class="modal-title fs-5 text-center font-color-custom-1" id="profilePicModalLabel">Edit Profile Pic</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="border-bottom  mb-4" style="margin-left:4%;"></div>
+              <hr>
               <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center" style="heigt:30%;">
 
@@ -58,10 +60,13 @@
                 </div>
               </div>
                 <br>
-              <div class="border-bottom  mb-4" style="margin-left:4%;" ></div>
+              <hr>
               <div class="modal-footer border border-0">
+                  <%= link_to "Remove", "#",class: "btn btn-sm btn-danger", style: "display: none;", data: { action: "click->profile-pic-preview#removePreview", "profile-pic-preview-target": "remove"} %>
+                  <%= link_to "Save", "#",class: "btn btn-sm btn-success", style: "display: none;", data: { "profile-pic-preview-target": "save", "bs-dismiss": "modal" } %>
                   <%= f.label :user_profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
-                  <%= f.file_field :user_profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview"} %>
+                  <%= f.file_field :user_profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField", max_file_size: 80.megabytes  }, accept: 'image/jpeg,image/png,image/jpg' %>
+
                   <% if user.user_profile_pic.attached? %>
                     <%= link_to "Delete Pic", delete_user_profile_pic_user_path(user), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
                   <% end %>
@@ -69,25 +74,24 @@
             </div>
           </div>
         </div>
-
-
-        <br>
-        <!--<p class="text-center font-color-custom-1"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>-->
         
+
       </div>
+
+
       <div class="col-md-9">
         <div class="text-center">
           <h1 class="mt-4 font-color-custom-1">
-            <%= f.text_field :username, class: "form-control user-show-names text-center", placeholder:"Username", style: "display: inline-block;" %>
+            <%= f.text_field :username, class: "form-control profile-show-names text-center", placeholder:"Username", style: "display: inline-block;" %>
           </h1>
           <h4 class="mt-1 font-color-custom-1">
-            <%= f.text_field :email, class: "form-control user-show-names text-center", placeholder:"Email", style: "display: inline-block;" %>
+            <%= f.text_field :email, class: "form-control profile-show-names text-center", placeholder:"Email", style: "display: inline-block;" %>
           </h4>
         </div>
         <br>
         <br>
 
-        <div class="border-bottom  mb-4" ></div>
+        <hr>
 
         
         <div class="row">
@@ -95,7 +99,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Password:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
-            <%= f.password_field :password, class: "form-control user-form-field w-100", placeholder:"Password" %>
+            <%= f.password_field :password, class: "form-control custom-form-field w-100", placeholder:"Password", required: true %>
           </div>
         </div>
 
@@ -107,7 +111,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Confirm Password:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
-              <%= f.password_field :password_confirmation, class: "form-control user-form-field w-100", id: "floatingMedicalAid", placeholder:"Confirm Password"%>
+              <%= f.password_field :password_confirmation, class: "form-control custom-form-field w-100", id: "floatingMedicalAid", placeholder:"Confirm Password", required: true %>
           </div>
         </div>
 
@@ -116,20 +120,17 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Role:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
-              <%= f.select :role, User.roles.keys.map { |role| [role.titleize, role] }, { include_blank: 'Select Role' }, class:"form-control" %>
+              <%= f.select :role, User.roles.keys.map { |role| [role.titleize, role] }, { include_blank: 'Select Role' }, class:"form-control", required: true %>
           </div>
         </div>
 
-        <br>
-        <div class="border-bottom  mb-5" ></div>
+        <hr>
 
-        <div class="d-flex justify-content-center" style="gap: 200px;">
-          <%# <%= link_to 'Delete user', player_path(@user), method: :delete, data: { confirm: 'Are you sure?' } class:"btn btn-danger primary-background" %>
-          <div>
-            <%= f.submit "Save", class: "btn btn-success mb-5" %>
+          <div class="text-center">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm mt-4 mb-4") do %>
+              <i class="bi bi-floppy"></i>&nbsp; Save
+            <% end %>
           </div>
-        </div>
       </div>
     </div>
   <% end %>
-</div>

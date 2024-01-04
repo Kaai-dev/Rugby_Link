@@ -2,15 +2,25 @@
 <div class="container mb-5" >
   <div class="mb-3 mb-sm-0">
     <div class="card">
-      <div class="card-body">        
-        <div class="row">
-          <div class="col-sm-6 text-center mb-3">
-            <%= link_to "Edit User", edit_user_path, class: "btn btn-primary" %>
+      <div class="card-body">   
+
+        <div class="d-flex justify-content-start mb-3">
+          <div class="btn-group me-auto" role="group" aria-label="Basic example">
+
+            <%= link_to users_path, class: "btn btn-warning btn-sm" do %>
+              <i class="bi bi-backspace"></i> Back
+            <% end %>
+            <%= link_to edit_user_path, class: "btn btn-primary btn-sm" do %>
+              <i class="bi bi-pencil-square"></i> Edit User
+            <% end %>
+
           </div>
-          <div class="col-sm-6 text-center mb-3">
-            <%= button_to "Delete User", user_path(@user), method: :delete, class: "btn btn-danger primary-background" %>
-          </div>          
+
+          <%= button_to user_path(@user), method: :delete, class: "btn btn-danger btn-sm" do %>
+            <i class="bi bi-trash"></i> Delete User
+          <% end %>
         </div>
+
         <div class="border-bottom  mb-2" ></div>      
         <br>
         <br>

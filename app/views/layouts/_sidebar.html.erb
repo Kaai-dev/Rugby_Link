@@ -1,6 +1,6 @@
 <div class="sidebar <%= current_user&.user_setting&.dark_mode ? 'bg-dark' : 'bg-light'%> text-center">
 
-  <%= image_tag 'rugby-link-logo.png', style: "max-height:150px; margin-top: 50px; margin-bottom: 150px;" %>
+  <%= image_tag 'rugby-link-logo.png', style: "max-height: 150px; margin-top: 50px; margin-bottom: 150px;" %>
 
   <div class="list-group">
     <%= link_to 'Players', players_path, class: 'list-group-item list-group-item-action list-group-item-secondary sidebar-menu-item' %>

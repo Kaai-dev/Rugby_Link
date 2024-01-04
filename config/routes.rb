@@ -9,12 +9,29 @@ Rails.application.routes.draw do
 
   resources :absences
 
-  resources :users
+  resources :users do
+    collection do
+      get "flash_back_to_index"
+    end
+
+    member do
+      get "flash_cancel_edit"
+      get "delete_user_profile_pic"
+    end
+
+
+  end
 
   resources :players do
     resources :absences
+
+    collection do
+      get "flash_back_to_index"
+    end  
+      
     member do
-      get "delete_profile_pic"
+      get "flash_cancel_edit"
+      get "delete_player_profile_pic"
     end
   end
 

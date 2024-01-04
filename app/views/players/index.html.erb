@@ -1,5 +1,6 @@
-<!--<p style="color: green"><%= notice %></p>-->
 <div class="container">
+
+  <%= flash_messages %>
 
   <div class="mb-3 mb-sm-0">
       <div class="card" >
@@ -31,8 +32,8 @@
                       <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= player.id %>" data-action="click->clickable-table-row#clicked">
                       
 
-                        <% if player.profile_pic.attached? %>
-                          <td><%= profile_pic_avatar_for(player) %></td>
+                        <% if player.player_profile_pic.attached? %>
+                          <td><%= player_profile_pic_avatar_for(player) %></td>
                         <% else %>
                           <td> - </td>
                         <% end %>
@@ -63,7 +64,7 @@
                           </td>
                         <% end %>
 
-                        <% if player.profile_pic.attached? %>
+                        <% if player.player_profile_pic.attached? %>
                           <td class="mobile-tables align-middle">
                             <div class="d-flex justify-content-center align-items-centes" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>
@@ -99,5 +100,4 @@
       </div>
     </div>
   </div>
-<br>
 <br>

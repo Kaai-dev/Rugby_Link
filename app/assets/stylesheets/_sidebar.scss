@@ -1,19 +1,18 @@
 .sidebar{  
   width: 20% !important;
   height: 100%; 
-  display: inline-block;
   position: fixed;
   padding-top: 60px;
   box-shadow: 10px 0px 6px rgba(0, 0, 0, 0.11);
 }
 
 .sidebar-side{
+  position: relative;
   margin: auto;
-  margin-top: 70px;
+  top: 72px;
   display: block; 
   margin-left: 20%;
 }
-
 
 .sidebar-menu-item {  
   border-radius: 0px !important;
