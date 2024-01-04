@@ -4,19 +4,19 @@
     <div class="card">
       <div class="card-body">
       
-        <%= link_to flash_back_to_index_players_path, class: "btn btn-warning btn-sm" do %>    
+        <%= link_to flash_back_to_index_coaches_path, class: "btn btn-warning btn-sm" do %>    
             <i class="bi bi-x-octagon"></i> Cancel
         <% end %>
 
         <hr>
 
-        <h1 class="text-center mt-4 mb-4">New Player</h1>
+        <h1 class="text-center mt-4 mb-4">New Coach</h1>
 
         <hr>
 
         <br>
         
-        <%= render "form", player: @player %>
+        <%= render "form", coach: @coach %>
 
     </div>
   </div>

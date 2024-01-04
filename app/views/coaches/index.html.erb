@@ -1,0 +1,103 @@
+<div class="container">
+
+  <%= flash_messages %>
+
+  <div class="mb-3 mb-sm-0">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title font-color-custom-1 fs-6">Welcome new coachs to the club!</h5>
+          <h1 class="font-color-custom-1 text-center mt-4">Coachs</h1>
+          <br>
+          <%= link_to "Register Coach", new_coach_path, class: "btn btn-danger primary-background" %>
+          <br>
+          <br>
+          <div id="coachs" >
+            <table class="table table-hover">
+              <thead>
+                <tr >
+                  <th scope="col"><p>Photo</p></th>
+                  <th class="mobile-tables" scope="col"><p>Nickname</p></th>
+                  <th scope="col"><p>Name</p></th>
+                  <th scope="col"><p>Cell Phone</p></th>
+                  <th class="mobile-tables" scope="col"><p>Position</p></th>
+                  <th class="mobile-tables" scope="col"><p>Medical Conditions</p></th>
+                  <th class="mobile-tables" scope="col"><p>ID number</p></th>
+                  <th class="mobile-tables" scope="col"><p>Medical Aid</p></th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <% if Coach.any? %>
+                  <% @coachs.each do |coach| %>
+                    <div id="<%= dom_id coach %>">
+                      <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= coach.id %>" data-action="click->clickable-table-row#clicked">
+                      
+
+                        <% if coach.coach_profile_pic.attached? %>
+                          <td><%= coach_profile_pic_avatar_for(coach) %></td>
+                        <% else %>
+                          <td> - </td>
+                        <% end %>
+
+                        <% if coach.nickname.present? %>
+                          <td class=" mobile-tables align-middle" ><%= coach.nickname %></td>
+                        <% else %>
+                          <td class=" mobile-tables align-middle" > - </td>
+                        <% end %>
+
+                        <td class="align-middle" ><%= coach.fullname %></td>
+
+                        <td class="align-middle" ><%= coach.cellphone_number %></td>
+                       
+                        <td class="mobile-tables align-middle" ><%= coach.medical_conditions %></td>
+
+                        <% if coach.encrypted_id_number.present? %>
+                          <td class="mobile-tables align-middle">
+                            <div class="d-flex justify-content-center align-items-center mobile-tables align-middle" style="height:100%;">
+                              <%= image_tag "green-tick-light.png", style:"width:20px" %>
+                            </div>
+                          </td>
+                        <% else %>
+                          <td class="mobile-tables align-middle">
+                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                              <%= image_tag "red-tick-light.png", style:"width:20px" %>
+                            </div>
+                          </td>
+                        <% end %>
+
+                        <% if coach.coach_profile_pic.attached? %>
+                          <td class="mobile-tables align-middle">
+                            <div class="d-flex justify-content-center align-items-centes" style="height:100%;">
+                              <%= image_tag "green-tick-light.png", style:"width:20px" %>
+                            </div>
+                          </td>
+                        <% else %>
+                          <td class="mobile-tables align-middle">
+                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
+                              <%= image_tag "red-tick-light.png", style:"width:20px" %>
+                            </div>
+                          </td>
+                        <% end %>
+                        
+                        <td class="font-color-custom-1 mobile-tables align-middle"><%= coach.medical_aid %></td>
+
+                      </tr>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>

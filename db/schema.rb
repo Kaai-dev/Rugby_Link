@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_29_131154) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_04_135659) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_29_131154) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "coaches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "nickname"
+    t.string "fullname"
+    t.string "cellphone_number"
+    t.text "medical_conditions"
+    t.string "medical_aid"
+    t.string "id_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "next_of_kins", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "player_id", null: false
     t.string "name"
@@ -66,8 +77,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_29_131154) do
     t.string "fullname"
     t.string "encrypted_cellphone_number"
     t.text "medical_conditions"
-    t.boolean "has_id"
-    t.string "portrait_photo"
     t.string "medical_aid"
     t.string "encrypted_id_number"
     t.datetime "created_at", null: false

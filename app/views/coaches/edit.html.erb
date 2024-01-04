@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-body">
         
-        <%= link_to flash_cancel_edit_player_path, class: "btn btn-warning btn-sm" do %>
+        <%= link_to flash_cancel_edit_coach_path, class: "btn btn-warning btn-sm" do %>
           <i class="bi bi-x-octagon"></i> Cancel
         <% end %>        
         <hr>
@@ -15,7 +15,7 @@
 
         <br>
 
-        <%= render "form", player: @player %>
+        <%= render "form", coach: @coach %>
 
     </div>
   </div>

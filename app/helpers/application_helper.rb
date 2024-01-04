@@ -9,8 +9,17 @@ module ApplicationHelper
 
     def flash_messages
       flash.map do |type, message|
-      content_tag(:div, message, class: "flash alert alert-#{type}")
+        # Determine the class based on the type of flash message
+        css_class = case type
+                    when 'notice' then 'alert-info'
+                    when 'alert' then 'alert-warning'
+                    else "alert-#{type}"
+                    end
+
+        # Use the determined class in the content_tag
+        content_tag(:div, message, class: "flash alert #{css_class}")
       end.join.html_safe
     end
+
 
 end

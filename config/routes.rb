@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :coaches
   resources :user_settings
 
   devise_for :users
@@ -7,7 +8,6 @@ Rails.application.routes.draw do
 
   root "players#index"
 
-  resources :absences
 
   resources :users do
     collection do
@@ -18,12 +18,21 @@ Rails.application.routes.draw do
       get "flash_cancel_edit"
       get "delete_user_profile_pic"
     end
+  end
 
+  resources :coaches
+  resources :coaches do
+    collection do
+      get "flash_back_to_index"
+    end
 
+    member do
+      get "flash_cancel_edit"
+      get "delete_coach_profile_pic"
+    end
   end
 
   resources :players do
-    resources :absences
 
     collection do
       get "flash_back_to_index"

@@ -5,7 +5,7 @@
       <div class="card-body">
         <h1 class="font-color-custom-1 mt-4">Log-In</h1>
         <br>
-        <div class="border-bottom  mb-4" ></div>
+        <div class="border-bottom mb-4" ></div>
         <br>
         <h1 class="font-color-custom-1" >
           <%= image_tag 'rugby-link-logo.png', style: "width:100%; max-height:250px;" %>
@@ -28,7 +28,7 @@
           <% if devise_mapping.rememberable? %>
             <div class="checkbox mb-3">
               <%= f.check_box :remember_me %>
-              <%= f.label :remember_me, class: "font-color-custom-1" %>
+              <%= f.label :remember_me %>
             </div>
           <% end %>
           <div class="actions">

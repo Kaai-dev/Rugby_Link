@@ -1,6 +1,7 @@
-class CreatePlayers < ActiveRecord::Migration[7.0]
+class CreateCoaches < ActiveRecord::Migration[7.1]
   def change
-    create_table :players, id: :uuid do |t|
+    create_table :coaches, id: :uuid do |t|
+      # t.belongs_to :teams
       t.string :nickname
       t.string :fullname
       t.string :cellphone_number

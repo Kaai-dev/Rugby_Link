@@ -20,7 +20,6 @@ class Player < ApplicationRecord
     validates :medical_aid, length: { maximum: 30 }
     validates :medical_conditions, length: { maximum: 50 }
     validates :id_number, presence: true, length: {  minimum: 13, maximum: 13 } , numericality: { only_integer: true }
-    # validates_associated :next_of_kin
 
 
     private

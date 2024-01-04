@@ -1,0 +1,150 @@
+  <%= simple_form_for coach, html: { novalidate: true, class: "needs-validation", data: {controller: "bootstrap-validation" }} do |f| %>
+
+    <div class="d-block">
+      <% if coach.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <div style="color: red">
+            <br>
+            <h2 class="text-center"><%= pluralize(coach.errors.count, "error")%> prohibited this coach from being saved:</h2>
+            <ul>
+              <div class="mx-auto" style="width: 50%;">
+                <% coach.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <br>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 text-center" data-controller="profile-pic-preview">
+        <div class="position-relative">  
+            <% if coach.coach_profile_pic.attached? %>
+              <%= image_tag coach.coach_profile_pic, class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+              <%= image_tag '', class:"preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+            <% else %>
+              <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data:{"profile-pic-preview-target": "existingMain"} %>
+              <%= image_tag '', class: "preview-profile-pic profile-pic", style: "display: none;", data: { "profile-pic-preview-target": "previewMain" } %>
+            <% end %>
+            <i class="bi bi-pencil-square circle-icon cursor-pointer" data-bs-toggle="modal" data-bs-target="#profilePicModal" style="color: white;"></i>
+        </div>
+        <br>
+        <br>
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true" >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" >
+              <div class="modal-header border border-0">
+                <h1 class="modal-title fs-5 text-center font-color-custom-1" id="profilePicModalLabel">Edit Profile Pic</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <hr>
+              <div class="modal-body">
+                <div class="d-flex justify-content-center align-items-center" style="heigt:30%;">
+
+                <% if coach.coach_profile_pic.attached? %>
+                  <%= image_tag coach.coach_profile_pic, class: "preview-profile-pic profile-pic", data: {"profile-pic-preview-target": "existing" } %>
+                  <%= image_tag '', class:"preview-profile-pic",  style: "display: none;", data: { "profile-pic-preview-target": "preview" } %>
+                <% else %>
+                  <%= image_tag "profile-pic.jpg", class: "preview-profile-pic profile-pic", data: { "profile-pic-preview-target": "existing" } %>
+                  <%= image_tag '', class:"preview-profile-pic",  style: "display: none;", data: { "profile-pic-preview-target": "preview" } %>
+                <% end %>
+
+                </div>
+              </div>
+                <br>
+              <hr>
+              <div class="modal-footer border border-0">
+                  <%= link_to "Remove", "#",class: "btn btn-sm btn-danger", style: "display: none;", data: { action: "click->profile-pic-preview#removePreview", "profile-pic-preview-target": "remove"} %>
+                  <%= link_to "Save", "#",class: "btn btn-sm btn-success", style: "display: none;", data: { "profile-pic-preview-target": "save", "bs-dismiss": "modal" } %>
+                  <%= f.label :coach_profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
+                  <%= f.file_field :coach_profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField", max_file_size: 80.megabytes  }, accept: 'image/jpeg,image/png,image/jpg' %>
+
+                  <% if coach.coach_profile_pic.attached? %>
+                    <%= link_to "Delete Pic", delete_coach_profile_pic_coach_path(coach), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <br>
+        
+      </div>
+
+
+      <div class="col-md-9">
+        <div class="text-center">
+          <h1 class="mt-4 font-color-custom-1">
+            <%= f.text_field :fullname, class: "form-control profile-show-names text-center", placeholder:"Fullname", style: "display: inline-block;", required: true %>
+          </h1>
+          <h4 class="mt-1 font-color-custom-1">
+            <%= f.text_field :nickname, class: "form-control profile-show-names text-center", placeholder:"Nickname", style: "display: inline-block;" %>
+          </h4>
+        </div>
+        <br>
+        <br>
+
+        <hr>
+
+        
+        <div class="row">
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
+            <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
+          </div>
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
+            <%= f.text_field :cellphone_number, class: "form-control custom-form-field w-100", placeholder:"Cell number", required: true %>
+          </div>
+        </div>
+
+        <hr>
+
+
+        <div class="row">
+          <div class="col-md-6 font-color-custom-1 d-flex mb-3 mt-3">
+            <span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Aid:
+          </div>
+          <div class="col-md-5 d-flex align-items-center mb-3 mt-3">
+              <%= f.text_area :medical_aid, class: "form-control custom-form-field w-100", id: "floatingMedicalAid", placeholder:"Medical-Aid"%>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-6 font-color-custom-1 d-flex mb-3 mt-3">
+            <span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Condition:
+          </div>
+          <div class="col-md-5 font-color-custom-1 d-flex mb-3 mt-3">
+            <%= f.text_area :medical_conditions, class: "form-control custom-form-field w-100", id: "floatingMedicalCondition", placeholder:"Condition" %>        
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
+            <span aria-hidden="true" class="text-danger">*</span>&nbsp;ID Number:
+          </div>
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
+              <td colspan="2"><%= f.text_field :id_number, class: "form-control custom-form-field w-100", placeholder:"ID number", required: true %></td>
+          </div>
+        </div>
+
+        <hr>
+
+          <div class="text-center">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm mt-4 mb-4") do %>
+              <i class="bi bi-floppy"></i>&nbsp; Save
+            <% end %>
+          </div>
+      </div>
+    </div>
+  <% end %>
