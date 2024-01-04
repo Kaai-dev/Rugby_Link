@@ -1,5 +1,4 @@
-<div data-controller="">
-  <%= simple_form_for player do |f| %>
+  <%= simple_form_for player, html: { novalidate: true, class: "needs-validation", data: {controller: "bootstrap-validation" }} do |f| %>
 
     <div class="d-block">
       <% if player.errors.any? %>
@@ -66,7 +65,7 @@
                   <%= link_to "Remove", "#",class: "btn btn-sm btn-danger", style: "display: none;", data: { action: "click->profile-pic-preview#removePreview", "profile-pic-preview-target": "remove"} %>
                   <%= link_to "Save", "#",class: "btn btn-sm btn-success", style: "display: none;", data: { "profile-pic-preview-target": "save", "bs-dismiss": "modal" } %>
                   <%= f.label :profile_pic, "Upload Picture", class: "btn btn-primary btn-sm" %>
-                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField"  } %>
+                  <%= f.file_field :profile_pic, class: "d-none", data:{action: "change->profile-pic-preview#preview", "profile-pic-preview-target": "fileField", max_file_size: 80.megabytes  }, accept: 'image/jpeg,image/png,image/jpg' %>
 
                   <% if player.profile_pic.attached? %>
                     <%= link_to "Delete Pic", delete_profile_pic_player_path(player), class: "btn btn-sm btn-danger", method: :delete, data: { "turbo-confirm": "Are you sure?" } %>
@@ -85,7 +84,6 @@
         <% end %>
 
         <br>
-        <!--<p class="text-center font-color-custom-1"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>-->
         
       </div>
 
@@ -93,7 +91,7 @@
       <div class="col-md-9">
         <div class="text-center">
           <h1 class="mt-4 font-color-custom-1">
-            <%= f.text_field :fullname, class: "form-control player-show-names text-center", placeholder:"Fullname", style: "display: inline-block;" %>
+            <%= f.text_field :fullname, class: "form-control player-show-names text-center", placeholder:"Fullname", style: "display: inline-block;", required: true %>
           </h1>
           <h4 class="mt-1 font-color-custom-1">
             <%= f.text_field :nickname, class: "form-control player-show-names text-center", placeholder:"Nickname", style: "display: inline-block;" %>
@@ -110,7 +108,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-            <%= f.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number" %>
+            <%= f.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number", required: true %>
           </div>
         </div>
 
@@ -144,7 +142,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;ID Number:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= f.text_field :id_number, class: "form-control player-form-field w-100", placeholder:"ID number"%></td>
+              <td colspan="2"><%= f.text_field :id_number, class: "form-control player-form-field w-100", placeholder:"ID number", required: true %></td>
           </div>
         </div>
 
@@ -161,7 +159,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Name:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= nokf.text_field :name, class: "form-control player-form-field w-100", placeholder:"Name" %></td>
+              <td colspan="2"><%= nokf.text_field :name, class: "form-control player-form-field w-100", placeholder:"Name", required: true %></td>
           </div>
         </div>
         <hr>
@@ -172,7 +170,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Relationship:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= nokf.text_field :relationship, class: "form-control player-form-field w-100", placeholder:"Relationship" %></td>
+              <td colspan="2"><%= nokf.text_field :relationship, class: "form-control player-form-field w-100", placeholder:"Relationship", required: true %></td>
           </div>
 
         </div>
@@ -184,7 +182,7 @@
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
           </div>
           <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= nokf.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number" %></td>
+              <td colspan="2"><%= nokf.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number", required: true %></td>
           </div>
         </div>
         <% end %>
@@ -192,9 +190,10 @@
         <hr>
 
           <div class="text-center">
-            <%= f.submit "Save", class: "btn btn-success" %>
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm mt-4 mb-4") do %>
+              <i class="bi bi-floppy"></i>&nbsp; Save
+            <% end %>
           </div>
       </div>
     </div>
   <% end %>
-</div>

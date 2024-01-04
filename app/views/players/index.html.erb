@@ -38,25 +38,25 @@
                         <% end %>
 
                         <% if player.nickname.present? %>
-                          <td class=" mobile-tables" ><%= player.nickname %></td>
+                          <td class=" mobile-tables align-middle" ><%= player.nickname %></td>
                         <% else %>
-                          <td class=" mobile-tables" > - </td>
+                          <td class=" mobile-tables align-middle" > - </td>
                         <% end %>
 
-                        <td class="" ><%= player.fullname %></td>
+                        <td class="align-middle" ><%= player.fullname %></td>
 
-                        <td class="" ><%= player.cellphone_number %></td>
+                        <td class="align-middle" ><%= player.cellphone_number %></td>
                        
-                        <td class=" mobile-tables" ><%= player.medical_conditions %></td>
+                        <td class="mobile-tables align-middle" ><%= player.medical_conditions %></td>
 
                         <% if player.encrypted_id_number.present? %>
-                          <td class="mobile-tables">
-                            <div class="d-flex justify-content-center align-items-center mobile-tables" style="height:100%;">
+                          <td class="mobile-tables align-middle">
+                            <div class="d-flex justify-content-center align-items-center mobile-tables align-middle" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% else %>
-                          <td class="mobile-tables">
+                          <td class="mobile-tables align-middle">
                             <div class="d-flex justify-content-center align-items-center" style="height:100%;">
                               <%= image_tag "red-tick-light.png", style:"width:20px" %>
                             </div>
@@ -64,33 +64,33 @@
                         <% end %>
 
                         <% if player.profile_pic.attached? %>
-                          <td class="mobile-tables">
+                          <td class="mobile-tables align-middle">
                             <div class="d-flex justify-content-center align-items-centes" style="height:100%;">
                               <%= image_tag "green-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% else %>
-                          <td class="mobile-tables">
+                          <td class="mobile-tables align-middle">
                             <div class="d-flex justify-content-center align-items-center" style="height:100%;">
                               <%= image_tag "red-tick-light.png", style:"width:20px" %>
                             </div>
                           </td>
                         <% end %>
                         
-                        <td class="font-color-custom-1 mobile-tables"><%= player.medical_aid %></td>
+                        <td class="font-color-custom-1 mobile-tables align-middle"><%= player.medical_aid %></td>
 
                       </tr>
                     </div>
                   <% end %>
                 <% else %>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
-                  <td class="text-center mobile-tables">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
+                  <td class="text-center mobile-tables align-middle">-</td>
                 <% end %>
               </tbody>
             </table>
