@@ -46,7 +46,7 @@
                 <h1 class="modal-title fs-5 text-center font-color-custom-1" id="profilePicModalLabel">Edit Profile Pic</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="border-bottom hr-show-custom mb-4" ></div>
+              <hr>
               <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center" style="heigt:30%;">
 
@@ -61,7 +61,7 @@
                 </div>
               </div>
                 <br>
-              <div class="border-bottom hr-show-custom mb-4"></div>
+              <hr>
               <div class="modal-footer border border-0">
                   <%= link_to "Remove", "#",class: "btn btn-sm btn-danger", style: "display: none;", data: { action: "click->profile-pic-preview#removePreview", "profile-pic-preview-target": "remove"} %>
                   <%= link_to "Save", "#",class: "btn btn-sm btn-success", style: "display: none;", data: { "profile-pic-preview-target": "save", "bs-dismiss": "modal" } %>
@@ -75,17 +75,14 @@
             </div>
           </div>
         </div>
-
+        
         <h4 class="mb-4">Positions</h4>
 
         <%= f.collection_check_boxes :position_ids, Position.all, :id, :position do |b| %>
           <%= b.check_box class: "btn-check" %>
-          <%= b.label(class: "btn btn-outline-secondary mb-1", style: "width: 80%;") { "#{b.object.number} - #{b.text}" } %>
+          <%= b.label(class: "btn btn-outline-secondary mb-1", style: "width: 70%;") { "#{b.object.number} - #{b.text}" } %>
           <br>
         <% end %>
-
-
-
 
         <br>
         <!--<p class="text-center font-color-custom-1"><%= link_to 'Add position', '#', class: "btn btn-success", data: { action: 'click->players-form#addDropdown', 'players-form-target': 'dropdownButton' } %></p>-->
@@ -105,100 +102,98 @@
         <br>
         <br>
 
-        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
         
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
             <%= f.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number" %>
           </div>
         </div>
 
-        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
 
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex mb-4">
+          <div class="col-md-6 font-color-custom-1 d-flex mb-3 mt-3">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Aid:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-5 d-flex align-items-center mb-3 mt-3">
               <%= f.text_area :medical_aid, class: "form-control player-form-field w-100", id: "floatingMedicalAid", placeholder:"Medical-Aid"%>
           </div>
         </div>
 
-        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex mb-4">
+          <div class="col-md-6 font-color-custom-1 d-flex mb-3 mt-3">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Medical Condition:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex mb-4">
+          <div class="col-md-5 font-color-custom-1 d-flex mb-3 mt-3">
             <%= f.text_area :medical_conditions, class: "form-control player-form-field w-100", id: "floatingMedicalCondition", placeholder:"Condition" %>        
           </div>
         </div>
 
-        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;ID Number:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
               <td colspan="2"><%= f.text_field :id_number, class: "form-control player-form-field w-100", placeholder:"ID number"%></td>
           </div>
         </div>
 
-        <div class="border-bottom hr-show-custom mb-5" ></div>
+        <hr>
 
         <h3 class="mt-4 font-color-custom-1 text-center mb-5">Next of Kin</h3>
 
         <%= f.simple_fields_for :next_of_kin do |nokf| %>
 
-        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Name:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
               <td colspan="2"><%= nokf.text_field :name, class: "form-control player-form-field w-100", placeholder:"Name" %></td>
           </div>
         </div>
-              <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex align-items-center mb-4">
+
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Relationship:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
               <td colspan="2"><%= nokf.text_field :relationship, class: "form-control player-form-field w-100", placeholder:"Relationship" %></td>
           </div>
+
         </div>
 
-        <div class="border-bottom hr-show-custom mb-4" ></div>
+        <hr>
 
         <div class="row">
-          <div class="col-md-6 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-6 font-color-custom-1 d-flex align-items-center">
             <span aria-hidden="true" class="text-danger">*</span>&nbsp;Cellphone Number:
           </div>
-          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-4">
+          <div class="col-md-5 font-color-custom-1 d-flex align-items-center mb-3 mt-3">
               <td colspan="2"><%= nokf.text_field :cellphone_number, class: "form-control player-form-field w-100", placeholder:"Cell number" %></td>
           </div>
         </div>
         <% end %>
 
+        <hr>
 
-        <div class="border-bottom hr-show-custom mb-5" ></div>
-
-        <div class="d-flex justify-content-center" style="gap: 200px;">
-          <%# <%= link_to 'Delete Player', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } class:"btn btn-danger primary-background" %>
-          <div>
-            <%= f.submit "Save", class: "btn btn-success mb-5" %>
+          <div class="text-center">
+            <%= f.submit "Save", class: "btn btn-success" %>
           </div>
-        </div>
       </div>
     </div>
   <% end %>

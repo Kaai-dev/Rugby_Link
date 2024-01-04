@@ -32,9 +32,9 @@
                       
 
                         <% if player.profile_pic.attached? %>
-                          <td class=" mobile-tables" ><%= profile_pic_avatar_for(player) %></td>
+                          <td><%= profile_pic_avatar_for(player) %></td>
                         <% else %>
-                          <td class=" mobile-tables" > - </td>
+                          <td> - </td>
                         <% end %>
 
                         <% if player.nickname.present? %>
@@ -42,10 +42,13 @@
                         <% else %>
                           <td class=" mobile-tables" > - </td>
                         <% end %>
+
                         <td class="" ><%= player.fullname %></td>
+
                         <td class="" ><%= player.cellphone_number %></td>
                        
                         <td class=" mobile-tables" ><%= player.medical_conditions %></td>
+
                         <% if player.encrypted_id_number.present? %>
                           <td class="mobile-tables">
                             <div class="d-flex justify-content-center align-items-center mobile-tables" style="height:100%;">
@@ -59,6 +62,7 @@
                             </div>
                           </td>
                         <% end %>
+
                         <% if player.profile_pic.attached? %>
                           <td class="mobile-tables">
                             <div class="d-flex justify-content-center align-items-centes" style="height:100%;">
@@ -72,6 +76,7 @@
                             </div>
                           </td>
                         <% end %>
+                        
                         <td class="font-color-custom-1 mobile-tables"><%= player.medical_aid %></td>
 
                       </tr>
