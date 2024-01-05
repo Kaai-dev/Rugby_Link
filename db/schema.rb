@@ -77,6 +77,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_135659) do
     t.string "fullname"
     t.string "encrypted_cellphone_number"
     t.text "medical_conditions"
+    t.boolean "has_id"
+    t.string "portrait_photo"
     t.string "medical_aid"
     t.string "encrypted_id_number"
     t.datetime "created_at", null: false

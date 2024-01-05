@@ -3,10 +3,12 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
     create_table :players, id: :uuid do |t|
       t.string :nickname
       t.string :fullname
-      t.string :cellphone_number
+      t.string :encrypted_cellphone_number
+      t.string :encrypted_cellphone_number_iv
       t.text :medical_conditions
       t.string :medical_aid
-      t.string :id_number
+      t.string :encrypted_id_number
+      t.string :encrypted_id_number_iv
       
       t.timestamps
     end

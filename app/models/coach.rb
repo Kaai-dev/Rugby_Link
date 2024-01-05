@@ -1,4 +1,6 @@
 class Coach < ApplicationRecord
+    attr_encrypted :id_number, key: ENV['ID_NUMBER_ENCRYPTION_KEY']
+    attr_encrypted :cellphone_number, key: ENV['CELLPHONE_NUMBER_ENCRYPTION_KEY']
         
     has_one_attached :coach_profile_pic, dependent: :destroy
 
