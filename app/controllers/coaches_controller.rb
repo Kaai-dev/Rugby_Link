@@ -56,7 +56,7 @@ class CoachesController < ApplicationController
     @coach = Coach.find(params[:id])
     @coach.destroy
     flash[:success] = 'Coach was successfully deleted.'
-    redirect_to coachs_path
+    redirect_to coaches_path
   end
 
   def delete_coach_profile_pic
@@ -88,13 +88,15 @@ class CoachesController < ApplicationController
     # Only allow a list of trusted parameters through.
       def coach_params
         params.require(:coach).permit(
-          :name, 
-          :id_number,
-          :cellphone_number,
-          :coach_profile_pic,
+          :nickname, 
+          :fullname, 
+          :cellphone_number, 
+          :medical_conditions, 
+          :has_id, 
+          :portrait_photo, 
           :medical_aid,
-          :medical_condition
+          :id_number,
+          :coach_profile_pic,
         )
       end
 end
-

@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :coaches
   resources :coaches do
     collection do
       get "flash_back_to_index"

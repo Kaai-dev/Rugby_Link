@@ -55,10 +55,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_135659) do
   create_table "coaches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "nickname"
     t.string "fullname"
-    t.string "cellphone_number"
+    t.string "encrypted_cellphone_number"
+    t.string "encrypted_cellphone_number_iv"
     t.text "medical_conditions"
     t.string "medical_aid"
-    t.string "id_number"
+    t.string "encrypted_id_number"
+    t.string "encrypted_id_number_iv"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,15 +78,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_135659) do
     t.string "nickname"
     t.string "fullname"
     t.string "encrypted_cellphone_number"
+    t.string "encrypted_cellphone_number_iv"
     t.text "medical_conditions"
-    t.boolean "has_id"
-    t.string "portrait_photo"
     t.string "medical_aid"
     t.string "encrypted_id_number"
+    t.string "encrypted_id_number_iv"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_id_number_iv"
-    t.string "encrypted_cellphone_number_iv"
   end
 
   create_table "players_positions", id: false, force: :cascade do |t|

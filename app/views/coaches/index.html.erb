@@ -5,13 +5,13 @@
   <div class="mb-3 mb-sm-0">
       <div class="card" >
         <div class="card-body">
-          <h5 class="card-title font-color-custom-1 fs-6">Welcome new coachs to the club!</h5>
-          <h1 class="font-color-custom-1 text-center mt-4">Coachs</h1>
+          <h5 class="card-title font-color-custom-1 fs-6">Welcome new coaches to the club!</h5>
+          <h1 class="font-color-custom-1 text-center mt-4">Coaches</h1>
           <br>
           <%= link_to "Register Coach", new_coach_path, class: "btn btn-danger primary-background" %>
           <br>
           <br>
-          <div id="coachs" >
+          <div id="coaches" >
             <table class="table table-hover">
               <thead>
                 <tr >
@@ -27,7 +27,7 @@
               </thead>
               <tbody class="table-group-divider">
                 <% if Coach.any? %>
-                  <% @coachs.each do |coach| %>
+                  <% @coaches.each do |coach| %>
                     <div id="<%= dom_id coach %>">
                       <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= coach.id %>" data-action="click->clickable-table-row#clicked">
                       
