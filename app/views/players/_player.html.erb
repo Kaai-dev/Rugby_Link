@@ -42,8 +42,8 @@
       </div>
 
       <div class="col-md-9">
-        <h1 class="font-color-custom-1 text-center"><%= player.fullname %></h1>
-        <h4 class="mt-1 font-color-custom-1 text-center"><%= player.nickname %></h4>
+        <h1 class="text-center"><%= player.fullname %></h1>
+        <h4 class="mt-1  text-center"><%= player.nickname %></h4>
         <br>
         <br>
         
@@ -54,40 +54,49 @@
           </span>
         </p>
 
-        <div class="border-bottom hr-show-custom" ></div>
+        <hr>
 
-        <p class="mt-4 font-color-custom-1" style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           Medical Aid:
           <span class="profile-show-attributes" style="text-align: right;">
             <%= player.medical_aid %>
           </span>
         </p>
 
-        <div class="border-bottom hr-show-custom" ></div>
+        <hr>
 
-        <p class="mt-4 font-color-custom-1" style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           Medical Condition:
           <span class="profile-show-attributes" style="text-align: right;">
             <%= player.medical_conditions %>
           </span>
         </p>
 
-        <div class="border-bottom hr-show-custom" ></div>
+        <hr>
 
-        <p class="mt-4 font-color-custom-1" style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           ID Number:
           <span class="profile-show-attributes" style="text-align: right;">
             <%= player.id_number %>
           </span>
         </p>
 
-        <div class="border-bottom hr-show-custom" ></div>
+        <hr>
+
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
+          Copy of ID:
+          <span class="profile-show-attributes" style="text-align: right;">
+            <%= link_to "Download Copy", "#", class: "btn btn-primary btn-sm" %> 
+          </span>
+        </p>
+
+        <hr>
 
         <br>        
 
-        <h3 class="mt-4 font-color-custom-1 text-center">Next of Kin</h3>
+        <h3 class="mt-4 mb-4 text-center">Next of Kin</h3>
 
-        <p class="mt-4 font-color-custom-1" style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           Name:
           <span class="profile-show-attributes" style="text-align: right;">
           <%= player.next_of_kin.present? ? player.next_of_kin.name : "-" %>
@@ -96,7 +105,7 @@
 
         <div class="border-bottom hr-show-custom" ></div>
 
-        <p class="mt-4 font-color-custom-1" style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           Relationship:
           <span class="profile-show-attributes" style="text-align: right;">
             <%= player.next_of_kin.present? ? player.next_of_kin.relationship : "-" %>
@@ -105,13 +114,20 @@
 
         <div class="border-bottom hr-show-custom" ></div>
 
-        <p class="mt-4 font-color-custom-1" style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           Cellphone Number:
           <span class="profile-show-attributes" style="text-align: right;">
           <%= player.next_of_kin.present? ? player.next_of_kin.cellphone_number : "-" %>
           </span>
         </p>
         <br>
-      </div>
+      
+
+
+
+
+
+
+
     </div>
 
