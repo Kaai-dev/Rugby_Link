@@ -11,8 +11,9 @@ class Player < ApplicationRecord
     has_one_attached :player_profile_pic, dependent: :destroy
     has_one_attached :copy_of_id, dependent: :destroy
 
-
     has_and_belongs_to_many :positions
+
+    belongs_to :teams
 
     validate :validate_player_profile_pic
 

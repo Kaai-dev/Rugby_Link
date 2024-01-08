@@ -6,7 +6,7 @@
   
     <title>RugbyLink</title>
 
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -19,7 +19,7 @@
   <menu>
   </menu>
 
-  <body style="background-color: <%= current_user&.user_setting&.dark_mode ? '#505050' : '#b8b8b8' %>;">
+  <body style="background-color: <%= current_user&.user_setting&.dark_mode ? '#505050' : '#b8b8b8' %>;" data-controller="focus-body">
     
     <% if user_signed_in? %>
       <%= render "layouts/navbar" %>
