@@ -21,21 +21,17 @@
     <br>
     <div class="row">
       <div class="col-md-3 text-center">
-
         <% if coach.coach_profile_pic.attached? %>
           <%= coach_profile_pic_for(coach) %>
         <% else %>
           <%= empty_profile_pic %>
         <% end %>
         <%# <i class="bi bi-pencil-square show-circle-icon" style="color: white;"></i> %>
-
-        <br>
-        <br>
       </div>
 
       <div class="col-md-9">
-        <h1 class="font-color-custom-1 text-center"><%= coach.fullname %></h1>
-        <h4 class="mt-1 font-color-custom-1 text-center"><%= coach.nickname %></h4>
+        <h1 class="text-center"><%= coach.fullname %></h1>
+        <h4 class="mt-1 text-center"><%= coach.nickname %></h4>
         <br>
         <br>
         
@@ -73,11 +69,9 @@
           </span>
         </p>
 
-        <div class="border-bottom hr-show-custom" ></div>
+        <hr>
 
         <br>        
-        <div class="border-bottom hr-show-custom" ></div>
-
  
         </p>
         <br>

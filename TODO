@@ -2,10 +2,16 @@
     >>Delete button to remove on the fly (instead of redirecting to SHOW PAGE)
 
 
-
-
 Build teams
 
 Finish Absences
 
 Finish when games are played > needs JS
+
+
+
+Add remove copy_of_id on players
+Add preview of copy_of_id
+Sort out dependent destroy on copy_of_id
+
+Finish teams

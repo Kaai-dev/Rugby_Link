@@ -86,8 +86,13 @@
         <p class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center;">
           Copy of ID:
           <span class="profile-show-attributes" style="text-align: right;">
-            <%= link_to "Download Copy", "#", class: "btn btn-primary btn-sm" %> 
+            <% if player.copy_of_id.attached? %>
+              <%= link_to "Download Copy", rails_blob_path(player.copy_of_id, disposition: "attachment"), class: "btn btn-primary btn-sm", data: { turbo: "false" } %>
+            <% else %>
+              <%= link_to "No Copy Uploaded", "#", class: "btn btn-primary btn-sm disabled" %>
+            <% end %>
           </span>
+
         </p>
 
         <hr>
@@ -121,13 +126,6 @@
           </span>
         </p>
         <br>
-      
-
-
-
-
-
-
 
     </div>
 

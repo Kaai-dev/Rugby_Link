@@ -3,7 +3,7 @@ class Coach < ApplicationRecord
     attr_encrypted :cellphone_number, key: ENV['CELLPHONE_NUMBER_ENCRYPTION_KEY']
         
     has_one_attached :coach_profile_pic, dependent: :destroy
-    belongs_to :team
+    # belongs_to :team
 
     validate :validate_coach_profile_pic
 

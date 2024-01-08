@@ -99,6 +99,7 @@ class PlayersController < ApplicationController
           :id_number,
           :player_profile_pic,
           :player_position, # No comma after this line
+          :copy_of_id,
           position_ids: [],
           next_of_kin_attributes: [
           :id, 
