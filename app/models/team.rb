@@ -20,6 +20,6 @@
 #  fk_rails_...  (players_id => players.id)
 #
 class Team < ApplicationRecord
-  # has_many :coach
-  # has_many :players
+  has_many :coaches
+  has_many :players
 end

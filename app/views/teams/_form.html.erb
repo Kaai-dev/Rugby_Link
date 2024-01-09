@@ -4,8 +4,8 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :coach %>
-    <%= f.association :players %>
+    <%= f.collection_check_boxes  :coaches, Coach.order(:fullname), :id, :nickname %>
+    <%= f.collection_check_boxes  :players, Player.order(:fullname), :id, :nickname %>
     <%= f.input :name %>
   </div>
 

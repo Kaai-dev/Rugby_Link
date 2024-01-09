@@ -1,14 +1,50 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
 
-<h1>Teams</h1>
+  <%= flash_messages %>
 
-<div id="teams">
-  <% @teams.each do |team| %>
-    <%= render team %>
-    <p>
-      <%= link_to "Show this team", team %>
-    </p>
-  <% end %>
-</div>
+  <div class="mb-3 mb-sm-0">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title font-color-custom-1 fs-6">Create teams that belong to the club.</h5>
+          <h1 class="font-color-custom-1 text-center mt-4">Teams</h1>
+          <br>
+          <%= link_to "Create Team", new_team_path, class: "btn btn-danger primary-background" %>
+          <br>
+          <br>
+          <div id="coaches" >
+            <table class="table table-hover">
+              <thead>
+                <tr >
+                  <th scope="col"><p>Name</p></th>
+                  <th scope="col"><p>Coaches</p></th>
+                  <th scope="col"><p>Players</p></th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <% if Team.any? %>
+                  <% @teams.each do |team| %>
+                    <div id="<%= dom_id team %>">
+                      <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= team.id %>" data-action="click->clickable-table-row#clicked">
+                      
+                        <td class="align-middle" ><%= Team.name.count %></td>
 
-<%= link_to "New team", new_team_path %>
+                        <td class="align-middle" ><%= Team.coaches.count %></td>
+
+                        <td class="align-middle" ><%= Team.players.count %></td>
+
+                      </tr>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
