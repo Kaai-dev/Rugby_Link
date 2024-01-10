@@ -1,9 +1,10 @@
 @import "bootstrap";
 @import "navbar";
 @import "fonts";
-@import "_profile";
+@import "profile";
 @import "sidebar";
 @import "profile_pic";
+@import "teams";
 @import "tables";
 @import "form_back_button";
 @import 'media_queries';
@@ -19,6 +20,10 @@
 
 body{
   background-color: #505050;
+}
+
+table {
+  padding: 200px !important;
 }
 
 .primary-hover:hover {

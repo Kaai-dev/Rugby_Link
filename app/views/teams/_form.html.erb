@@ -1,15 +1,166 @@
 
-<%= simple_form_for(@team) do |f| %>
+<%= simple_form_for(@team, html: { novalidate: true, class: "row g-3 needs-validation px-5", data: {controller: "bootstrap-validation" } }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.collection_check_boxes  :coaches, Coach.order(:fullname), :id, :nickname %>
-    <%= f.collection_check_boxes  :players, Player.order(:fullname), :id, :nickname %>
-    <%= f.input :name %>
-  </div>
+    <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-4 d-flex">
+            &nbsp;Team Name:
+          </div>
+          <div class="col-md-8 d-flex">
+              <%= f.input :name, class: "form-control custom-form-field w-100", placeholder: "Name", label: false, required: true %>
+          </div>
+        </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="col-md-6 form-floating mb-4">
+      <div class="form-floating">
+          <%= f.select :coaches, Coach.all.map { |coach| [coach.fullname, coach.id] }, { include_blank: 'Select a Coach' }, { class: 'form-select form-control-sm', id: 'floatingSelectGrid', required: true } %>
+          <%= f.label :coaches, 'Select Team Coach', for: 'floatingSelectGrid' %>
+      </div>
+    </div>
+
+    <hr>
+
+    <h4 class="text-center mt-5">Players</h4>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 25%;">Position</th>
+          <th scope="col">Players</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">1 - Loosehead Prop</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">2 - Hooker</td>
+          <td colspan="2"><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">3 - Tightdead Prop</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">4 - Lock</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">5 - Lock</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">6 - Blindside Flanker</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">7 - Openside Flanke</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">8 - Number Eight</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">9 - Scrum-Half</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">10 - Fly-Half</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">11 - Left Wing</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">12 - Inside Centre</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">13 - Outside Centre</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">14 - Right Wing</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+
+        </tr>
+        <tr>
+          <td scope="row">15 - Fullback</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+      </tbody>
+    </table>
+
+        <h4 class="text-center mt-4">Reserves</h4>
+
+
+
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col" style="width:25%;" >Position</th>
+          <th scope="col">Reserves</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">16</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">17</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">18</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">19</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">20</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">21</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">22</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+        <tr>
+          <td scope="row">23</td>
+          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+          <div class="text-center">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm mt-4 mb-4") do %>
+              <i class="bi bi-floppy"></i>&nbsp; Save
+            <% end %>
+          </div>
 <% end %>
+
+
+
+
