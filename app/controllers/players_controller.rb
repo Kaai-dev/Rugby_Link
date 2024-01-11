@@ -81,6 +81,7 @@ class PlayersController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
@@ -98,7 +99,7 @@ class PlayersController < ApplicationController
           :medical_aid,
           :id_number,
           :player_profile_pic,
-          :player_position, # No comma after this line
+          :player_position,
           :copy_of_id,
           position_ids: [],
           next_of_kin_attributes: [

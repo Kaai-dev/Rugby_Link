@@ -17,7 +17,8 @@
 require "test_helper"
 
 class PlayerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_the_truth
+      player = Player.new
+      assert_not player.save
+  end
 end

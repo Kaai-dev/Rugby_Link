@@ -11,10 +11,12 @@ development:
   password: development1234
   host: localhost
 
-# test:
-#   <<: *default
-#   database: rugbydata
-#   host: localhost
+test:
+  <<: *default
+  database: test_rugbydata
+  username: test_rugbyown
+  password: test1234
+  host: localhost
 
 production:
   <<: *default

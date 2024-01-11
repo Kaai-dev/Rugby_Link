@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-unless User.find_by(email: 'user@example.com')
+unless User.find_by(username: 'User')
 
     user = User.new(
         username: 'User',

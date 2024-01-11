@@ -1,7 +1,7 @@
 <div class="sticky-top">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand me-5 ms-3 fs-2 primary-hover" href="#">Rugby-Link</a>
+      <a class="navbar-brand me-5 ms-3 fs-2 primary-hover" href="#">Dashboard</a>
       
         <div class="d-flex align-items-center me-4 dark-mode-div">
           <i class="bi bi-moon me-2"></i>
@@ -89,6 +89,8 @@
     <div class="list-group">
       <%= link_to 'Players', players_path, class: 'list-group-item list-group-item-action list-group-item-secondary' %>
       <%= link_to 'Coaches', coaches_path, class: 'list-group-item list-group-item-action list-group-item-secondary' %>
+      <%= link_to 'Teams', teams_path, class: 'list-group-item list-group-item-action list-group-item-light' %>
+
     </div>
     <br>
     <%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm', data: {"turbo-confirm": "Are you sure?"} %>
