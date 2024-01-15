@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
+User.destroy_all
 unless User.find_by(username: 'User')
 
     user = User.new(
@@ -19,15 +19,16 @@ unless User.find_by(username: 'User')
     user.save
 
     if user.save
-        UserSetting.create(
+        puts user.inspect
+        user.build_user_setting(
             dark_mode: false,
             user: user
         )
-    puts 'User created Successfully'
+        puts 'User created Successfully'
     else
         puts "User could not be created: #{user.errors.full_messages.join(", ")}"
     end
-    
+
 
     coach = User.new(
         username: 'Coach',
@@ -39,7 +40,7 @@ unless User.find_by(username: 'User')
     coach.save
 
     if coach.save
-        UserSetting.create(
+        coach.build_user_setting(
             dark_mode: false,
             user: coach
         )
@@ -55,10 +56,9 @@ unless User.find_by(username: 'User')
         email: 'admin@example.com',
         role: 2
     )
-    admin.save
 
     if admin.save
-        UserSetting.create(
+        admin.build_user_setting(
             dark_mode: false,
             user: admin
         )
@@ -71,16 +71,16 @@ unless User.find_by(username: 'User')
     # db/seeds.rb
 
     positions = [
-    'Loosehead Prop', 'Hooker', 'Tighthead Prop', 
-    'Lock', 'Lock', 
-    'Blindside Flanker', 'Openside Flanker', 'Number Eight', 
-    'Scrum-Half', 'Fly-Half', 
-    'Left Wing', 'Inside Centre', 'Outside Centre', 
+    'Loosehead Prop', 'Hooker', 'Tighthead Prop',
+    'Lock', 'Lock',
+    'Blindside Flanker', 'Openside Flanker', 'Number Eight',
+    'Scrum-Half', 'Fly-Half',
+    'Left Wing', 'Inside Centre', 'Outside Centre',
     'Right Wing', 'Fullback'
     ]
 
     positions.each_with_index do |position_name, index|
-    Position.find_or_create_by(position: position_name, number: index + 1)
+        Position.find_or_create_by(position: position_name, number: index + 1)
     end
 
 

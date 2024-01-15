@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsMiniProfiler::Engine => '/rails_mini_profiler'
   resources :teams
   resources :coaches
   resources :user_settings

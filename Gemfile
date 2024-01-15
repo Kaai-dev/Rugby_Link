@@ -77,7 +77,7 @@ group :development do
   gem 'annotate'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem 'rails_mini_profiler'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"

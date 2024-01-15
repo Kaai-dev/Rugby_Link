@@ -149,10 +149,14 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.7.1)
     irb (1.11.0)
       rdoc
       reline (>= 0.3.8)
+    jb (0.8.2)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -192,6 +196,8 @@ GEM
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (5.10.1)
+      activesupport
     pg (1.5.4)
     popper_js (2.11.8)
     psych (5.1.2)
@@ -229,6 +235,11 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails_mini_profiler (0.7.3)
+      inline_svg (~> 1.7)
+      jb (~> 0.8)
+      pagy (>= 4.11, < 6.0)
+      rails (>= 6.0)
     railties (7.1.2)
       actionpack (= 7.1.2)
       activesupport (= 7.1.2)
@@ -329,6 +340,7 @@ DEPENDENCIES
   pg (~> 1.5, >= 1.5.3)
   puma (~> 6.4.2)
   rails (~> 7.1.2)
+  rails_mini_profiler
   redis (~> 4.0)
   sassc-rails
   selenium-webdriver
