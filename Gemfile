@@ -17,6 +17,9 @@ gem 'simple_form'
 
 gem 'sassc-rails'
 
+gem 'faker'
+gem 'factory_bot_rails'
+
 
 # gem 'country_select'
 
