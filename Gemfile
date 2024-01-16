@@ -79,6 +79,17 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem 'rails_mini_profiler'
 
+  gem "ruby-lsp"
+  gem "rubocop"
+
+  gem "rubocop-packaging"
+  gem "rubocop-performance"
+  gem "rubocop-rspec"
+  gem "rubocop-shopify"
+  gem "rubocop-thread_safety"
+
+  gem 'htmlbeautifier'
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
