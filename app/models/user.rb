@@ -29,18 +29,8 @@ class User < ApplicationRecord
   has_one :user_setting, dependent: :destroy
   accepts_nested_attributes_for :user_setting
 
-
   # validates :email, uniqueness: true
   validates :username, uniqueness: true
 
-  enum role: [:user, :coach, :admin]
-
-  # def email_required?
-  #   false
-  # end
-
-  # def email_changed?
-  #   false
-  # end
-
+  enum role: %i[user coach admin]
 end

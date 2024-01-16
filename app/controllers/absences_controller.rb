@@ -1,15 +1,14 @@
 class AbsencesController < ApplicationController
-  before_action :set_absence, only: %i[ show edit update destroy ]
+  before_action :set_absence, only: %i[show edit update destroy]
 
   # GET /absences or /absences.json
   def index
     @absences = Absence.all
-    @absence = Absence.new 
+    @absence = Absence.new
   end
 
   # GET /absences/1 or /absences/1.json
-  def show
-  end
+  def show; end
 
   # GET /absences/new
   def new
@@ -18,8 +17,7 @@ class AbsencesController < ApplicationController
   end
 
   # GET /absences/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /absences or /absences.json
   def create
@@ -29,7 +27,7 @@ class AbsencesController < ApplicationController
 
     respond_to do |format|
       if @absence.save
-        format.html { redirect_to absence_url(@absence), notice: "Absence was successfully created." }
+        format.html { redirect_to absence_url(@absence), notice: 'Absence was successfully created.' }
         format.json { render :show, status: :created, location: @absence }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +40,7 @@ class AbsencesController < ApplicationController
   def update
     respond_to do |format|
       if @absence.update(absence_params)
-        format.html { redirect_to absence_url(@absence), notice: "Absence was successfully updated." }
+        format.html { redirect_to absence_url(@absence), notice: 'Absence was successfully updated.' }
         format.json { render :show, status: :ok, location: @absence }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,19 +54,20 @@ class AbsencesController < ApplicationController
     @absence.destroy
 
     respond_to do |format|
-      format.html { redirect_to absences_url, notice: "Absence was successfully destroyed." }
+      format.html { redirect_to absences_url, notice: 'Absence was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_absence
-      @absence = Absence.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def absence_params
-      params.require(:absence).permit(:reason, :absent_game_day, :absent_train_day, :player_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_absence
+    @absence = Absence.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def absence_params
+    params.require(:absence).permit(:reason, :absent_game_day, :absent_train_day, :player_id)
+  end
 end

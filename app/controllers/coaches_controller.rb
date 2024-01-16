@@ -1,7 +1,7 @@
 class CoachesController < ApplicationController
   before_action :authenticate_user!
 
-  before_action :set_coach, only: %i[ show edit update destroy ]
+  before_action :set_coach, only: %i[show edit update destroy]
 
   # GET /coaches or /coaches.json
   def index
@@ -9,8 +9,7 @@ class CoachesController < ApplicationController
   end
 
   # GET /coaches/1 or /coaches/1.json
-  def show
-  end
+  def show; end
 
   # GET /coaches/new
   def new
@@ -18,9 +17,7 @@ class CoachesController < ApplicationController
   end
 
   # GET /coaches/1/edit
-  def edit
-    
-  end
+  def edit; end
 
   # POST /coaches or /coaches.json
   def create
@@ -28,7 +25,7 @@ class CoachesController < ApplicationController
 
     respond_to do |format|
       if @coach.save
-        flash[:success] = "Coach was successfully created."
+        flash[:success] = 'Coach was successfully created.'
         format.html { redirect_to coach_url(@coach) }
         format.json { render :show, status: :created, location: @coach }
       else
@@ -42,7 +39,7 @@ class CoachesController < ApplicationController
   def update
     respond_to do |format|
       if @coach.update(coach_params)
-        flash[:success] = "Coach was successfully updated."
+        flash[:success] = 'Coach was successfully updated.'
         format.html { redirect_to coach_url(@coach) }
         format.json { render :show, status: :ok, location: @coach }
       else
@@ -69,34 +66,35 @@ class CoachesController < ApplicationController
   end
 
   def flash_back_to_index
-    flash[:warning] = "Registration canceled."
+    flash[:warning] = 'Registration canceled.'
     redirect_to coaches_path
   end
 
   def flash_cancel_edit
     @coach = Coach.find(params[:id])
-    flash[:warning] = "Editing canceled."
+    flash[:warning] = 'Editing canceled.'
     redirect_to coach_path(@coach)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coach
-      @coach = Coach.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-      def coach_params
-        params.require(:coach).permit(
-          :nickname, 
-          :fullname, 
-          :cellphone_number, 
-          :medical_conditions, 
-          :has_id, 
-          :portrait_photo, 
-          :medical_aid,
-          :id_number,
-          :coach_profile_pic,
-        )
-      end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_coach
+    @coach = Coach.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def coach_params # rubocop:disable Metrics/MethodLength
+    params.require(:coach).permit(
+      :nickname,
+      :fullname,
+      :cellphone_number,
+      :medical_conditions,
+      :has_id,
+      :portrait_photo,
+      :medical_aid,
+      :id_number,
+      :coach_profile_pic
+    )
+  end
 end
