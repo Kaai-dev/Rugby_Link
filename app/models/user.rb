@@ -24,7 +24,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :registerable, :trackable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-       :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:username]
+       :recoverable, :rememberable, :validatable, authentication_keys: [:username]
 
   has_one_attached :user_profile_pic, dependent: :destroy
   has_one :user_setting, dependent: :destroy
@@ -33,5 +33,5 @@ class User < ApplicationRecord
   # validates :email, uniqueness: true
   validates :username, uniqueness: true
 
-  enum role: %i[user coach admin]
+  enum role: %i[user coach admin owner] # 0, 1, 2, 3
 end

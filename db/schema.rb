@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_124927) do
     t.string "fullname"
     t.string "encrypted_cellphone_number"
     t.string "encrypted_cellphone_number_iv"
-    t.text "medical_conditions"
+    t.string "medical_conditions"
     t.string "medical_aid"
     t.string "encrypted_id_number"
     t.string "encrypted_id_number_iv"

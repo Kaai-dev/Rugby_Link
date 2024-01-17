@@ -9,7 +9,7 @@
 #  encrypted_id_number_iv        :string
 #  fullname                      :string
 #  medical_aid                   :string
-#  medical_conditions            :text
+#  medical_conditions            :string
 #  nickname                      :string
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
@@ -33,8 +33,8 @@ class Player < ApplicationRecord
 
   validate :validate_player_profile_pic
 
-  validates :fullname, presence: true, length: { maximum: 20 }
-  validates :nickname, length: { maximum: 20 }
+  validates :fullname, presence: true, length: { maximum: 30 }
+  validates :nickname, length: { maximum: 30 }
   validates :cellphone_number, presence: true, length: { minimum: 10, maximum: 10 },
                                numericality: { only_integer: true }
   validates :medical_aid, length: { maximum: 30 }

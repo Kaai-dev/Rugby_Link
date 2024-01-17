@@ -10,7 +10,7 @@ class CreateCoaches < ActiveRecord::Migration[7.1]
       t.string :medical_aid
       t.string :encrypted_id_number
       t.string :encrypted_id_number_iv
-      
+
       t.timestamps
     end
   end
