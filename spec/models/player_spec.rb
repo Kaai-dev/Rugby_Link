@@ -9,7 +9,7 @@
 #  encrypted_id_number_iv        :string
 #  fullname                      :string
 #  medical_aid                   :string
-#  medical_conditions            :string
+#  medical_conditions            :text
 #  nickname                      :string
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null

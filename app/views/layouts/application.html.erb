@@ -24,7 +24,7 @@
     <% if user_signed_in? %>
       <%= render "layouts/navbar" %>
       <%= render "layouts/sidebar" %>
-      <div class="sidebar-side">
+      <div class="sidebar-side border-end border-start">
         <%= yield %>
       </div> 
     <% else %>
