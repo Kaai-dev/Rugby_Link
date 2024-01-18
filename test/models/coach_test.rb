@@ -13,6 +13,15 @@
 #  nickname                      :string
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
+#  team_id                       :uuid
+#
+# Indexes
+#
+#  index_coaches_on_team_id  (team_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (team_id => teams.id)
 #
 require "test_helper"
 
