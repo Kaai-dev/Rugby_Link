@@ -19,7 +19,7 @@
 }
 
 body{
-  background-color: #505050;
+  background-color: #fff;
 }
 
 table {
@@ -53,13 +53,6 @@ table {
 
 .primary-background{
   background-color: var(--primary);
-}
-
-
-
-
-.table-hover tbody tr:hover td.font-color-custom-1 {
-  color: var(--quaternary); /* Replace 'inherit' with the actual color if needed */
 }
 
 /*

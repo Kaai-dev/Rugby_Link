@@ -17,7 +17,7 @@ module ApplicationHelper
                     end
 
         # Use the determined class in the content_tag
-        content_tag(:div, message, class: "flash alert #{css_class}")
+        content_tag(:div, message, class: "flash alert #{css_class} mb-4")
       end.join.html_safe
     end
 

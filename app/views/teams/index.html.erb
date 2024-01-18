@@ -1,14 +1,13 @@
-<div class="container">
+<div class="mx-5 mt-3">
 
   <%= flash_messages %>
 
   <div class="mb-3 mb-sm-0">
-      <div class="card" >
-        <div class="card-body">
-          <h5 class="card-title font-color-custom-1 fs-6">Create teams that belong to the club.</h5>
-          <h1 class="font-color-custom-1 text-center mt-4">Teams</h1>
+
+          <h5 class="card-title fs-6">Create teams that belong to the club.</h5>
+          <h1 class="text-center mt-4"><u>Teams</u></h1>
           <br>
-          <%= link_to "Create Team", new_team_path, class: "btn btn-danger primary-background" %>
+          <%= link_to "Create Team", new_team_path, class: "btn btn-danger primary-background btn-sm mb-4" %>
           <br>
           <br>
           <div id="coaches" >
@@ -31,7 +30,6 @@
                         <td class="align-middle" ><%= Team.coaches.count %></td>
 
                         <td class="align-middle" ><%= Team.players.count %></td>
-
                       </tr>
                     </div>
                   <% end %>
@@ -43,8 +41,6 @@
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
     </div>
   </div>
 <br>

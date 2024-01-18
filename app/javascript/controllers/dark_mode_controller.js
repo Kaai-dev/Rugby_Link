@@ -15,7 +15,7 @@ export default class extends Controller {
     if (this.switchDarkLightMobileTarget.checked) {
       document.documentElement.setAttribute("data-bs-theme", "light");
       const body = document.querySelector("body");
-      body.style.backgroundColor = "#b8b8b8";
+      body.style.backgroundColor = "#fff";
 
       fetch(url, {
         method: "PATCH",
@@ -35,7 +35,7 @@ export default class extends Controller {
     } else {
       document.documentElement.setAttribute("data-bs-theme", "dark");
       const body = document.querySelector("body");
-      body.style.backgroundColor = "#505050";
+      body.style.backgroundColor = "#212529";
 
       fetch(url, {
         method: "PATCH",
@@ -62,7 +62,7 @@ export default class extends Controller {
     if (this.switchDarkLightDesktopTarget.checked) {
       document.documentElement.setAttribute("data-bs-theme", "light");
       const body = document.querySelector("body");
-      body.style.backgroundColor = "#b8b8b8";
+      body.style.backgroundColor = "#fff";
 
       fetch(url, {
         method: "PATCH",
@@ -85,7 +85,7 @@ export default class extends Controller {
     } else {
       document.documentElement.setAttribute("data-bs-theme", "dark");
       const body = document.querySelector("body");
-      body.style.backgroundColor = "#505050";
+      body.style.backgroundColor = "#212529";
 
       fetch(url, {
         method: "PATCH",

@@ -1,7 +1,7 @@
 <!--<p style="color: green"><%= notice %></p>-->
 <div class="container">
   <div class="back-card p-3">
-    <h1 class="font-color-custom-1 text-center mt-4">Absence form</h1>
+    <h1 class="text-center mt-4">Absence form</h1>
     <br>
     <br>
     <br>
@@ -9,12 +9,12 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th class="font-color-custom-1" scope="col">Nickname</th>
-            <th class="font-color-custom-1" scope="col">Fullname</th>
-            <th class="font-color-custom-1" scope="col">cell Phone</th>
-            <th class="font-color-custom-1" scope="col">Position</th>
-            <th class="font-color-custom-1" scope="col">Medical Conditions</th>
-            <th class="font-color-custom-1" scope="col">Absent</th>
+            <th scope="col">Nickname</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">cell Phone</th>
+            <th scope="col">Position</th>
+            <th scope="col">Medical Conditions</th>
+            <th scope="col">Absent</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -26,15 +26,15 @@
                 <div id="<%= dom_id player %>">
                   <tr>
                     <% if player.nickname.present? %>
-                      <td class="font-color-custom-1" ><%= player.nickname %></td>
+                      <td><%= player.nickname %></td>
                     <% else %>
-                      <td class="font-color-custom-1" > - </td>
+                      <td> - </td>
                     <% end %>
-                    <td class="font-color-custom-1" ><%= player.fullname %></td>
-                    <td class="font-color-custom-1" ><%= player.cellphone_number %></td>
-                    <td class="font-color-custom-1" ><%= player.player_position %></td>
-                    <td class="font-color-custom-1" ><%= player.medical_conditions %></td>
-                    <td class="font-color-custom-1" ><%= f.check_box :player_ids, { multiple: true }, player.id, nil %></td>
+                    <td><%= player.fullname %></td>
+                    <td><%= player.cellphone_number %></td>
+                    <td><%= player.player_position %></td>
+                    <td><%= player.medical_conditions %></td>
+                    <td><%= f.check_box :player_ids, { multiple: true }, player.id, nil %></td>
                   </tr>
                 </div>
               <% end %>

@@ -1,14 +1,12 @@
-<div class="container">
+<div class="mx-5 mt-3">
 
   <%= flash_messages %>
 
   <div class="mb-3 mb-sm-0">
-      <div class="card" >
-        <div class="card-body">
-          <h5 class="card-title font-color-custom-1 fs-6">Welcome new players to the club!</h5>
-          <h1 class="font-color-custom-1 text-center mt-4">Players</h1>
+          <h5 class="card-title fs-6">Welcome new players to the club!</h5>
+          <h1 class="text-center mt-4"><u>Players</u></h1>
           <br>
-          <%= link_to "Register Player", new_player_path, class: "btn btn-danger primary-background" %>
+          <%= link_to "Register Player", new_player_path, class: "btn btn-danger primary-background btn-sm mb-4" %>
           <br>
           <br>
           <div id="players" >
@@ -19,9 +17,7 @@
                   <th class="mobile-tables" scope="col"><p>Nickname</p></th>
                   <th scope="col"><p>Name</p></th>
                   <th scope="col"><p>Cell Phone</p></th>
-                  <th class="mobile-tables" scope="col"><p>Position</p></th>
                   <th class="mobile-tables" scope="col"><p>Medical Conditions</p></th>
-                  <th class="mobile-tables" scope="col"><p>ID number</p></th>
                   <th class="mobile-tables" scope="col"><p>Medical Aid</p></th>
                 </tr>
               </thead>
@@ -50,35 +46,7 @@
                        
                         <td class="mobile-tables align-middle" ><%= player.medical_conditions %></td>
 
-                        <% if player.encrypted_id_number.present? %>
-                          <td class="mobile-tables align-middle">
-                            <div class="d-flex justify-content-center align-items-center mobile-tables align-middle" style="height:100%;">
-                              <%= image_tag "green-tick-light.png", style:"width:20px" %>
-                            </div>
-                          </td>
-                        <% else %>
-                          <td class="mobile-tables align-middle">
-                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                              <%= image_tag "red-tick-light.png", style:"width:20px" %>
-                            </div>
-                          </td>
-                        <% end %>
-
-                        <% if player.player_profile_pic.attached? %>
-                          <td class="mobile-tables align-middle">
-                            <div class="d-flex justify-content-center align-items-centes" style="height:100%;">
-                              <%= image_tag "green-tick-light.png", style:"width:20px" %>
-                            </div>
-                          </td>
-                        <% else %>
-                          <td class="mobile-tables align-middle">
-                            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                              <%= image_tag "red-tick-light.png", style:"width:20px" %>
-                            </div>
-                          </td>
-                        <% end %>
-                        
-                        <td class="font-color-custom-1 mobile-tables align-middle"><%= player.medical_aid %></td>
+                        <td class="mobile-tables align-middle"><%= player.medical_aid %></td>
 
                       </tr>
                     </div>
@@ -90,14 +58,10 @@
                   <td class="text-center mobile-tables align-middle">-</td>
                   <td class="text-center mobile-tables align-middle">-</td>
                   <td class="text-center mobile-tables align-middle">-</td>
-                  <td class="text-center mobile-tables align-middle">-</td>
-                  <td class="text-center mobile-tables align-middle">-</td>
                 <% end %>
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
     </div>
   </div>
 <br>

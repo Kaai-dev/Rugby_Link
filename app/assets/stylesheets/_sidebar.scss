@@ -9,11 +9,15 @@
 .sidebar-side{
   position: relative;
   margin: auto;
-  top: 72px;
+  padding-top: 70px;
   display: block; 
   margin-left: 15%;
 }
 
 .sidebar-menu-item {  
   border-radius: 0px !important;
+}
+
+.sidebar-menu-item-active {
+  color: #ff0000 !important;
 }
