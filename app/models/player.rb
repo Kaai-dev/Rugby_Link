@@ -33,8 +33,8 @@ class Player < ApplicationRecord
   has_many :absences, dependent: :destroy
   accepts_nested_attributes_for :absences
 
-  has_one_attached :player_profile_pic, dependent: :destroy
-  has_one_attached :copy_of_id, dependent: :destroy
+  has_one_attached :player_profile_pic
+  has_one_attached :copy_of_id
 
   has_and_belongs_to_many :positions
 

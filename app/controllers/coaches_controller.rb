@@ -52,6 +52,8 @@ class CoachesController < ApplicationController
   def destroy
     @coach = Coach.find(params[:id])
     @coach.destroy
+    @coach.coach_profile_pic.purge
+
     flash[:success] = 'Coach was successfully deleted.'
     redirect_to coaches_path
   end
@@ -60,7 +62,7 @@ class CoachesController < ApplicationController
     @coach = Coach.find(params[:id])
     @coach.coach_profile_pic.purge
 
-    flash[:info] = 'Coach profile picture was successfully deleted.'
+    flash[:info] = 'Coach profile picture was successfully removed.'
 
     redirect_to coach_path(@coach)
   end

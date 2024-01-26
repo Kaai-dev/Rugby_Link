@@ -53,6 +53,8 @@ class PlayersController < ApplicationController
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
+    @player.player_profile_pic.purge
+
     flash[:success] = 'Player was successfully deleted.'
     redirect_to players_path
   end
@@ -61,7 +63,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     @player.player_profile_pic.purge
 
-    flash[:info] = 'Player profile picture was successfully deleted.'
+    flash[:info] = 'Player profile picture was successfully removed.'
 
     redirect_to player_path(@player)
   end
@@ -75,6 +77,15 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     flash[:warning] = 'Editing canceled.'
     redirect_to player_path(@player)
+  end
+
+  def remove_copy_of_id
+    @player = Player.find(params[:id])
+    @player.copy_of_id.purge
+
+    flash[:info] = "Player's ID was successfully removed."
+
+    redirect_to edit_player_path(@player)
   end
 
   private

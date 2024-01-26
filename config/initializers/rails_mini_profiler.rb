@@ -11,7 +11,7 @@ RailsMiniProfiler.configure do |config|
   # config.flamegraph_sample_rate = 0.5
 
   # Configure endpoints to profile
-  config.skip_paths = []
+  config.skip_paths = ['/rails/active_storage']
 
   # Configure how Rails Mini Profiler stores profiling information
   # config.storage.database = :rmp_database

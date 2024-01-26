@@ -149,11 +149,18 @@
         <hr>
 
         <div class="row">
-          <div class="col-md-6 d-flex align-items-center">
+          <div class="col-md-4 d-flex align-items-center">
             &nbsp;Copy of ID:
           </div>
-          <div class="col-md-5 d-flex align-items-center mb-3 mt-3">
-              <td colspan="2"><%= f.file_field :copy_of_id, class: "form-control form-control-sm custom-form-field w-100", data: { max_file_size: 80.megabytes }, accept: 'image/jpeg,image/png,image/jpg,application/pdf' %></td>
+          <div class="col-md-8 d-flex align-items-center mb-3 mt-3">
+            <% if controller.action_name == 'edit' && player.copy_of_id.attached? %>
+
+              <%= link_to remove_copy_of_id_player_path(player), class: "btn btn-danger btn-sm me-2", data: { "turbo-confirm": "Are you sure you want to remove current ID?" } do %>    
+                  <i class="bi bi-trash"></i>
+              <% end %>
+
+            <% end %>
+            <td colspan="2"><%= f.file_field :copy_of_id, class: "form-control form-control-sm custom-form-field w-100", data: { max_file_size: 80.megabytes }, accept: 'image/jpeg,image/png,image/jpg,application/pdf' %></td>
           </div>
         </div>
 

@@ -32,11 +32,13 @@ Rails.application.routes.draw do
   end
 
   resources :players do
-
+    member do
+      get "remove_copy_of_id"
+    end
     collection do
       get "flash_back_to_index"
-    end  
-      
+    end
+
     member do
       get "flash_cancel_edit"
       get "delete_player_profile_pic"
