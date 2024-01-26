@@ -20,6 +20,8 @@ gem 'sassc-rails'
 gem 'faker'
 gem 'factory_bot_rails'
 
+gem 'ransack'
+
 
 # gem 'country_select'
 

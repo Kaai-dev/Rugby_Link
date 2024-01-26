@@ -1,4 +1,4 @@
-<div class="mx-5 mt-3">
+<div class="container">
 
   <%= flash_messages %>
 
@@ -6,7 +6,9 @@
           <h5 class="card-title fs-6">Welcome new players to the club!</h5>
           <h1 class="text-center mt-4"><u>Players</u></h1>
           <br>
-          <%= link_to "Register Player", new_player_path, class: "btn btn-danger primary-background btn-sm mb-4" %>
+          <%= link_to new_player_path, class: "btn btn-success btn-sm mb-4" do %>
+            <i class="bi bi-clipboard2-plus-fill"></i> &nbsp;Register Player
+          <% end %>
           <br>
           <br>
           <div id="players" >

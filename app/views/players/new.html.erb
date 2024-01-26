@@ -1,26 +1,24 @@
 <div class="container">
-<div class="mx-5 mt-3 mb-2" >
-  <%= flash_messages %>
-  <div class="mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-      
-        <%= link_to flash_back_to_index_players_path, class: "btn btn-warning btn-sm" do %>    
-            <i class="bi bi-x-octagon"></i> Cancel
-        <% end %>
-
-        <hr>
-
-        <h1 class="text-center mt-4 mb-4">New Player</h1>
-
-        <hr>
-
-        <br>
+    <%= flash_messages %>
+    <div class="mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
         
-        <%= render "form", player: @player %>
+          <%= link_to flash_back_to_index_players_path, class: "btn btn-warning btn-sm" do %>    
+              <i class="bi bi-x-octagon"></i> Cancel
+          <% end %>
 
+          <hr>
+
+          <h1 class="text-center mt-4 mb-4">New Player</h1>
+
+          <hr>
+
+          <br>
+          
+          <%= render "form", player: @player %>
+
+      </div>
     </div>
   </div>
-</div>
-</div>
 <br>

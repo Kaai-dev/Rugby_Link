@@ -50,6 +50,14 @@ class Player < ApplicationRecord
   validates :medical_conditions, length: { maximum: 50 }
   validates :id_number, presence: true, length: { minimum: 13, maximum: 13 }, numericality: { only_integer: true }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["combined_search", "fullname", "nickname"]
+  end
+
+  ransacker :combined_search do
+    Arel.sql("concat(fullname, ' ', nickname)")
+  end
+
   private
 
   def validate_player_profile_pic

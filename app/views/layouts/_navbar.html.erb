@@ -50,10 +50,14 @@
 
 
 
-        <form class="d-flex" role="search">
-          <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-sm btn-danger me-3" type="submit">Search</button>
-        </form>
+        <% if action_name == 'index' %>
+          <%= search_form_for @q, html: { class: "d-flex", role: "search" } do |f| %>
+            <%= f.search_field :combined_search_cont, class: "form-control form-control-sm me-2", placeholder: "Search" %>
+            <%= f.submit "Search", class: "btn btn-sm btn-danger me-3" %>
+          <% end %>
+        <% end %>
+
+
 
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle ms-4 me-4 primary-hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,15 +88,21 @@
   <div class="offcanvas-body text-center">
     <div>
       <%= image_tag 'rugby-link-logo.png', class: "mb-4 mt-4" ,style: "max-height: 100px;" %>
+    <% if action_name == 'index' %>
+      <%= search_form_for @q, html: { class: "d-flex", role: "search" } do |f| %>
+        <%= f.search_field :combined_search_cont, class: "form-control form-control-sm me-2", placeholder: "Search" %>
+        <%= f.submit "Search", class: "btn btn-sm btn-danger me-3" %>
+      <% end %>
+    <% end %>
     </div>
     <br>
-    <div class="list-group">
-      <%= link_to 'Players', players_path, class: 'list-group-item list-group-item-action' %>
-      <%= link_to 'Coaches', coaches_path, class: 'list-group-item list-group-item-action' %>
-      <%= link_to 'Teams', teams_path, class: 'list-group-item list-group-item-action' %>
+    <div class="list-group", data-controller="sidebar-active-item">
+      <%= link_to 'Players', players_path, class: 'list-group-item list-group-item-action', data:{ 'sidebar-active-item-target': 'item', 'action': 'click->sidebar-active-item#addActiveClass'} %>
+      <%= link_to 'Coaches', coaches_path, class: 'list-group-item list-group-item-action', data:{ 'sidebar-active-item-target': 'item', 'action': 'click->sidebar-active-item#addActiveClass'} %>
+      <%#= link_to 'Teams', teams_path, class: 'list-group-item list-group-item-action', data:{ 'sidebar-active-item-target': 'item', 'action': 'click->sidebar-active-item#addActiveClass'} %>
 
     </div>
     <br>
-    <%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm', data: {"turbo-confirm": "Are you sure?"} %>
+    <%= button_to "Log-out", destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm mb-4', data: {"turbo-confirm": "Are you sure?"} %>
   </div>
 </div>

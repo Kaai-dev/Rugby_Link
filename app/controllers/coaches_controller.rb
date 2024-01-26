@@ -5,7 +5,8 @@ class CoachesController < ApplicationController
 
   # GET /coaches or /coaches.json
   def index
-    @coaches = Coach.all
+    @q = Coach.ransack(params[:q])
+    @coaches = @q.result(distinct: true)
   end
 
   # GET /coaches/1 or /coaches/1.json

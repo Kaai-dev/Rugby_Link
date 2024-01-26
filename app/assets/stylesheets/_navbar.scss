@@ -1,12 +1,8 @@
 .navbar{
-  box-shadow: 0px 5px 6px  rgba(0, 0, 0, 0.22);
+  box-shadow: 0px 0px 6px  rgba(0, 0, 0, 0.22);
   position: fixed;
   width: 100%;
   top: 0;
-}
-
-.navbar-toggle-button{
-  background-color: var(--tertiary) !important;
 }
 
 .offcanvas{

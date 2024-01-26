@@ -38,6 +38,15 @@ class Coach < ApplicationRecord
   validates :medical_conditions, length: { maximum: 60 }
   validates :id_number, presence: true, length: { minimum: 13, maximum: 13 }, numericality: { only_integer: true }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["combined_search", "fullname", "nickname"]
+  end
+
+  ransacker :combined_search do
+    Arel.sql("concat(fullname, ' ', nickname)")
+  end
+
+
   private
 
   def validate_coach_profile_pic

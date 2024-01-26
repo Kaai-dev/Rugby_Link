@@ -1,4 +1,4 @@
-<div class="mx-5 mt-3">
+<div class="container">
 
   <%= flash_messages %>
 
@@ -6,7 +6,9 @@
           <h5 class="card-title fs-6">Create coaches that belong to the club.</h5>
           <h1 class="text-center mt-4"><u>Coaches</u></h1>
           <br>
-          <%= link_to "Create Coach", new_coach_path, class: "btn btn-danger primary-background btn-sm mb-4" %>
+          <%= link_to new_coach_path, class: "btn btn-success btn-sm mb-4" do %>
+            <i class="bi bi-clipboard2-plus-fill"></i> &nbsp;Create Coach
+          <% end %>
           <br>
           <br>
           <div id="coaches" >
