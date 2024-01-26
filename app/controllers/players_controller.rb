@@ -52,8 +52,9 @@ class PlayersController < ApplicationController
 
   def destroy
     @player = Player.find(params[:id])
-    @player.destroy
     @player.player_profile_pic.purge
+    @player.copy_of_id.purge
+    @player.destroy
 
     flash[:success] = 'Player was successfully deleted.'
     redirect_to players_path
@@ -65,7 +66,7 @@ class PlayersController < ApplicationController
 
     flash[:info] = 'Player profile picture was successfully removed.'
 
-    redirect_to player_path(@player)
+    redirect_to edit_player_path(@player)
   end
 
   def flash_back_to_index
