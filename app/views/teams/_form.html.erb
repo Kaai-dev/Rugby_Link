@@ -25,7 +25,6 @@
 
     <h4 class="text-center mt-5">Players</h4>
 
-
     <table class="table">
       <thead>
         <tr>
@@ -34,155 +33,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="row">1<span class="mobile-tables"> - Loosehead Prop</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Loosehead Prop") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
 
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>        
-        </tr>
-        <tr>
-          <td scope="row">2<span class="mobile-tables"> - Hooker</span></td>
-          <td colspan="2">
-            <% loosehead_prop_position = Position.find_by(position: "Hooker") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
+        <% Position.order(number: :asc).each do |position| %>
+          <tr>
+            <td scope="row"><%= position.number %><span class="mobile-tables"> - <%= position.position %></span></td>
+            <td colspan="2">
+              <% players_for_position = position ? position.players : Player.none %>
+              <%= f.select :players, players_for_position.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %>
+            </td>
+          </tr>
+        <% end %>
 
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">3<span class="mobile-tables"> - Tightdead Prop</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Tighthead Prop") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">4<span class="mobile-tables"> - Lock</td>
-</span>          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Lock") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">5<span class="mobile-tables"> - Lock</span></td>
-         <td>
-            <% loosehead_prop_position = Position.find_by(position: "Lock") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">6<span class="mobile-tables"> - Blindside Flanker</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Blindside Flanker") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">7<span class="mobile-tables"> - Openside Flanker</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Openside Flanker") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">8<span class="mobile-tables"> - Number Eight</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Number Eight") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">9<span class="mobile-tables"> - Scrum-Half</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Scrum-Half") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">10<span class="mobile-tables"> - Fly-Half</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Fly-Half") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">11<span class="mobile-tables"> - Left Wing</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Left Wing") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">12<span class="mobile-tables"> - Inside Center</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Inside Centre") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">13<span class="mobile-tables"> - Outside Center</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Outside Centre") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">14<span class="mobile-tables"> - Right Wing</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Right Wing") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-
-        </tr>
-        <tr>
-          <td scope="row">15<span class="mobile-tables"> - Fullback</span></td>
-          <td>
-            <% loosehead_prop_position = Position.find_by(position: "Fullback") %>
-            <% players_for_loosehead_prop = loosehead_prop_position ? loosehead_prop_position.players : Player.none %>
-
-            <%= f.select :players, players_for_loosehead_prop.map { |p| [p.fullname, p.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm", required: true } %>
-          </td>
-        </tr>
       </tbody>
     </table>
 
-        <h4 class="text-center mt-4">Reserves</h4>
-
-
+    <h4 class="text-center mt-4">Reserves</h4>
 
     <table class="table mt-3">
       <thead>
@@ -192,48 +57,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="row">16</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">17</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">18</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">19</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">20</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">21</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">22</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
-        <tr>
-          <td scope="row">23</td>
-          <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
-        </tr>
+
+        <% 8.times do |number| %>
+          <%number  = 16 + number %>
+          <tr>
+            <td scope="row"><%= number %></td>
+            <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
+          </tr>
+        <% end %>
+
       </tbody>
     </table>
 
-
-
-          <div class="text-center">
-            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm mt-4 mb-4") do %>
-              <i class="bi bi-floppy"></i>&nbsp; Save
-            <% end %>
-          </div>
+    <div class="text-center">
+      <%= button_tag(type: 'submit', class: "btn btn-success btn-sm mt-4 mb-4") do %>
+        <i class="bi bi-floppy"></i>&nbsp; Save
+      <% end %>
+    </div>
 <% end %>
 
 

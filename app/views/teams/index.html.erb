@@ -27,11 +27,11 @@
                     <div id="<%= dom_id team %>">
                       <tr class="cursor-pointer" data-controller="clickable-table-row" data-value="<%= team.id %>" data-action="click->clickable-table-row#clicked">
                       
-                        <td class="align-middle" ><%= Team.name.count %></td>
+                        <td class="align-middle" ><%= Team.name %></td>
 
-                        <td class="align-middle" ><%= Team.coaches.count %></td>
+                        <td class="align-middle" ><%= Team %></td>
 
-                        <td class="align-middle" ><%= Team.players.count %></td>
+                        <td class="align-middle" ><%= Team %></td>
                       </tr>
                     </div>
                   <% end %>

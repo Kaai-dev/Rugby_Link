@@ -2,10 +2,13 @@
     "docker.commands.attach": "${containerCommand} exec -it ${containerId} ${shellCommand}",
     "docker.commands.build": "${containerCommand} build --pull --rm -f \"${dockerfile}\" -t ${tag} \"${context}\"",
     "docker.commands.composeDown": [
-        
         {
             "label": "Compose Down",
             "template": "${composeCommand} ${configurationFile} down"
         }
-    ]
+    ],
+    "rubyLsp.bundleGemfile": "",
+    "rubyLsp.bypassTypechecker": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "rubyLsp.branch": ""
 }

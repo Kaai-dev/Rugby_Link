@@ -52,8 +52,8 @@
 
         <% if action_name == 'index' %>
           <%= search_form_for @q, html: { class: "d-flex", role: "search" } do |f| %>
-            <%= f.search_field :combined_search_cont, class: "form-control form-control-sm me-2", placeholder: "Search" %>
-            <%= f.submit "Search", class: "btn btn-sm btn-danger me-3" %>
+            <%= f.search_field :combined_search_cont, class: "form-control form-control-sm me-2", placeholder: "Search", data: {action: "input->live-search#search", "live-search-target": "input"} %>
+            <%= f.submit "Search", class: "btn btn-sm btn-danger me-3", data:{"live-search-target": "searchButton"} %>
           <% end %>
         <% end %>
 
@@ -89,9 +89,9 @@
     <div>
       <%= image_tag 'rugby-link-logo.png', class: "mb-4 mt-4" ,style: "max-height: 100px;" %>
     <% if action_name == 'index' %>
-      <%= search_form_for @q, html: { class: "d-flex", role: "search" } do |f| %>
-        <%= f.search_field :combined_search_cont, class: "form-control form-control-sm me-2", placeholder: "Search" %>
-        <%= f.submit "Search", class: "btn btn-sm btn-danger me-3" %>
+      <%= search_form_for @q, html: { class: "d-flex", role: "search", data:{controller: "live-search"} } do |f| %>
+        <%= f.search_field :combined_search_cont, class: "form-control form-control-sm me-2", placeholder: "Search", data:{action: "change->live-search#searchFunc input->live-search#searchFunc", "live-search-target": "input"} %>
+        <%= f.submit "Search", class: "btn btn-sm btn-danger me-3", data:{"live-search-target": "searchButton"} %>
       <% end %>
     <% end %>
     </div>

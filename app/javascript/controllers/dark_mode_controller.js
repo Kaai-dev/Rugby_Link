@@ -112,6 +112,5 @@ export default class extends Controller {
 
 function getCsrfToken() {
   const token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-  console.log("CSRF Token:", token); // For debugging
   return token;
 }

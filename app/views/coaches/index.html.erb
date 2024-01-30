@@ -31,9 +31,9 @@
                       
 
                         <% if coach.coach_profile_pic.attached? %>
-                          <td><%= coach_profile_pic_avatar_for(coach) %></td>
+                          <td class="text-center"><%= coach_profile_pic_avatar_for(coach) %></td>
                         <% else %>
-                          <td> - </td>
+                          <td class="text-center"> - </td>
                         <% end %>
 
                         <% if coach.nickname.present? %>
