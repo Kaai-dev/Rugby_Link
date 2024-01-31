@@ -22,6 +22,9 @@ gem 'factory_bot_rails'
 
 gem 'ransack'
 
+gem "image_processing", "~> 1.2"
+gem "aws-sdk-s3", require: false
+
 
 # gem 'country_select'
 

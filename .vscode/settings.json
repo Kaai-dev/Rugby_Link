@@ -10,5 +10,6 @@
     "rubyLsp.bundleGemfile": "",
     "rubyLsp.bypassTypechecker": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-    "rubyLsp.branch": ""
+    "rubyLsp.branch": "",
+    "workbench.iconTheme": "material-icon-theme"
 }

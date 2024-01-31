@@ -59,7 +59,7 @@
       <tbody>
 
         <% 8.times do |number| %>
-          <%number  = 16 + number %>
+          <% number  = 16 + number %>
           <tr>
             <td scope="row"><%= number %></td>
             <td><%= f.select :players, Player.all.map { |r| [r.fullname, r.id] }, { include_blank: "No Player Selected"}, { class: "player-team-table-dropdown form-control form-control-sm" } %></td>
