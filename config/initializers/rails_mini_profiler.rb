@@ -2,30 +2,33 @@
 
 # Customize to your hearts content. If you remove this file, Rails Mini Profiler will use sensible defaults.
 # For more information see https://github.com/hschne/rails-mini-profiler#configuration
-RailsMiniProfiler.configure do |config|
-  # Customize when Rails Mini Profiler should run
-  config.enabled = proc { |env| Rails.env.development? || env['HTTP_RMP_ENABLED'].present? }
 
-  # Configure Flamegraph generation
-  config.flamegraph_enabled = true
-  # config.flamegraph_sample_rate = 0.5
+if defined?(RailsMiniProfiler)
+  RailsMiniProfiler.configure do |config|
+    # Customize when Rails Mini Profiler should run
+    config.enabled = proc { |env| Rails.env.development? || env['HTTP_RMP_ENABLED'].present? }
 
-  # Configure endpoints to profile
-  config.skip_paths = ['/rails/active_storage']
+    # Configure Flamegraph generation
+    config.flamegraph_enabled = true
+    # config.flamegraph_sample_rate = 0.5
 
-  # Configure how Rails Mini Profiler stores profiling information
-  # config.storage.database = :rmp_database
-  # config.storage.profiled_requests_table = :rmp_profiled_requests
-  # config.storage.traces_table = :rmp_traces
-  # config.storage.flamegraphs_table = :rmp_flamegraphs
+    # Configure endpoints to profile
+    config.skip_paths = ['/rails/active_storage']
 
-  # Configure the Rails Mini Profiler User Interface
-  # config.ui.badge_enabled = true
-  # config.ui.badge_position = 'top-left'
-  # config.ui.base_controller = ApplicationController
-  # config.ui.page_size = 25
-  # config.ui.webpacker_enabled = true
+    # Configure how Rails Mini Profiler stores profiling information
+    # config.storage.database = :rmp_database
+    # config.storage.profiled_requests_table = :rmp_profiled_requests
+    # config.storage.traces_table = :rmp_traces
+    # config.storage.flamegraphs_table = :rmp_flamegraphs
 
-  # Customize how users are detected
-  config.user_provider = proc { |env| Rack::Request.new(env).ip }
+    # Configure the Rails Mini Profiler User Interface
+    # config.ui.badge_enabled = true
+    # config.ui.badge_position = 'top-left'
+    # config.ui.base_controller = ApplicationController
+    # config.ui.page_size = 25
+    # config.ui.webpacker_enabled = true
+
+    # Customize how users are detected
+    config.user_provider = proc { |env| Rack::Request.new(env).ip }
+  end
 end
