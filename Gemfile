@@ -27,6 +27,7 @@ gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", require: false
 
 
+
 # gem 'country_select'
 
 
@@ -98,6 +99,7 @@ group :development do
   gem "rubocop-thread_safety"
 
   gem 'htmlbeautifier'
+  gem 'rspec-rails', '~> 6.1.1'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"

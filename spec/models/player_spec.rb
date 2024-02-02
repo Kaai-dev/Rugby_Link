@@ -26,5 +26,8 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "must contain encrypted_id_number" do
+    player = FactoryBot.create(:player)
+    expect(player.id_number).to be_present
+  end
 end

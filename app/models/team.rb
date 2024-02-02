@@ -10,6 +10,7 @@
 class Team < ApplicationRecord
   has_many :coaches
   has_many :players
+  accepts_nested_attributes_for :players
 
   def self.ransackable_attributes(auth_object = nil)
     ["combined_search", "name"]
